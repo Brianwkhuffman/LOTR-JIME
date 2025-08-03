@@ -1,0 +1,19 @@
+{
+  "boons": [
+    {
+      "id": 1,
+      "name": "Determined",
+      "description": "When you test, you may discard this boon to discard any number of cards from the test and reveal that many additional cards."
+    },
+    {
+      "id": 2,
+      "name": "Emboldened",
+      "description": "At the end of your turn, if there are no nearby enemies, discard this boon.\nIf you suffer Damage or Fear, discard this boon.\nWhen you attack, add 2 hits."
+    },
+    {
+      "id": 3,
+      "name": "Hidden",
+      "description": "If you are attacked, before you test, prevent all Damage and discard this boon.\nWhen you attack, you may discard this boon to add 1 Success."
+    }
+  ]
+}

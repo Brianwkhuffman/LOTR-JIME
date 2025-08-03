@@ -1,0 +1,208 @@
+{
+  "terrain": [
+    {
+      "id": 1,
+      "name": "Bush",
+      "description": "After you end your turn in a space with a bush, you may test Wit; 2.  If you pass, become hidden.",
+      "collection": "Base"
+    },
+    {
+      "id": 2,
+      "name": "Boulder",
+      "description": "If you test to negate damage or fear while in a space with a boulder, you may convert 1 fate to 1 success.",
+      "collection": "Base"
+    },
+    {
+      "id": 3,
+      "name": "Wall",
+      "description": "Spaces separated by a wall are not adjacent to (or nearby) each other.",
+      "collection": "Base"
+    },
+    {
+      "id": 4,
+      "name": "Stream",
+      "description": "After a hero moves through a stream, their turn ends.\nAfter an enemy moves through a stream, their activation ends.",
+      "collection": "Base"
+    },
+    {
+      "id": 5,
+      "name": "Fire Pit",
+      "description": "If you attack while in a space with a fire pit, you may discard a card with fate from the test to add pierce or smite.",
+      "collection": "Base"
+    },
+    {
+      "id": 6,
+      "name": "Statue",
+      "description": "You may interact with a statue to test Might; 2.  If you pass, apply 4 hits and sunder to an enemy in your space and discard the statue.\nInteracting with a statue does not provoke attacks.",
+      "collection": "Base"
+    },
+    {
+      "id": 7,
+      "name": "Barrels",
+      "description": "You may interact with barrels to test Wisdom; 2.  If you pass, apply 4 hits and stun to a nearby enemy and discard the barrels.\nInteracting with barrels does not provoke attacks.",
+      "collection": "Base"
+    },
+    {
+      "id": 8,
+      "name": "Table",
+      "description": "You may interact with a table to test Spirit; 1.  If you pass, gain 1 inspiration and become emboldened.\nInteracting with a table does not provoke attacks.",
+      "collection": "Base"
+    },
+    {
+      "id": 9,
+      "name": "Pit",
+      "description": "After you move into a space with a pit, test Agility; 2.  If you fail, suffer 2 damage.",
+      "collection": "Base"
+    },
+    {
+      "id": 10,
+      "name": "Mist",
+      "description": "If you would suffer damage while in a space with mist, that damage is suffered facedown.\nWhen you attack an enemy that is in a space with mist, you cannot convert fate to success.",
+      "collection": "Base"
+    },
+    {
+      "id": 11,
+      "name": "Rubble",
+      "description": "While in a space with rubble, you may use the rubble as an equipped item.\n1 success: 2 hits\n2 success: 1 hits, pierce\nTest stat: Wit\nRanged",
+      "collection": "SP"
+    },
+    {
+      "id": 12,
+      "name": "Web",
+      "description": "When you would move out of a space with a web, test Might; 1.  If you fail, forfeit that movement instead.",
+      "collection": "SP"
+    },
+    {
+      "id": 13,
+      "name": "Log",
+      "description": "You may interact with a log to test Agility; 1.  If you pass, gain 1 inspiration and become determined.\nInteracting with a log does not provoke attacks.",
+      "collection": "SP"
+    },
+    {
+      "id": 14,
+      "name": "Elevation",
+      "description": "While a figure is in a space with elevation, their Ranged attacks can target a figure 1 additional space away.\nFigures in a space with elevation are in range only if the attacker is in a space with elevation.",
+      "collection": "SP"
+    },
+    {
+      "id": 15,
+      "name": "Trench",
+      "description": "After a hero moves through a trench, they suffer 2 facedown damage.\nAfter an enemy moves through a trench, apply 2 hits to that enemy. (This may change the enemy attack.)",
+      "collection": "SW"
+    },
+    {
+      "id": 16,
+      "name": "Fence",
+      "description": "When you would move through a fence, test Agility; 1.  If you fail, forfeit that movement instead.\nAfter an enemy moves through a fence their movement immediately ends (even if this prevents reaching their target.)",
+      "collection": "SW"
+    },
+    {
+      "id": 17,
+      "name": "Chest",
+      "description": "You may interact with a chest to test Wisdom; 2.  If you pass, discard the chest and lore increases by 4.",
+      "collection": "SW"
+    },
+    {
+      "id": 18,
+      "name": "Barricade",
+      "description": "Heroes and enemies cannot move into this space (unless they can ignore terrain).",
+      "collection": "SW"
+    },
+    {
+      "id": 19,
+      "name": "Fountain",
+      "description": "If you would suffer fear while in a space with a fountain, that fear is suffered facedown.\nIf you test to negate damage or fear while in a space with a fountain, you may reveal 1 additional card.",
+      "collection": "SW"
+    },
+    {
+      "id": 20,
+      "name": "Pond",
+      "description": "At the start of your turn, if you are in a space with a pond, gain 1 inspiration.\nAfter you move into a space with a pond, test Spirit; 2.  If you fail, you cannot move out of that space this turn.",
+      "collection": "SW"
+    }
+  ],
+  "space": [
+    {
+      "id": 1,
+      "name": "Darkness",
+      "description": "During the darkness step of the shadow phase, each hero that is in darkness suffers an amount of fear indicated by the app.\n(Typically 2 fear, Spirit negates.)",
+      "collection": "Base"
+    },
+    {
+      "id": 2,
+      "name": "Difficult Ground",
+      "description": "When a hero moves into a space with difficult ground, that hero can discard one prepared card. If they do not discard a card, they cannot move out of that space this turn.",
+      "collection": "SP, SW"
+    },
+    {
+      "id": 3,
+      "name": "Fortified",
+      "description": "A hero cannot move out of a fortified space if there are more enemy figures than hero figures in that space, including the hero who is moving.\nAn enemy group cannot move out of a fortified space if there are more hero figures than enemy figures in that space, including the enemy group that is moving.",
+      "collection": "SW"
+    }
+  ],
+  "modifiers": [
+    {
+      "id": 1,
+      "name": "Pierce",
+      "description": "This attack ignores the enemy's armor."
+    },
+    {
+      "id": 2,
+      "name": "Smite",
+      "description": "This attack ignores the enemy's sorcery."
+    },
+    {
+      "id": 3,
+      "name": "Sunder",
+      "description": "This attack permanently reduces the enemy's armor by one (before hits are applied)."
+    },
+    {
+      "id": 4,
+      "name": "Cleave",
+      "description": "Each enemy in the group suffers the full number of hits."
+    },
+    {
+      "id": 5,
+      "name": "Lethal",
+      "description": "If this attack reduces the enemy's current health by at least half, the enemy is defeated."
+    },
+    {
+      "id": 6,
+      "name": "Stun",
+      "description": "This attack exhausts the enemy group. If the group is elite, it also cannot counterattack this attack."
+    }
+  ],
+  "keywords": [
+    {
+      "id": 1,
+      "keywords": "Scout X",
+      "description": "When an effect instructs you to 'Scout X,' reveal X cards from the top of your skill deck. You may prepare one of those cards (place it faceup under your hero card). Then, place each of the remaining revealed cards on the top or bottom of your skill deck in any order."
+    },
+    {
+      "id": 2,
+      "keywords": "Strike X",
+      "description": "During your attack test, you may discard a card that has the 'Strike X' keyword to add X hits to the attack."
+    },
+    {
+      "id": 3,
+      "keywords": "Guard X",
+      "description": "When you or a hero in your space would suffer damage or fear, you may discard a card that has the 'Guard X' keyword to prevent any combination of X damage and fear."
+    },
+    {
+      "id": 4,
+      "keywords": "Sprint X",
+      "description": "During your turn, you can discard a card that has the 'Sprint X' keyword to move X additional spaces. You can perform actions between each movement."
+    },
+    {
+      "id": 5,
+      "keywords": "Rest X",
+      "description": "At the end of your turn, you can discard a card that has the 'Rest X' keyword to discard any combination of X of your facedown damage or fear cards"
+    },
+    {
+      "id": 6,
+      "keywords": "Hide X",
+      "description": "After performing a test, you can discard a card that has the 'Hide' keyword to gain a 'Hidden' boon card."
+    }
+  ]
+}

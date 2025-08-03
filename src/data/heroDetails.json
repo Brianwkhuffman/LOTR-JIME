@@ -1,0 +1,344 @@
+{
+  "aragorn": {
+    "id": 1,
+    "name": "Aragorn",
+    "race": "Human",
+    "suggestedRole": "Captain",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 4,
+      "agility": 2,
+      "spirit": 2,
+      "wit": 3
+    },
+    "maxInspiration": 4,
+    "maxFear": 5,
+    "maxDamage": 5,
+    "ability": "When heroes scout during the rally phase, you and nearby heroes each reveal 1 additional card",
+    "collection": "Base"
+  },
+  "arwen": {
+    "id": 2,
+    "name": "Arwen",
+    "race": "Elf",
+    "suggestedRole": "Herbalist",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 2,
+      "wisdom": 4,
+      "agility": 3,
+      "spirit": 3,
+      "wit": 2
+    },
+    "maxInspiration": 5,
+    "maxFear": 6,
+    "maxDamage": 4,
+    "ability": "Once during your turn, you or a nearby hero may flip 1 maxDamage or maxFear facedown, or discard 1 facedown maxDamage or maxFear.",
+    "collection": "SP"
+  },
+  "balin": {
+    "id": 3,
+    "name": "Balin",
+    "race": "Dwarf",
+    "suggestedRole": "Delver",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 3,
+      "agility": 2,
+      "spirit": 4,
+      "wit": 2
+    },
+    "maxInspiration": 4,
+    "maxFear": 4,
+    "maxDamage": 6,
+    "ability": "Once per round, when you suffer maxDamage, after resolving all maxDamage from a single source, you may prepare 1 skill from your discard pile.",
+    "collection": "SP"
+  },
+  "beorn": {
+    "id": 4,
+    "name": "Beorn",
+    "race": "Beorning",
+    "suggestedRole": "Guide",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 3,
+      "agility": 3,
+      "spirit": 2,
+      "wit": 3
+    },
+    "maxInspiration": 3,
+    "maxFear": 6,
+    "maxDamage": 6,
+    "ability": "Before you interact, if there are no nearby heroes, you may scout 1.",
+    "collection": "SW"
+  },
+  "beravor": {
+    "id": 5,
+    "name": "Beravor",
+    "race": "Human",
+    "suggestedRole": "Pathfinder",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 3,
+      "agility": 3,
+      "spirit": 3,
+      "wit": 2
+    },
+    "maxInspiration": 4,
+    "maxFear": 5,
+    "maxDamage": 5,
+    "ability": "Once per round, after you sprint, hide, or strike, you may scout 1",
+    "collection": "Base"
+  },
+  "bilbo": {
+    "id": 6,
+    "name": "Bilbo",
+    "race": "Hobbit",
+    "suggestedRole": "Burgler",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 2,
+      "wisdom": 2,
+      "agility": 3,
+      "spirit": 3,
+      "wit": 4
+    },
+    "maxInspiration": 6,
+    "maxFear": 7,
+    "maxDamage": 3,
+    "ability": "Before you interact, look at the top card of your deck. If it is a card with a Fate, gain 1 maxInspiration.\nYou can equip only one hand.",
+    "collection": "Base"
+  },
+  "boromir": {
+    "id": 7,
+    "name": "Boromir",
+    "race": "Human",
+    "suggestedRole": "Soldier",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 4,
+      "wisdom": 2,
+      "agility": 3,
+      "spirit": 3,
+      "wit": 3
+    },
+    "maxInspiration": 4,
+    "maxFear": 3,
+    "maxDamage": 7,
+    "ability": "When you perform a last stand test, you may suffer 1 maxDamage or maxFear to add 1 success to that test.  (Limit once per test.)",
+    "collection": "SW"
+  },
+  "calaminthTook": {
+    "id": 8,
+    "name": "Calaminth Took",
+    "race": "Hobbit",
+    "suggestedRole": "Provisioner",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 2,
+      "agility": 4,
+      "spirit": 2,
+      "wit": 3
+    },
+    "maxInspiration": 6,
+    "maxFear": 7,
+    "maxDamage": 3,
+    "ability": "After you prepare an aid, food, or valour skill, you or a nearby hero may gain 1 maxInspiration.\nYou can equip only 1 hand.",
+    "collection": "SW"
+  },
+  "dis": {
+    "id": 9,
+    "name": "Dis",
+    "race": "Dwarf",
+    "suggestedRole": "Smith",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 4,
+      "wisdom": 2,
+      "agility": 2,
+      "spirit": 3,
+      "wit": 3
+    },
+    "maxInspiration": 3,
+    "maxFear": 5,
+    "maxDamage": 5,
+    "ability": "After you test, you may spend 1 fate icon to place 1 card from the test on top of your deck.",
+    "collection": "SP"
+  },
+  "dwalin": {
+    "id": 10,
+    "name": "Dwalin",
+    "race": "Dwarf",
+    "suggestedRole": "Lorekeeper",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 2,
+      "wisdom": 3,
+      "agility": 3,
+      "spirit": 3,
+      "wit": 3
+    },
+    "maxInspiration": 4,
+    "maxFear": 5,
+    "maxDamage": 5,
+    "ability": "After you interact, you may spend 1 maxInspiration to prepare 1 card from your discard pile.  (Limit once per interact.)",
+    "collection": "SW"
+  },
+  "eleanor": {
+    "id": 11,
+    "name": "Eleanor",
+    "race": "Human",
+    "suggestedRole": "Traveller",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 2,
+      "agility": 3,
+      "spirit": 3,
+      "wit": 3
+    },
+    "maxInspiration": 4,
+    "maxFear": 5,
+    "maxDamage": 5,
+    "ability": "Once per phase, a hero in your space may spend 1 maxInspiration to convert 2 fate to 2 success.",
+    "collection": "SP"
+  },
+  "elena": {
+    "id": 12,
+    "name": "Elena",
+    "race": "Elf",
+    "suggestedRole": "Musician",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 2,
+      "wisdom": 3,
+      "agility": 2,
+      "spirit": 4,
+      "wit": 3
+    },
+    "maxInspiration": 5,
+    "maxFear": 6,
+    "maxDamage": 4,
+    "ability": "Once per test, after you spend 1 maxInspiration, a nearby hero gains 1 maxInspiration",
+    "collection": "Base"
+  },
+  "freahild": {
+    "id": 13,
+    "name": "Fréahild",
+    "race": "Human",
+    "suggestedRole": "Shieldmaiden",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 3,
+      "agility": 2,
+      "spirit": 3,
+      "wit": 3
+    },
+    "maxInspiration": 4,
+    "maxFear": 4,
+    "maxDamage": 6,
+    "ability": "During setup, you may equip the \"Snowbright\" mount instead of any other mount.  You can equip 1 one-handed item and 1 two-handed item.",
+    "collection": "SW"
+  },
+  "gandalf": {
+    "id": 14,
+    "name": "Gandalf",
+    "race": "Istari",
+    "suggestedRole": "Meddler",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 2,
+      "wisdom": 4,
+      "agility": 2,
+      "spirit": 4,
+      "wit": 2
+    },
+    "maxInspiration": 5,
+    "maxFear": 6,
+    "maxDamage": 6,
+    "ability": "Once per round, after you discard a prepared skill with fate, you may gain 1 maxInspiration and scout 1.",
+    "collection": "SP"
+  },
+  "gimli": {
+    "id": 15,
+    "name": "Gimli",
+    "race": "Dwarf",
+    "suggestedRole": "Guardian",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 4,
+      "wisdom": 2,
+      "agility": 2,
+      "spirit": 4,
+      "wit": 2
+    },
+    "maxInspiration": 3,
+    "maxFear": 4,
+    "maxDamage": 6,
+    "ability": "After you attack, you may place 1 card from the test on top of your deck.",
+    "collection": "Base"
+  },
+  "theGreatBear": {
+    "id": 16,
+    "name": "The Great Bear",
+    "race": "Beorning",
+    "suggestedRole": "Guide",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 5,
+      "wisdom": 2,
+      "agility": 3,
+      "spirit": 4,
+      "wit": 2
+    },
+    "maxInspiration": 3,
+    "maxFear": 6,
+    "maxDamage": 6,
+    "ability": "Before you interact, as an additional cost, choose and discard 1 prepared skill.\n(You can only equip Rending Claws and Hoary Coat.)",
+    "collection": "SW"
+    },
+  "legolas": {
+    "id": 17,
+    "name": "Legolas",
+    "race": "Elf",
+    "suggestedRole": "Hunter",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 2,
+      "wisdom": 3,
+      "agility": 4,
+      "spirit": 2,
+      "wit": 3
+    },
+    "maxInspiration": 5,
+    "maxFear": 6,
+    "maxDamage": 4,
+    "ability": "Once per round, during your turn, you may spend 1 maxInspiration to move 1 space without provoking attacks",
+    "collection": "Base"
+  },
+  "renerien": {
+    "id": 18,
+    "name": "Rénëríen",
+    "race": "Elf",
+    "suggestedRole": "Trickster",
+    "suggestedEquip": [],
+    "stats": {
+      "might": 3,
+      "wisdom": 2,
+      "agility": 2,
+      "spirit": 3,
+      "wit": 4
+    },
+    "maxInspiration": 4,
+    "maxFear": 5,
+    "maxDamage": 5,
+    "ability": "Action: Scout 2.  If you prepare a card with success, discard 1 facedown maxDamage or maxFear.  If you prepare a card with a fate, gain 1 maxInspiration.",
+    "collection": "SW"
+  }
+}

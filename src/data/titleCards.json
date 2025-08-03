@@ -1,0 +1,301 @@
+{
+  "titleCards": [
+    {
+      "id": 1,
+      "collection": "Base",
+      "name": "Mist-Walker",
+      "number": 1,
+      "trait": "Shadow",
+      "icon": "1 Fate",
+      "description": "After a hero explores a tile, you may remove this skill from the adventure to place your hero on any space of that tile."
+    },
+    {
+      "id": 2,
+      "collection": "Base",
+      "name": "Stone-Talker",
+      "number": 2,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "During your turn, you may remove this skill from the adventure to choose a space and apply stun to each enemy group in that space."
+    },
+    {
+      "id": 3,
+      "collection": "Base",
+      "name": "Pack-Dweller",
+      "number": 3,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "After you strike with this skill, remove it from the adventure.\nStrike 3"
+    },
+    {
+      "id": 4,
+      "collection": "Base",
+      "name": "Dwarf-Friend",
+      "number": 4,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "You have the Dwarf trait.\nDuring you turn, you may remove this skill from the adventure for you and another Dwarf to become emboldened."
+    },
+    {
+      "id": 5,
+      "collection": "Base",
+      "name": "Word-Wielder",
+      "number": 5,
+      "trait": "Knowledge",
+      "icon": "1 Fate",
+      "description": "When you or a nearby hero tests, you may remove this skill from the adventure to add 1 success and scout 1."
+    },
+    {
+      "id": 6,
+      "collection": "Base",
+      "name": "Clue-Finder",
+      "number": 6,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "When you interact and test, you may remove this skill from the adventure to convert all fate to success."
+    },
+    {
+      "id": 7,
+      "collection": "Base",
+      "name": "Stinging Fly",
+      "number": 7,
+      "trait": "Shadow",
+      "icon": "1 Fate",
+      "description": "At the start of your turn, you may remove this skill from the adventure to perform an attack and ignore all counter-attacks until the end of your turn."
+    },
+    {
+      "id": 8,
+      "collection": "Base",
+      "name": "Wingfoot",
+      "number": 8,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "After you sprint with this skill, remove it from the adventure.\nSprint 3"
+    },
+    {
+      "id": 9,
+      "collection": "Base",
+      "name": "Friend of Bears",
+      "number": 9,
+      "trait": "Creature",
+      "icon": "1 Fate",
+      "description": "After you guard with this skill, remove it from the adventure.\nGuard 4"
+    },
+    {
+      "id": 10,
+      "collection": "Base",
+      "name": "Fire-Giver",
+      "number": 10,
+      "trait": "Tactic",
+      "icon": "1 Fate",
+      "description": "When you attack, you may remove this skill from the adventure to add a modifier of your choice."
+    },
+    {
+      "id": 11,
+      "collection": "Base",
+      "name": "Gale-Rock",
+      "number": 11,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "Before a hero in your space suffers any amount of fear, you may remove this skill from the adventure for that hero to gain an equal amount of inspiration instead."
+    },
+    {
+      "id": 12,
+      "collection": "Base",
+      "name": "Stormcrow",
+      "number": 12,
+      "trait": "Shadow",
+      "icon": "1 Fate",
+      "description": "At the start of your turn, you may remove this skill from the adventure to place your hero in a space with a threat token and interat with it without provoking attacks."
+    },
+    {
+      "id": 13,
+      "collection": "Base",
+      "name": "Unfallen",
+      "number": 13,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "After you rest with this skill, remove it from the adventure and become determined.\nRest 3"
+    },
+    {
+      "id": 14,
+      "collection": "Base",
+      "name": "Elf-Friend",
+      "number": 14,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "You have the Elf trait.\nDuring your turn, you may remove this skill from the adventure for you and another Elf to gain 2 inspiration."
+    },
+    {
+      "id": 15,
+      "collection": "Base",
+      "name": "Coney-Foot",
+      "number": 15,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "After an enemy moves into a nearby space, you may remove this skill from the adventure to place your hero in a space with another hero without provoking attacks."
+    },
+    {
+      "id": 16,
+      "collection": "Base",
+      "name": "Skin-Changer",
+      "number": 16,
+      "trait": "Shadow",
+      "icon": "1 Fate",
+      "description": "After you hide with this skill, remove it from the adventure and become emboldened.\nHide"
+    },
+    {
+      "id": 17,
+      "collection": "Base",
+      "name": "Barrel Rider",
+      "number": 17,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "After you interact with a token and discard it, you may remove this skill from the adventure to place your hero in any space of an explored tile without provoking attacks."
+    },
+    {
+      "id": 18,
+      "collection": "Base",
+      "name": "Flame-Bearer",
+      "number": 18,
+      "trait": "Knowledge, Aid",
+      "icon": "1 Fate",
+      "description": "When a nearby enemy is attacked by another hero, you may remove this skill from the adventure to add 2 modifiers of your choice to that attack."
+    },
+    {
+      "id": 19,
+      "collection": "Base",
+      "name": "Guest of Eagles",
+      "number": 19,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "At the start of your turn, you may remove this skill from the adventure to, without provoking attacks, either place your hero in another hero's space or place another hero in your space."
+    },
+    {
+      "id": 20,
+      "collection": "Base",
+      "name": "Luckwearer",
+      "number": 20,
+      "trait": "Shadow",
+      "icon": "1 Fate",
+      "description": "After you deplete a trinket, you may remove this skill from the adventure to gain a boon of your choice and place 1 depletion token on that trinket."
+    },
+    {
+      "id": 21,
+      "collection": "Base",
+      "name": "Lone-Survivor",
+      "number": 21,
+      "trait": "Valour",
+      "icon": "1 Fate",
+      "description": "When you or a nearby hero performs a last stand, you may remove this skill from the adventure to add 2 success to the test."
+    },
+    {
+      "id": 22,
+      "collection": "VoE",
+      "name": "Nemesis",
+      "number": 22,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "When a nearby elite enemy activates, you may remove this skill from the adventure to become emboldened. If you do, that enemy cannot move or attack during its activation."
+    },
+    {
+      "id": 23,
+      "collection": "VoE",
+      "name": "Lore-Master",
+      "number": 23,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "Before you test, you may remove this skill from the adventure to scout 5."
+    },
+    {
+      "id": 24,
+      "collection": "VoE",
+      "name": "Ever-Wary",
+      "number": 24,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "When you prepare this skill, you may flip 1 fear facedown. You may remove this skill from the adventure to ignore all counter-attacks until the end of your turn."
+    },
+    {
+      "id": 25,
+      "collection": "SP",
+      "name": "Treasure Seeker",
+      "number": 25,
+      "trait": "Shadow",
+      "icon": "1 Fate",
+      "description": "At the start of your turn, you may remove this skill from the adventure to place your hero in a space with a search token and interact with it without provoking attacks."
+    },
+    {
+      "id": 26,
+      "collection": "SP",
+      "name": "Storyteller",
+      "number": 26,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "During your turn, you may remove this skill from the adventure for 2 heroes to gain inspiration equal to their inspiration limits."
+    },
+    {
+      "id": 27,
+      "collection": "SP",
+      "name": "Dawn-Bringer",
+      "number": 27,
+      "trait": null,
+      "icon": "1 Success",
+      "description": "\"Yet dawn is ever the hope of men.\"\n- The Two Towers"
+    },
+    {
+      "id": 28,
+      "collection": "DiD",
+      "name": "Undying",
+      "number": 28,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "When you would perform a last stand test, you may remove this skill from the adventure to gain 2 inspiration and discard 1 damage and 1 fear instead."
+    },
+    {
+      "id": 29,
+      "collection": "DiD",
+      "name": "Sly-Tongue",
+      "number": 29,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "Before you test, you may remove this skill from the adventure to test a stat of your choice instead and scout 1."
+    },
+    {
+      "id": 30,
+      "collection": "DiD",
+      "name": "Spirit-Bonded",
+      "number": 30,
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "During your turn, you may remove this skill from the adventure to attack an enemy and add smite.\nHide"
+    },
+    {
+      "id": 31,
+      "collection": "SW",
+      "name": "Friend of Gondor",
+      "number": 31,
+      "trait": null,
+      "icon": "3 fate",
+      "description": "You have the Human trait.\nDuring your turn, you may remove this skill from the adventure for you and another Human to each discard 1 bane."
+    },
+    {
+      "id": 32,
+      "collection": "SW",
+      "name": "Friend of Rohan",
+      "number": 32,
+      "trait": null,
+      "icon": "3 Fate",
+      "description": "You have the Human trait.\nDuring your turn, you may remove this skill from the adventure for you and another Human to each move 1 space."
+    },
+    {
+      "id": 33,
+      "collection": "SW",
+      "name": "Beast-Singer",
+      "number": 33,
+      "trait": "Song",
+      "icon": "1 fate",
+      "description": "At the end of your turn, you may remove this skill from the adventure for each hero to gain 1 inspiration for each creature in your play area."
+    }
+  ]
+}

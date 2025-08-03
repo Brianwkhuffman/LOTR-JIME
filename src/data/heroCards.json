@@ -1,0 +1,971 @@
+{
+  "aragorn": [
+    {
+      "id": 1,
+      "cardType": "Character",
+      "character": "Aragorn",
+      "number": 1,
+      "name": "Wanderer",
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "After you explore a tile, you or a nearby hero may scout 1.",
+      "collection": "SP"
+    },
+    {
+      "id": 2,
+      "cardType": "Character",
+      "character": "Aragorn",
+      "number": 2,
+      "name": "Strider",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "Strike 3 (When you attack, discard to add 3 hits.)\nGuard 2 (Discard to prevent 2 Damage or Fear for a hero in your space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 3,
+      "cardType": "Character",
+      "character": "Aragorn",
+      "number": 3,
+      "name": "Strider",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "Strike 3 (When you attack, discard to add 3 hits.)\nGuard 2 (Discard to prevent 2 Damage or Fear for a hero in your space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 4,
+      "cardType": "Character",
+      "character": "Aragorn",
+      "number": 4,
+      "name": "Thorongil",
+      "trait": "Knowledge",
+      "icon": null,
+      "description": "Before you test, you may discard this skill to test Wisdom instead.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 5,
+      "cardType": "Character",
+      "character": "Aragorn",
+      "number": 5,
+      "name": "Gift of Men",
+      "trait": "Innate, Valour",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill to discard 1 Fear.",
+      "collection": "SP"
+    }
+    ],
+  "arwen": [
+    {
+    "id": 6,
+    "cardType": "Character",
+    "character": "Arwen",
+    "number": 1,
+    "name": "Nobility",
+    "trait": "Aid",
+    "icon": "1 Fate",
+    "description": "Before a nearby hero tests, you may discard this skill for that hero to gain 2 inspiration: if they are an Elf or Human, you may gain 1 inspiration.",
+    "collection": "SP"
+    },
+    {
+      "id": 7,
+      "cardType": "Character",
+      "character": "Arwen",
+      "number": 2,
+      "name": "Elven Light",
+      "trait": "Knowledge, Innate",
+      "icon": "2 Fate",
+      "description": "Before you test Wisdom or Spirit, you may look at the top card of your deck and place it on the top or bottom of your deck.",
+      "collection": "SP"
+    },
+    {
+      "id": 8,
+      "cardType": "Character",
+      "character": "Arwen",
+      "number": 3,
+      "name": "Evenstar",
+      "trait": null,
+      "icon": "1 Success",
+      "description": "Before you test, you may discard this skill to test Spirit instead and reveal 2 additional cards.\nSprint 1 (During your turn discard to move 1 space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 9,
+      "cardType": "Character",
+      "character": "Arwen",
+      "number": 4,
+      "name": "Evenstar",
+      "trait": null,
+      "icon": "1 Success",
+      "description": "Before you test, you may discard this skill to test Spirit instead and reveal 2 additional cards.\nSprint 1 (During your turn discard to move 1 space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 10,
+      "cardType": "Character",
+      "character": "Arwen",
+      "number": 5,
+      "name": "Willful",
+      "trait": null,
+      "icon": null,
+      "description": "During your turn, you may discard this skill to interact with a token in your space.\nStrike 2 (When you attack, discard this card to add 2 hits.)",
+      "collection": "Base"
+    }
+    ],
+  "balin": [
+    {
+      "id": 11,
+      "cardType": "Character",
+      "character": "Balin",
+      "number": 1,
+      "name": "Kinship",
+      "trait": "Aid",
+      "icon": null,
+      "description": "Before a nearby hero tests, you may discard this skill for that hero to reveal 2 additional cards; if they are a Dwarf, you may scout 1.",
+      "collection": "Base"
+    },
+    {
+      "id": 12,
+      "cardType": "Character",
+      "character": "Balin",
+      "number": 2,
+      "name": "Raven Companion",
+      "trait": "Creature, Shadow",
+      "icon": null,
+      "description": "When you test Wit, reveal 1 additional card.\nRest 1 (Discard at the end of turn to discard 1 facedown damage or fear.)",
+      "collection": "Base"
+    },
+    {
+      "id": 13,
+      "cardType": "Character",
+      "character": "Balin",
+      "number": 3,
+      "name": "Loyal Friend",
+      "trait": "Valour",
+      "icon": "1 Success",
+      "description": "Before you attack, you may discard this skill to test Spirit instead and gain 1 inspiration.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 14,
+      "cardType": "Character",
+      "character": "Balin",
+      "number": 4,
+      "name": "Loyal Friend",
+      "trait": "Valour",
+      "icon": "1 Success",
+      "description": "Before you attack, you may discard this skill to test Spirit instead and gain 1 inspiration.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 15,
+      "cardType": "Character",
+      "character": "Balin",
+      "number": 5,
+      "name": "Misty Mountain Cold",
+      "trait": "Song",
+      "icon": "1 Fate",
+      "description": "When you scout, you may reveal 1 fewer card to gain 1 inspiration.",
+      "collection": "Base"
+    }
+    ],
+  "beorn": [
+    {
+      "id": 16,
+      "cardType": "Character",
+      "character": "Beorn",
+      "number": 1,
+      "name": "The Day Will Come",
+      "trait": null,
+      "icon": null,
+      "description": "After a nearby enemy is defeated, you may discard this skill to become determined or scout 2.",
+      "collection": "SotW"
+    },
+    {
+      "id": 17,
+      "cardType": "Character",
+      "character": "Beorn",
+      "number": 2,
+      "name": "Beast Tongue",
+      "trait": "Knowledge",
+      "icon": "1 Success",
+      "description": "After you interact with a search or threat token, you may discard this skill to perform 1 additional action.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SotW"
+    },
+    {
+      "id": 18,
+      "cardType": "Character",
+      "character": "Beorn",
+      "number": 3,
+      "name": "Friend of Bees",
+      "trait": "Creature",
+      "icon": "1 Success",
+      "description": "Before you strike, add stun to the attack.\nStrike 1 (When you attack, discard to add 1 hit.)",
+      "collection": "SotW"
+    },
+    {
+      "id": 19,
+      "cardType": "Character",
+      "character": "Beorn",
+      "number": 4,
+      "name": "The First Beorning",
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "Change to The Great Bear.\nWhen this card is discarded, change to Beorn.\n(When you change, replace your hero card, figure, and equipped items.)",
+      "collection": "SotW"
+    },
+    {
+      "id": 20,
+      "cardType": "Character",
+      "character": "Beorn",
+      "number": 5,
+      "name": "The First Beorning",
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "Change to The Great Bear.\nWhen this card is discarded, change to Beorn.\n(When you change, replace your hero card, figure, and equipped items.)",
+      "collection": "SotW"
+    }
+    ],
+  "beravor": [
+    {
+      "id": 21,
+      "cardType": "Character",
+      "character": "Beravor",
+      "number": 1,
+      "name": "Into Hiding",
+      "trait": null,
+      "icon": null,
+      "description": "During your turn, if there are no enemies in your space, you may discard this skill for you and each other hero in your space to become hidden.\nGuard 2 (Discard to prevent 2 Damage or Fear for a hero in your space.)",
+      "collection": "SotW"
+    },
+    {
+      "id": 22,
+      "cardType": "Character",
+      "character": "Beravor",
+      "number": 2,
+      "name": "Ways of Old",
+      "trait": "Tactic, Knowledge",
+      "icon": "1 Success",
+      "description": "When you test, you may discard this skill to convert 1 Fate to 1 Success and scout 1.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SW"
+    },
+    {
+      "id": 23,
+      "cardType": "Character",
+      "character": "Beravor",
+      "number": 3,
+      "name": "Ways of Old",
+      "trait": "Tactic, Knowledge",
+      "icon": "1 Success",
+      "description": "When you test, you may discard this skill to convert 1 Fate to 1 Success and scout 1.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SW"
+    },
+    {
+      "id": 24,
+      "cardType": "Character",
+      "character": "Beravor",
+      "number": 4,
+      "name": "Fateless",
+      "trait": "Innate",
+      "icon": null,
+      "description": "When you test, you may discard this skill to convert all Fate to Success.",
+      "collection": "SW"
+    },
+    {
+      "id": 25,
+      "cardType": "Character",
+      "character": "Beravor",
+      "number": 5,
+      "name": "Gift of Men",
+      "trait": "Innate, Valour",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill to discard 1 Fear.",
+      "collection": "SW"
+    }
+    ],
+  "bilbo": [
+    {
+      "id": 26,
+      "cardType": "Character",
+      "character": "Bilbo",
+      "number": 1,
+      "name": "The Tookish Part",
+      "trait": "Innate, Valour",
+      "icon": "1 Success",
+      "description": "Before you test, you may discard this skill to test Wit instead and gain 1 inspiration.\nHide (After you test, discard to become hidden.)",
+      "collection": "SW"
+    },
+    {
+      "id": 27,
+      "cardType": "Character",
+      "character": "Bilbo",
+      "number": 2,
+      "name": "The Tookish Part",
+      "trait": "Innate, Valour",
+      "icon": "1 Success",
+      "description": "Before you test, you may discard this skill to test Wit instead and gain 1 inspiration.\nHide (After you test, discard to become hidden.)",
+      "collection": "Base"
+    },
+    {
+      "id": 28,
+      "cardType": "Character",
+      "character": "Bilbo",
+      "number": 3,
+      "name": "Well-Nourished",
+      "trait": "Food",
+      "icon": null,
+      "description": "After you prepare this skill, flip 1 Fear facedown.\nRest 2 (Discard at end of turn to discard 2 facdown Damage or Fear.)",
+      "collection": "Base"
+    },
+    {
+      "id": 29,
+      "cardType": "Character",
+      "character": "Bilbo",
+      "number": 4,
+      "name": "Simple Desires",
+      "trait": "Innate",
+      "icon": null,
+      "description": "At the start of your turn, you may discard this skill to scout 2; then gain 1 inspiration for each aid, food, or song card in your play area.",
+      "collection": "Base"
+    },
+    {
+      "id": 30,
+      "cardType": "Character",
+      "character": "Bilbo",
+      "number": 5,
+      "name": "The Road Goes Ever On",
+      "trait": "Song",
+      "icon": "1 Fate",
+      "description": "During your turn, you may discard this skill for you and each nearby hero to move up to 1 space.",
+      "collection": "Base"
+    }
+    ],
+  "boromir": [
+    {
+      "id": 31,
+      "cardType": "Character",
+      "character": "Boromir",
+      "number": 1,
+      "name": "Fierce Resolve",
+      "trait": "Innate, Valour",
+      "icon": "1 Fate",
+      "description": "When you attack, if you convert 1 or more fate to success, add 1 success to the test.",
+      "collection": "Base"
+    },
+    {
+      "id": 32,
+      "cardType": "Character",
+      "character": "Boromir",
+      "number": 2,
+      "name": "Born to Lead",
+      "trait": null,
+      "icon": null,
+      "description": "During your turn, if there is a nearby enemy, you may discard this skill for you and each nearby hero to become emboldened.\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "Base"
+    },
+    {
+      "id": 33,
+      "cardType": "Character",
+      "character": "Boromir",
+      "number": 3,
+      "name": "Overpower",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "Before you test, you may discard this skill to test Might instead and gain 1 inspiration.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 34,
+      "cardType": "Character",
+      "character": "Boromir",
+      "number": 4,
+      "name": "Blood of Gondor",
+      "trait": "Innate",
+      "icon": "1 Success",
+      "description": "When you test, you may discard this skill to reveal 3 additional cards.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 35,
+      "cardType": "Character",
+      "character": "Boromir",
+      "number": 5,
+      "name": "Gift of Men",
+      "trait": "Innate, Valour",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill to discard 1 Fear.",
+      "collection": "Base"
+    }
+    ],
+  "calaminthTook": [
+    {
+      "id": 36,
+      "cardType": "Character",
+      "character": "Calaminth Took",
+      "number": 1,
+      "name": "Simple Desires",
+      "trait": "Innate",
+      "icon": null,
+      "description": "At the start of your turn, you may discard this skill to scout 2; then gain 1 inspiration for each aid, food, or song card in your play area.",
+      "collection": "Base"
+    },
+    {
+      "id": 37,
+      "cardType": "Character",
+      "character": "Calaminth Took",
+      "number": 2,
+      "name": "The Tookish Part",
+      "trait": "Innate, Valour",
+      "icon": "1 Success",
+      "description": "Before you test, you may discard this skill to test Wit instead and gain 1 inspiration.\nHide (After you test, discard to become hidden.)",
+      "collection": "SW"
+    },
+    {
+      "id": 38,
+      "cardType": "Character",
+      "character": "Calaminth Took",
+      "number": 3,
+      "name": "Hobbit-Sense",
+      "trait": "Innate",
+      "icon": "1 Success",
+      "description": "At the end of your turn, if there are no nearby enemies, you may scout 1.\nHide (After you test, discard to become hidden.)",
+      "collection": "SW"
+    },
+    {
+      "id": 39,
+      "cardType": "Character",
+      "character": "Calaminth Took",
+      "number": 4,
+      "name": "Drinking Ditty",
+      "trait": "Food, Song",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill for you and each nearby hero to discard 1 damage or 1 fear.\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "SW"
+    },
+    {
+      "id": 40,
+      "cardType": "Character",
+      "character": "Calaminth Took",
+      "number": 5,
+      "name": "Fierce Resolve",
+      "trait": "Innate, Valour",
+      "icon": "1 Fate",
+      "description": "When you attack, if you convert 1 or more fate to success, add 1 success to the test.\nRest 2 (Discard at the end of turn to discard 2 facedown damage or fear.)",
+      "collection": "SW"
+    }
+    ],
+  "dis": [
+    {
+      "id": 41,
+      "cardType": "Character",
+      "character": "Dis",
+      "number": 1,
+      "name": "Fury",
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "When you attack, you may spend any amount of fate to add an equal number of hits.",
+      "collection": "SW"
+    },
+    {
+      "id": 42,
+      "cardType": "Character",
+      "character": "Dis",
+      "number": 2,
+      "name": "Kinship",
+      "trait": "Aid",
+      "icon": null,
+      "description": "Before a nearby hero tests, you may discard this skill for that hero to reveal 2 additional cards; if they are a Dwarf, you may scout 1.",
+      "collection": "Base"
+    },
+    {
+      "id": 43,
+      "cardType": "Character",
+      "character": "Dis",
+      "number": 3,
+      "name": "Strength of Thrain",
+      "trait": null,
+      "icon": null,
+      "description": "Once per round, after you perform a Might test, gain 1 inspiration.\nSprint 1 (During your turn, discard to move 1 space)",
+      "collection": "Base"
+    },
+    {
+      "id": 44,
+      "cardType": "Character",
+      "character": "Dis",
+      "number": 4,
+      "name": "Fire Heart",
+      "trait": "Innate",
+      "icon": "1 Success",
+      "description": "Increase your Spirit by 1.\nOnce per round, when you test, you may add 1 fate.\nStrike 2 (When you attack, discard this card to add 2 hits.)",
+      "collection": "Base"
+    },
+    {
+      "id": 45,
+      "cardType": "Character",
+      "character": "Dis",
+      "number": 5,
+      "name": "Fire Heart",
+      "trait": "Innate",
+      "icon": "1 Success",
+      "description": "Increase your Spirit by 1.\nOnce per round, when you test, you may add 1 fate.\nStrike 2 (When you attack, discard this card to add 2 hits.)",
+      "collection": "Base"
+    }
+    ],
+  "dwalin": [
+    {
+      "id": 46,
+      "cardType": "Character",
+      "character": "Dwalin",
+      "number": 1,
+      "name": "Kinship",
+      "trait": "Aid",
+      "icon": null,
+      "description": "Before a nearby hero tests, you may discard this skill for that hero to reveal 2 additional cards; if they are a Dwarf, you may scout 1.",
+      "collection": "Base"
+    },
+    {
+      "id": 47,
+      "cardType": "Character",
+      "character": "Dwalin",
+      "number": 2,
+      "name": "Ancestral Grudge",
+      "trait": "Innate, Tactic",
+      "icon": "1 Success",
+      "description": "When you attack an Orc or Goblin, you may add 2 hits and lethal.\nStrike 3 (When you attack, discard to add 3 hits.)",
+      "collection": "Base"
+    },
+    {
+      "id": 48,
+      "cardType": "Character",
+      "character": "Dwalin",
+      "number": 3,
+      "name": "Ancestral Grudge",
+      "trait": "Innate, Tactic",
+      "icon": "1 Success",
+      "description": "When you attack an Orc or Goblin, you may add 2 hits and lethal.\nStrike 3 (When you attack, discard to add 3 hits.)",
+      "collection": "Base"
+    },
+    {
+      "id": 49,
+      "cardType": "Character",
+      "character": "Dwalin",
+      "number": 4,
+      "name": "Misty Mountain Cold",
+      "trait": "Song",
+      "icon": "1 Fate",
+      "description": "When you scout, you may reveal 1 fewer card to gain 1 inspiration.",
+      "collection": "Base"
+    },
+    {
+      "id": 50,
+      "cardType": "Character",
+      "character": "Dwalin",
+      "number": 5,
+      "name": "Stirring Performance",
+      "trait": "Song",
+      "icon": null,
+      "description": "Before you test Spirit or Wit, you may discard this skill to reveal 1 additional card and gain 1 inspiration. \nRest 2 (Discard at the end of turn to discard 2 facedown damage or fear.)",
+      "collection": "Base"
+    }
+    ],
+  "eleanor": [
+    {
+      "id": 51,
+      "cardType": "Character",
+      "character": "Eleanor",
+      "number": 1,
+      "name": "Nobility",
+      "trait": "Aid",
+      "icon": "1 Fate",
+      "description": "Before a nearby hero tests, you may discard this skill for that hero to gain 2 inspiration: if they are an Elf or Human, you may gain 1 inspiration.",
+      "collection": "Base"
+    },
+    {
+      "id": 52,
+      "cardType": "Character",
+      "character": "Eleanor",
+      "number": 2,
+      "name": "Fateless",
+      "trait": "Innate",
+      "icon": null,
+      "description": "When you test, you may discard this skill to convert all Fate to Success.",
+      "collection": "Base"
+    },
+    {
+      "id": 53,
+      "cardType": "Character",
+      "character": "Eleanor",
+      "number": 3,
+      "name": "Blood of Gondor",
+      "trait": "Innate",
+      "icon": "1 Success",
+      "description": "When you test, you may discard this skill to reveal 3 additional cards.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 54,
+      "cardType": "Character",
+      "character": "Eleanor",
+      "number": 4,
+      "name": "Blood of Gondor",
+      "trait": "Innate",
+      "icon": "1 Success",
+      "description": "When you test, you may discard this skill to reveal 3 additional cards.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "SW"
+    },
+    {
+      "id": 55,
+      "cardType": "Character",
+      "character": "Eleanor",
+      "number": 5,
+      "name": "Gift of Men",
+      "trait": "Innate, Valour",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill to discard 1 Fear.",
+      "collection": "SW"
+    }
+    ],
+  "elena": [
+    {
+      "id": 56,
+      "cardType": "Character",
+      "character": "Elena",
+      "number": 1,
+      "name": "Child of the Lhun",
+      "trait": "Tactic",
+      "icon": null,
+      "description": "When an enemy moves into your space, you may discard this skill to apply 4 hits and stun to that enemy.\nHide (After you test, discard to become hidden.)",
+      "collection": "SW"
+    },
+    {
+      "id": 57,
+      "cardType": "Character",
+      "character": "Elena",
+      "number": 2,
+      "name": "Elven Light",
+      "trait": "Knowledge, Innate",
+      "icon": "2 Fate",
+      "description": "Before you test Wisdom or Spirit, you may look at the top card of your deck and place it on the top or bottom of your deck.",
+      "collection": "SW"
+    },
+    {
+      "id": 58,
+      "cardType": "Character",
+      "character": "Elena",
+      "number": 3,
+      "name": "Immortality",
+      "trait": "Innate",
+      "icon": null,
+      "description": "Rest 2 (Discard at end of turn to discard 2 facedown Damage or Fear.)\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "SW"
+    },
+    {
+      "id": 59,
+      "cardType": "Character",
+      "character": "Elena",
+      "number": 4,
+      "name": "Lay of Twilight",
+      "trait": "Knowledge, Song",
+      "icon": "1 Success",
+      "description": "During your turn, you may discard this skill for you and nearby heroes to collectively discard up to 4 facedown Damage and Fear.",
+      "collection": "Base"
+    },
+    {
+      "id": 60,
+      "cardType": "Character",
+      "character": "Elena",
+      "number": 5,
+      "name": "Lay of Twilight",
+      "trait": "Knowledge, Song",
+      "icon": "1 Success",
+      "description": "During your turn, you may discard this skill for you and nearby heroes to collectively discard up to 4 facedown Damage and Fear.",
+      "collection": "Base"
+    }
+    ],
+  "freahild": [
+    {
+      "id": 61,
+      "cardType": "Character",
+      "character": "Fréahild",
+      "number": 1,
+      "name": "Fateless",
+      "trait": "Innate",
+      "icon": null,
+      "description": "When you test, you may discard this skill to convert all fate to success.",
+      "collection": "Base"
+    },
+    {
+      "id": 62,
+      "cardType": "Character",
+      "character": "Fréahild",
+      "number": 2,
+      "name": "Faithful Companion",
+      "trait": "Aid",
+      "icon": "1 Fate",
+      "description": "When a nearby hero tests, you may spend inspiration to convert fate to success.\nGuard 2 (Discard to prevent 2 damage or fear for a hero in your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 63,
+      "cardType": "Character",
+      "character": "Fréahild",
+      "number": 3,
+      "name": "Gift of Men",
+      "trait": "Innate, Valour",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill to discard 1 Fear.",
+      "collection": "Base"
+    },
+    {
+      "id": 64,
+      "cardType": "Character",
+      "character": "Fréahild",
+      "number": 4,
+      "name": "Cavalry Combat",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "After you test to negate you may discard this skill to scout 2 and move 1 space without provoking attacks.",
+      "collection": "Base"
+    },
+    {
+      "id": 65,
+      "cardType": "Character",
+      "character": "Fréahild",
+      "number": 5,
+      "name": "Cavalry Combat",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "After you test to negate you may discard this skill to scout 2 and move 1 space without provoking attacks.",
+      "collection": "Base"
+    }
+    ],
+  "gendalf": [
+    {
+      "id": 66,
+      "cardType": "Character",
+      "character": "Gandalf",
+      "number": 1,
+      "name": "Grey Pilgrim",
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "Once per round, when you scout, you may reveal 1 additional card.\nGuard 2 (Discard to prevent 2 Damage or Fear for a hero in  your space.)",
+      "collection": "Base"
+    },
+    {
+      "id": 67,
+      "cardType": "Character",
+      "character": "Gandalf",
+      "number": 2,
+      "name": "Uncanny",
+      "trait": "Shadow",
+      "icon": "2 Fate",
+      "description": "During your turn, you may discard this skill to search your deck for a weakness.  Remove that skill from the adventure, then shuffle your deck.",
+      "collection": "Base"
+    },
+    {
+      "id": 68,
+      "cardType": "Character",
+      "character": "Gandalf",
+      "number": 3,
+      "name": "Flame Imperishable",
+      "trait": null,
+      "icon": null,
+      "description": "When you prepare this skill, gain 1 inspiration.\nWhen you test, you may discard this skill to convert 1 fate to 1 success.",
+      "collection": "Base"
+    },
+    {
+      "id": 69,
+      "cardType": "Character",
+      "character": "Gandalf",
+      "number": 4,
+      "name": "Greater Power",
+      "trait": "Knowledge",
+      "icon": null,
+      "description": "Strike 2\nSprint 2\nGuard 2\nRest 2\nHide",
+      "collection": "Base"
+    },
+    {
+      "id": 70,
+      "cardType": "Character",
+      "character": "Gandalf",
+      "number": 5,
+      "name": "Dazzling Flash",
+      "trait": "Tactic",
+      "icon": "2 Fate",
+      "description": "When you attack an enemy in your space, discard this skill to add smite and stun to the attack.",
+      "collection": "Base"
+    }
+    ],
+  "gimli": [
+    {
+      "id": 71,
+      "cardType": "Character",
+      "character": "Gimli",
+      "number": 1,
+      "name": "Poet's Heart",
+      "trait": null,
+      "icon": null,
+      "description": "Before you interact with a person token, gain 1 inspiration.\nRest 2 (Discard at end of turn to discard 2 facedown Damage or Fear.)",
+      "collection": "SP"
+    },
+    {
+      "id": 72,
+      "cardType": "Character",
+      "character": "Gimli",
+      "number": 2,
+      "name": "Restless Axe",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "At the start of your turn, you may discard this skill to attack and add 2 hits.\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "SP"
+    },
+    {
+      "id": 73,
+      "cardType": "Character",
+      "character": "Gimli",
+      "number": 3,
+      "name": "Restless Axe",
+      "trait": "Tactic",
+      "icon": "1 Success",
+      "description": "At the start of your turn, you may discard this skill to attack and add 2 hits.\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "SP"
+    },
+    {
+      "id": 74,
+      "cardType": "Character",
+      "character": "Gimli",
+      "number": 4,
+      "name": "Kinship",
+      "trait": "Aid",
+      "icon": null,
+      "description": "Before a nearby hero tests, you may discard this skill for that hero to reveal 2 additional cards; if they are a Dwarf, you may scout 1.",
+      "collection": "SP"
+    },
+    {
+      "id": 75,
+      "cardType": "Character",
+      "character": "Gimli",
+      "number": 5,
+      "name": "Fury",
+      "trait": null,
+      "icon": "1 Fate",
+      "description": "When you attack, you may spend any amount of Fate to add an equal number of hits.",
+      "collection": "SP"
+    }
+    ],
+  "legolas": [
+    {
+      "id": 76,
+      "cardType": "Character",
+      "character": "Legolas",
+      "number": 1,
+      "name": "Keen Eyes",
+      "trait": "Innate",
+      "icon": "1 Fate",
+      "description": "Your Ranged attacks can taget enemies 1 additional space away.\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "SP"
+    },
+    {
+      "id": 77,
+      "cardType": "Character",
+      "character": "Legolas",
+      "number": 2,
+      "name": "Light-Footed",
+      "trait": null,
+      "icon": "1 Success",
+      "description": "When you interact with a search or threat token, before you test, you may discard this skill to test Agility instead and scout 1.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 78,
+      "cardType": "Character",
+      "character": "Legolas",
+      "number": 3,
+      "name": "Light-Footed",
+      "trait": null,
+      "icon": "1 Success",
+      "description": "When you interact with a search or threat token, before you test, you may discard this skill to test Agility instead and scout 1.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 79,
+      "cardType": "Character",
+      "character": "Legolas",
+      "number": 4,
+      "name": "Tireless",
+      "trait": null,
+      "icon": null,
+      "description": "At the end of your turn, you may discard this skill to perform an action that you have not performed this turn.",
+      "collection": "SP"
+    },
+    {
+      "id": 80,
+      "cardType": "Character",
+      "character": "Legolas",
+      "number": 5,
+      "name": "Immortality",
+      "trait": "Innate",
+      "icon": null,
+      "description": "Rest 2 (Discard at end of turn to discard 2 facedown Damage or Fear.)\nStrike 2 (When you attack, discard to add 2 hits.)",
+      "collection": "SP"
+    }
+    ],
+    "renerien": [
+    {
+      "id": 81,
+      "cardType": "Character",
+      "character": "Rénëríen",
+      "number": 1,
+      "name": "Child of the Lhun",
+      "trait": "Tactic",
+      "icon": null,
+      "description": "When an enemy moves into your space, you may discard this skill to apply 4 hits and stun to that enemy.\nHide (After you test, discard to become hidden.)",
+      "collection": "SP"
+    },
+    {
+      "id": 82,
+      "cardType": "Character",
+      "character": "Rénëríen",
+      "number": 2,
+      "name": "Mischief",
+      "trait": "Shadow",
+      "icon": null,
+      "description": "During your turn, you may choose a hero to select 3 cards from their discard pile. They prepare 1 revealed card and place the rest on top of their deck.  Then discard this skill.",
+      "collection": "SP"
+    },
+    {
+      "id": 83,
+      "cardType": "Character",
+      "character": "Rénëríen",
+      "number": 3,
+      "name": "Tireless",
+      "trait": null,
+      "icon": null,
+      "description": "At the end of your turn, you may discard this skill to perform an action that you have not performed this turn.",
+      "collection": "SP"
+    },
+    {
+      "id": 84,
+      "cardType": "Character",
+      "character": "Rénëríen",
+      "number": 4,
+      "name": "Grey Haven Craft",
+      "trait": null,
+      "icon": "1 Success\n1 Fate",
+      "description": "When you prepare this skill, discard all banes and gain a boon of your choice.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SP"
+    },
+    {
+      "id": 85,
+      "cardType": "Character",
+      "character": "Rénëríen",
+      "number": 5,
+      "name": "Grey Haven Craft",
+      "trait": null,
+      "icon": "1 Success\n1 Fate",
+      "description": "When you prepare this skill, discard all banes and gain a boon of your choice.\nSprint 1 (During your turn, discard to move 1 space.)",
+      "collection": "SP"
+    }
+  ]
+}

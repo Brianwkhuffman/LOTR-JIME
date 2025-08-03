@@ -1,0 +1,44 @@
+{
+  "baneCards": [
+    {
+      "id": 1,
+      "name": "Terrified",
+      "description": "When you attack, remove 1 success produced during that test.\nAt the end of your turn, you may discard a prepared skill to discard this bane."
+    },
+    {
+      "id": 2,
+      "name": "Despondent",
+      "description": "You cannot spend inspiration. (You can still discard inspiration.)\nDuring the action phase, a nearby hero may discard 2 inspiration to discard this bane."
+    },
+    {
+      "id": 3,
+      "name": "Captured\n(Front)",
+      "description": "Captured\nRemove your figure from the map.  You are unaffected by other game effects and cannot perform other actions.\nWhen you would discard this bane, flip it instead.\nAction: You attempt to escape.  Flip this bane."
+    },
+    {
+      "id": 4,
+      "name": "Captured\n(Back)",
+      "description": "Escape!\nYou try to escape capture with strength and stamina.\nTest Might: 2\n\nIf you pass, your captors are brutal, but too weak to stop your escape. Suffer 1 facedown damage. Then place your figure in any explored space and discard this bane.\n\nIf you fail, you are not strong enough to escape. Discard this bane and become captured."
+    },
+    {
+      "id": 5,
+      "name": "Captured\n(Back)",
+      "description": "Escape!\nYou try to escape capture with a clear-headed plan.\nTest Wisdom: 2\n\nIf you pass, your captors are harsh, but too simple to stop your escape. Suffer 1 facedown damage. Then place your figure in any explored space and discard this bane.\n\nIf you fail, your plan falls apart. Discard this bane and become captured."
+    },
+    {
+      "id": 6,
+      "name": "Captured\n(Back)",
+      "description": "Escape!\nYou try to escape capture with speed and dexterity.\nTest Agility: 2\n\nIf you pass, your captors are terrifying, but too slow to stop your escape. Suffer 1 facedown fear. Then place your figure in any explored space and discard this bane.\n\nIf you fail, you are not quick enough to escape. Discard this bane and become captured."
+    },
+    {
+      "id": 7,
+      "name": "Captured\n(Back)",
+      "description": "Escape!\nYou try to escape capture with courage and hope.\nTest Spirit: 2\n\nIf you pass, your captors are intimidating, but evil cannot stop your escape. Suffer 1 facedown fear. Then place your figure in any explored space and discard this bane.\n\nIf you fail, your bravery is not enough to escape. Discard this bane and become captured."
+    },
+    {
+      "id": 8,
+      "name": "Captured\n(Back)",
+      "description": "Escape!\nYou try to escape capture with craftiness and style.\nTest Wit: 2\n\nIf you pass, your captors are strong, but too dim to stop your escape. Suffer 1 facedown fear. Then place your figure in any explored space and discard this bane.\n\nIf you fail, you are not clever enough to escape. Discard this bane and become captured."
+    }
+  ]
+}

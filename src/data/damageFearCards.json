@@ -1,0 +1,222 @@
+{
+  "damage": [
+    {
+      "id": 1,
+      "name": "Shaken",
+      "description": "Flip 1 fear faceup.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 2,
+      "name": "Weariness",
+      "description": "Flip this card facedown. (11 copies)",
+      "amount": 11
+    },
+    {
+      "id": 3,
+      "name": "Short of Breath",
+      "description": "Discard all of your boons.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 4,
+      "name": "Cursed Injury",
+      "description": "Keep this card faceup.\nIf you would discard a faceup damage, flip it facedown instead.",
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "name": "Dazed",
+      "description": "Keep this card faceup.\nBefore you interact with a threat token, yhou must spend 1 inspiration.",
+      "amount": 1
+    },
+    {
+      "id": 6,
+      "name": "Exhaustion",
+      "description": "Keep this card faceup.\nWhen you scout during the rally phase, you cannot place cards back on top of your deck.",
+      "amount": 1
+    },
+    {
+      "id": 7,
+      "name": "Putrid Boils",
+      "description": "Each nearby hero flips 1 fear faceup.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 8,
+      "name": "Concussion",
+      "description": "Keep this card faceup.\nDecrease each of your stats by 1.\nAt the end of your turn, flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 9,
+      "name": "Entangled",
+      "description": "Keep this card faceup.\nWhen you perform the travel action, move 1 fewer space.\nAfter you rest, flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 10,
+      "name": "Crushed",
+      "description": "Deplete 1 of your trinkets (without resolving its effect).\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 11,
+      "name": "Feeble",
+      "description": "Suffer 1 facedown fear.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 12,
+      "name": "Fever",
+      "description": "Discard 1 inspiration.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 13,
+      "name": "Sudden Sickness",
+      "description": "Discard all of your inspiration.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 14,
+      "name": "Deep Bruise",
+      "description": "Discard 2 prepared cards or suffer 2 facedown damage.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 15,
+      "name": "Stunned",
+      "description": "Flip 1 damage and 1 fear faceup.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 16,
+      "name": "Knocked Prone",
+      "description": "Deplete 1 of your trinkets (without resolving its effect) and discard 1 prepared card.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 17,
+      "name": "Poison",
+      "description": "Gain 1 weakness and shuffle it into your deck.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 18,
+      "name": "Laceration",
+      "description": "Flip 1 damage faceup.\nThen flip this card facedown.",
+      "amount": 1
+    }
+  ],
+  "fear": [
+    {
+      "id": 1,
+      "name": "Gloom",
+      "description": "Flip this card facedown. (11 copies)",
+      "amount": 11
+    },
+    {
+      "id": 2,
+      "name": "Surrender",
+      "description": "Keep this card faceup.\nIf you would discard a faceup fear, flip it facedown instead.",
+      "amount": 1
+    },
+    {
+      "id": 3,
+      "name": "Delusions",
+      "description": "Discard 1 inspiration.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 4,
+      "name": "Anxiety",
+      "description": "Flip 1 fear faceup.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "name": "Cower",
+      "description": "Keep this card faceup.\nWhen you attack, reveal 1 fewer card.\nDuring your turn, if you are emboldened, you may discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 6,
+      "name": "Troubled",
+      "description": "Keep this card faceup.\nAfter you or a nearby hero suffers 1 or more fear from darkness, that hero suffers 1 additional fear.",
+      "amount": 1
+    },
+    {
+      "id": 7,
+      "name": "Rage",
+      "description": "Keep this card faceup.\nYou cannot prevent damage (including negate tests).\nWhen you attack, add 2 hits.",
+      "amount": 1
+    },
+    {
+      "id": 8,
+      "name": "Impending Doom",
+      "description": "Discard 1 prepared card or suffer 1 fear.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 9,
+      "name": "Tormented",
+      "description": "Flip 1 damage faceup.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 10,
+      "name": "Greed",
+      "description": "Deplete another hero's trinket (without resolving its effect).\nIf you cannot, suffer 1 facedown fear.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 11,
+      "name": "Dark Whispers",
+      "description": "Keep this card faceup.\nAt the end of your turn, suffer 1 fear.\nWhen you test Wisdom or Wit, add 1 success.",
+      "amount": 1
+    },
+    {
+      "id": 12,
+      "name": "Hopelessness",
+      "description": "Discard 2 prepared cards or suffer 2 facedown fear.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 13,
+      "name": "Looming Shadows",
+      "description": "If you are in a space with darkness, suffer 1 fear.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 14,
+      "name": "Ill WIll",
+      "description": "Each other hero suffers 1 facedown fear.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 15,
+      "name": "Hysteria",
+      "description": "You and each nerby hero suffer 1 damage.\nThen discard this card.",
+      "amount": 1
+    },
+    {
+      "id": 16,
+      "name": "Paranoia",
+      "description": "If there is a nearby hero, discard 1 prepared card.\nThen flip this card facedown.",
+      "amount": 1
+    },
+    {
+      "id": 17,
+      "name": "Infighting",
+      "description": "Each nearby hero flips 1 damage faceup.\nThen flip this card facdown.",
+      "amount": 1
+    },
+    {
+      "id": 18,
+      "name": "Overcome",
+      "description": "Suffer 1 facedown fear.\nThen flip this card facedown.",
+      "amount": 1
+    }
+  ]
+}

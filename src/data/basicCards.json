@@ -1,0 +1,58 @@
+{
+  "basicCards": [
+    {
+      "id": 1,
+      "cardType": "Basic",
+      "number": 1,
+      "name": "Undying Might",
+      "icon": "1 Fate",
+      "description": "When you test Might, you may discard this skill to add 1 Success",
+      "collection": "Base"
+    },
+    {
+      "id": 2,
+      "cardType": "Basic",
+      "number": 2,
+      "name": "Honed Agility",
+      "icon": "1 Fate",
+      "description": "When  you test Agility, you may discard this skill to add 1 Success",
+      "collection": "Base"
+    },
+    {
+      "id": 3,
+      "cardType": "Basic",
+      "number": 3,
+      "name": "Unyielding Spirit",
+      "icon": "1 Fate",
+      "description": "When you test Spirit, you may discard this skill to add 1 Success",
+      "collection": "Base"
+    },
+    {
+      "id": 4,
+      "cardType": "Basic",
+      "number": 4,
+      "name": "Ancient Wisdom",
+      "icon": "1 Fate",
+      "description": "When you test Wisdom, you may discard this skill to add 1 Success",
+      "collection": "Base"
+    },
+    {
+      "id": 5,
+      "cardType": "Basic",
+      "number": 5,
+      "name": "Clever Wit",
+      "icon": "1 Fate",
+      "description": "When you test Wit, you may discard this skill to add 1 Success",
+      "collection": "Base"
+    },
+    {
+      "id": 6,
+      "cardType": "Basic",
+      "number": 6,
+      "name": "Time of Need",
+      "icon": "2 Fate",
+      "description": "When you test, if you do not reveal any Successes, you may discard this skill to convert all Fate to Success",
+      "collection": "SP"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "weaknessCards": [
+    {
+      "id": 1,
+      "name": "Arrogant"
+    },
+    {
+      "id": 2,
+      "name": "Burdened"
+    },
+    {
+      "id": 3,
+      "name": "Cut Off"
+    },
+    {
+      "id": 4,
+      "name": "Distracted"
+    },
+    {
+      "id": 5,
+      "name": "Followed"
+    },
+    {
+      "id": 6,
+      "name": "Foolish"
+    },
+    {
+      "id": 7,
+      "name": "Harried"
+    },
+    {
+      "id": 8,
+      "name": "Haunted"
+    },
+    {
+      "id": 9,
+      "name": "Hunted"
+    },
+    {
+      "id": 10,
+      "name": "Ill Omen"
+    },
+    {
+      "id": 11,
+      "name": "Impeded"
+    },
+    {
+      "id": 12,
+      "name": "Isolated"
+    },
+    {
+      "id": 13,
+      "name": "Late"
+    },
+    {
+      "id": 14,
+      "name": "Lazy"
+    },
+    {
+      "id": 15,
+      "name": "Misfortune"
+    },
+    {
+      "id": 16,
+      "name": "Misled"
+    },
+    {
+      "id": 17,
+      "name": "Off Course"
+    },
+    {
+      "id": 18,
+      "name": "Slowed"
+    },
+    {
+      "id": 19,
+      "name": "Uncertain"
+    },
+    {
+      "id": 20,
+      "name": "Watched"
+    }
+  ]
+}
