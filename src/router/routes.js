@@ -1,5 +1,5 @@
 const routes = [
-  // Example
+  // Default Example
   {
     path: '/default',
     component: () => import('layouts/MainLayout.vue'),
