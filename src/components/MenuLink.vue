@@ -22,9 +22,7 @@ const props = defineProps({
 <template>
   <q-item
     clickable
-    tag="a"
-    target="_blank"
-    :href="props.link"
+    :to="props.link"
   >
     <q-item-section
       v-if="props.icon"

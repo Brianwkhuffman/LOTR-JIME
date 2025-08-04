@@ -7,25 +7,25 @@ const menuLinksList = [
     title: 'Home',
     caption: 'Home caption',
     icon: 'public',
-    link: 'https://chat.quasar.dev'
+    link: '/'
   },
   {
-    title: 'Card Info',
-    caption: 'Card info caption',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'Browse cards',
+    caption: '',
+    icon: 'book',
+    link: '/cards'
   },
   {
     title: 'Build Deck',
     caption: 'Build deck caption',
     icon: 'school',
-    link: 'https://quasar.dev'
+    link: '/start'
   },
   {
     title: 'Load Deck',
     caption: 'Load deck caption',
     icon: 'code',
-    link: 'https://github.com/quasarframework'
+    link: '/load'
   }
 ]
 

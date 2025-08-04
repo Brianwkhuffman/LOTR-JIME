@@ -36,6 +36,16 @@ const routes = [
         component: () => import('pages/ErrorNotFound.vue')
       }
     ]
+  },
+  {
+    path: '/cards',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/cards/CardDirectory.vue')
+      }
+    ]
   }
 ]
 
