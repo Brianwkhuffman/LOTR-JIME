@@ -3,10 +3,6 @@ import {useRouter} from 'vue-router';
 
 const router = useRouter();
 
-/**
- * @typedef {Object} hero
- * @property {string} name
- */
 const { hero } = defineProps({
   hero: {
     type: Object,
