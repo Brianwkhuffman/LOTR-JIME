@@ -23,6 +23,7 @@ const props = defineProps({
   <q-item
     clickable
     :to="props.link"
+    @click="$emit('toggleDrawer')"
   >
     <q-item-section
       v-if="props.icon"
