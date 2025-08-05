@@ -3,17 +3,6 @@
 
 <template>
   <q-page>
-    <q-btn to="/start">
-      Start
-    </q-btn>
-    <q-btn to="/load">
-      Load
-    </q-btn>
-    <q-btn to="/heroes">
-      Heroes
-    </q-btn>
-    <q-btn to="/equipment">
-      Equip
-    </q-btn>
+    <div class="text-h4">LoTR JiME Companion</div>
   </q-page>
 </template>

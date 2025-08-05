@@ -46,7 +46,7 @@ function toggleLeftDrawer () {
         aria-label="Menu"
         @click="toggleLeftDrawer"
       />
-      <q-toolbar-title>JiME Playmat</q-toolbar-title>
+      <q-toolbar-title>LoTR JiME Companion</q-toolbar-title>
       <div>Qv{{ $q.version }}</div>
    </q-toolbar>
   </q-header>
