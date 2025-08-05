@@ -15,7 +15,7 @@
     "maxInspiration": 4,
     "maxFear": 5,
     "maxDamage": 5,
-    "ability": "When heroes scout during the rally phase, you and nearby heroes each reveal 1 additional card",
+    "ability": "When heroes scout during the rally phase, you and nearby heroes each reveal 1 additional card.",
     "collection": "Base"
   },
   "arwen": {
@@ -91,7 +91,7 @@
     "maxInspiration": 4,
     "maxFear": 5,
     "maxDamage": 5,
-    "ability": "Once per round, after you sprint, hide, or strike, you may scout 1",
+    "ability": "Once per round, after you sprint, hide, or strike, you may scout 1.",
     "collection": "Base"
   },
   "bilbo": {
@@ -129,7 +129,7 @@
     "maxInspiration": 4,
     "maxFear": 3,
     "maxDamage": 7,
-    "ability": "When you perform a last stand test, you may suffer 1 maxDamage or maxFear to add 1 success to that test.  (Limit once per test.)",
+    "ability": "When you perform a last stand test, you may suffer 1 maxDamage or maxFear to add 1 success to that test.\n(Limit once per test.)",
     "collection": "SW"
   },
   "calaminthTook": {
@@ -186,7 +186,7 @@
     "maxInspiration": 4,
     "maxFear": 5,
     "maxDamage": 5,
-    "ability": "After you interact, you may spend 1 maxInspiration to prepare 1 card from your discard pile.  (Limit once per interact.)",
+    "ability": "After you interact, you may spend 1 maxInspiration to prepare 1 card from your discard pile.\n(Limit once per interact.)",
     "collection": "SW"
   },
   "eleanor": {
@@ -224,7 +224,7 @@
     "maxInspiration": 5,
     "maxFear": 6,
     "maxDamage": 4,
-    "ability": "Once per test, after you spend 1 maxInspiration, a nearby hero gains 1 maxInspiration",
+    "ability": "Once per test, after you spend 1 maxInspiration, a nearby hero gains 1 maxInspiration.",
     "collection": "Base"
   },
   "freahild": {
@@ -319,7 +319,7 @@
     "maxInspiration": 5,
     "maxFear": 6,
     "maxDamage": 4,
-    "ability": "Once per round, during your turn, you may spend 1 maxInspiration to move 1 space without provoking attacks",
+    "ability": "Once per round, during your turn, you may spend 1 maxInspiration to move 1 space without provoking attacks.",
     "collection": "Base"
   },
   "renerien": {

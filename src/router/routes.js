@@ -12,8 +12,8 @@ const routes = [
         component: () => import('pages/cards/CardDirectory.vue')
       },
       {
-        path: 'cards/:type',
-        component: () => import('pages/cards/CardList.vue')
+        path: 'cards/heroes',
+        component: () => import('pages/cards/HeroList.vue')
       },
       {
         path: 'load',
