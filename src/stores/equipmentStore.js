@@ -1,13 +1,13 @@
 import {defineStore} from 'pinia';
 import {computed, ref} from 'vue';
-import equips from '/src/data/equipCards.json'
+import equipData from '/src/data/equipCards.json'
 
-export const useEquipStore = defineStore('equip', () => {
-  const equipList = ref(equips);
+export const useEquipmentStore = defineStore('equipment', () => {
+  const equipList = ref(equipData);
 
-  const getEquipmentTypesList = () => {
-   return computed(() => Object.key(equipList));
-  };
+  const getEquipmentTypes = computed(() => {
+   return Object.keys(equipList.value);
+  });
 
   const getEquipmentListByType = (type) => {
     return computed(() => equipList.value[type] ?? []);
@@ -15,7 +15,7 @@ export const useEquipStore = defineStore('equip', () => {
 
   return {
     equipList,
-    getEquipmentTypesList,
+    getEquipmentTypes,
     getEquipmentListByType
   };
 });
