@@ -1,8 +1,17 @@
 <script setup>
 import {useHeroDetailStore} from '/src/stores/heroDetailStore.js';
+import {ref} from 'vue';
+import HeroDetails from 'components/dialog/HeroDetails.vue';
 
 const heroDetailStore = useHeroDetailStore();
 const heroList = heroDetailStore.getHeroList;
+
+const selectedHero = ref(null);
+const showHeroDetails = ref(false);
+const openHeroDetails = (hero) => {
+  selectedHero.value = hero;
+  showHeroDetails.value = true;
+};
 
 const getStatColor = (value) => {
   if (value > 3) {
@@ -24,6 +33,7 @@ const getStatColor = (value) => {
       :key="hero.id"
       bordered
       class="q-mb-md"
+      @click="openHeroDetails(hero)"
     >
 
       <q-card-section>
@@ -61,6 +71,9 @@ const getStatColor = (value) => {
       </q-card-section>
     </q-card>
   </section>
+
+  <hero-details v-model="showHeroDetails" :hero="selectedHero" />
+
 </template>
 
 <style scoped>
