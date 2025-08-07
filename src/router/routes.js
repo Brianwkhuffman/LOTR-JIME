@@ -24,6 +24,14 @@ const routes = [
         component: () => import('pages/cards/EquipmentList.vue')
       },
       {
+        path: 'cards/roles',
+        component: () => import('pages/cards/RoleList.vue')
+      },
+      {
+        path: 'cards/roles/:role',
+        component: () => import('pages/cards/RoleCardList.vue')
+      },
+      {
         path: 'load',
         component: () => import('pages/LoadGame.vue')
       },
