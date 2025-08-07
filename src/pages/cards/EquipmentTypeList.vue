@@ -1,6 +1,7 @@
 <script setup>
 import {useRouter} from 'vue-router';
 import {useEquipmentStore} from '/src/stores/equipmentStore.js';
+import BackButton from 'components/button/BackButton.vue';
 
 const router = useRouter();
 const equipStore = useEquipmentStore();
@@ -12,6 +13,7 @@ const goToType = (type) => {
 </script>
 
 <template>
+  <BackButton/>
   <div class="q-pa-md">
     <div class="q-gutter-sm">
       <q-card

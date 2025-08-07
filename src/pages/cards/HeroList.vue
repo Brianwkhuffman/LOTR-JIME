@@ -2,6 +2,8 @@
 import {useHeroDetailStore} from '/src/stores/heroDetailStore.js';
 import {ref} from 'vue';
 import HeroDetails from 'components/dialog/HeroDetails.vue';
+import FilterButton from '/src/components/button/FilterButton.vue';
+import BackButton from 'src/components/button/BackButton.vue';
 
 const heroDetailStore = useHeroDetailStore();
 const heroList = heroDetailStore.getHeroList;
@@ -27,6 +29,8 @@ const getStatColor = (value) => {
 </script>
 
 <template>
+  <FilterButton/>
+  <BackButton/>
   <section class="q-pa-lg">
     <q-card
       v-for="hero in heroList"
