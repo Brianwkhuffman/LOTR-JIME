@@ -49,7 +49,7 @@ const getStatColor = (value) => {
           </div>
           <div class="col-auto">
             <q-img
-              src="https://placehold.co/80x80?text=Hero"
+              src="/assets/equipPh.png"
               alt="Hero image"
               style="width: 80px; height: auto"
               class="rounded-borders"

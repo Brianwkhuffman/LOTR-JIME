@@ -5,9 +5,9 @@ import FilterButton from '/src/components/button/FilterButton.vue';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
-const type = route.params.type;
+const typeParam = route.params.type;
 const equipmentStore = useEquipmentStore();
-const equipmentList = equipmentStore.getEquipmentListByType(type);
+const equipmentList = equipmentStore.getEquipmentListByType(typeParam);
 </script>
 
 <template>
@@ -15,22 +15,22 @@ const equipmentList = equipmentStore.getEquipmentListByType(type);
   <BackButton/>
   <section class="q-pa-lg">
     <q-card
-      v-for="equip in equipmentList"
-      :key="equip.id"
-      bordered
-      class="q-mb-md"
+        v-for="equip in equipmentList"
+        :key="equip.id"
+        bordered
+        class="q-mb-md"
     >
       <q-card-section class="row justify-between">
         <div>
           <h5>{{ equip.name }}</h5>
           <p>{{equip.item}} - Tier {{equip.tier}}</p>
         </div>
-          <q-img
-            src="https://placehold.co/80x80?text=Equip"
+        <q-img
+            src="/assets/equipPh.png"
             alt="Equip image"
             style="width: 80px; height: auto"
             class="rounded-borders"
-          />
+        />
       </q-card-section>
       <q-card-section>
         <p>{{ equip.description }}</p>
