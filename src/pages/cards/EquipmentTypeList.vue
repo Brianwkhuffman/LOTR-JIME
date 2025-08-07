@@ -1,11 +1,13 @@
 <script setup>
 import {useRouter} from 'vue-router';
+import {useEquipmentStore} from '/src/stores/equipmentStore.js';
 
 const router = useRouter();
-const cardTypes = ['heroes', 'equipment', 'roles', 'titles', 'weakness', 'damageFear', 'info'];
+const equipStore = useEquipmentStore();
+const equipTypes = equipStore.getEquipmentTypes;
 
 const goToType = (type) => {
-  router.push('/cards/' + type);
+  router.push('/cards/equipment/' + type);
 };
 </script>
 
@@ -13,10 +15,10 @@ const goToType = (type) => {
   <div class="q-pa-md">
     <div class="q-gutter-sm">
       <q-card
-        v-for="type in cardTypes"
+        v-for="type in equipTypes"
         :key="type"
-        class="cursor-pointer hoverable"
         @click="goToType(type)"
+        class="cursor-pointer hoverable"
         flat
         bordered
       >
