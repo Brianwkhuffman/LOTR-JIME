@@ -1,10 +1,10 @@
 <script setup>
-import SimpleNavButton from '/src/components/SimpleNavButton.vue';
+import BackButton from '/src/components/button/BackButton.vue';
 </script>
 
 <template>
   <div>
     <h1>WIP</h1>
-    <SimpleNavButton target-page="home"/>
+    <BackButton />
   </div>
 </template>
