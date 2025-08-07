@@ -10,12 +10,17 @@ export const useEquipmentStore = defineStore('equipment', () => {
   });
 
   const getEquipmentListByType = (type) => {
-    return computed(() => equipList.value[type] ?? []);
+    return equipList.value[type];
   };
+
+  const getTier1EquipmentByType = (type, tier) => {
+    return equipList.value[type].filter(item => item.tier === tier);
+  }
 
   return {
     equipList,
     getEquipmentTypes,
-    getEquipmentListByType
+    getEquipmentListByType,
+    getTier1EquipmentByType
   };
 });
