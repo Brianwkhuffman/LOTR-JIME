@@ -8,7 +8,6 @@ const route = useRoute();
 const type = route.params.type;
 const equipmentStore = useEquipmentStore();
 const equipmentList = equipmentStore.getEquipmentListByType(type);
-
 </script>
 
 <template>
