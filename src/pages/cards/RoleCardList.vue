@@ -25,9 +25,16 @@ const roleCards = roleCardStore.getRoleCardListByRole(roleParam);
             {{ card.name }}
 
             <!-- TODO: Change icons... -->
-            <q-icon v-if="card.icon === '1 Success'" color="green" name="star"/>
-            <q-icon v-else-if="card.icon === '1 Fate'" color="red" name="emergency"/>
-            <q-icon v-else color="blue" name="emergency"/>
+            <q-icon
+              v-if="card.icon === '1 Success'"
+              color="green"
+              name="star"/>
+            <q-icon v-else-if="card.icon === '1 Fate'"
+                    color="red"
+                    name="emergency"/>
+            <q-icon v-else
+                    color="blue"
+                    name="emergency"/>
           </h5>
           <i>{{ card.trait }}</i>
         </div>

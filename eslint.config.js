@@ -37,6 +37,18 @@ export default defineConfig([
     }
   },
   pluginVue.configs['flat/essential'],
+  {
+    rules: {
+      'vue/html-indent': ['warn', 2],
+      'vue/max-attributes-per-line': ['warn', { singleline: 2, multiline: 1 }],
+      'vue/multiline-html-element-content-newline': 'warn',
+      'vue/html-self-closing': ['warn', { html: { void: 'never', normal: 'always' } }],
+      'vue/attribute-hyphenation': ['warn', 'always'],
+      'vue/prop-name-casing': ['warn', 'camelCase'],
+      'object-curly-spacing': ['warn', 'always'],
+      'vue/object-curly-spacing': ['warn', 'always']
+    }
+  },
   { files: ['**/*.json'], plugins: { json }, language: 'json/json', extends: ['json/recommended'] },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'] },
   { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] }
