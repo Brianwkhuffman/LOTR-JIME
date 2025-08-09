@@ -1,21 +1,37 @@
-import {defineStore} from 'pinia';
-import {computed, ref} from 'vue';
-import titleCardData from '/src/data/titleCards.json'
+import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
+import titleCardData from '/src/data/titleCards.json';
+
+/**
+ * @typedef {Object} TitleCard
+ * @property {number} id
+ * @property {string} collection
+ * @property {string} name
+ * @property {number} number
+ * @property {string} trait
+ * @property {string} icon
+ * @property {string} description
+ */
+
+/**
+ * @typedef {TitleCard[]} TitleCardsArray
+ */
 
 export const useTitleCardStore = defineStore('titleCardStore', () =>{
+  /** @type {import('vue').Ref<TitleCardsArray>} */
   const titleList = ref(titleCardData);
 
   const getTitleList = computed(() => {
-    return Object.values(titleList.value.titleCards);
+    return Object.keys(titleList.value.titleCards);
   });
 
-  const getTitleCardByName = (name) => {
+  const getTitleCardsByName = (name) => {
     return titleList.value[name];
   };
 
   return {
     titleList,
     getTitleList,
-    getTitleCardByName
+    getTitleCardsByName
   };
 });
