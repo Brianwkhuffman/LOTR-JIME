@@ -1,6 +1,6 @@
 <script setup>
-import {useHeroDetailStore} from '/src/stores/heroDetailStore.js';
-import {ref} from 'vue';
+import { ref } from 'vue';
+import { useHeroDetailStore } from '/src/stores/heroDetailStore.js';
 import HeroDetails from 'components/dialog/HeroDetails.vue';
 import FilterButton from '/src/components/button/FilterButton.vue';
 import BackButton from 'src/components/button/BackButton.vue';
@@ -39,7 +39,6 @@ const getStatColor = (value) => {
       class="q-mb-md"
       @click="openHeroDetails(hero)"
     >
-
       <q-card-section>
         <div class="row items-center no-wrap">
           <div class="col">
@@ -77,7 +76,6 @@ const getStatColor = (value) => {
   </section>
 
   <hero-details v-model="showHeroDetails" :hero="selectedHero" />
-
 </template>
 
 <style scoped>
