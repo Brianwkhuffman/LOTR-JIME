@@ -32,6 +32,10 @@ const routes = [
         component: () => import('pages/cards/RoleCardList.vue')
       },
       {
+        path: 'cards/titles',
+        component: () => import('pages/cards/TitleList.vue')
+      },
+      {
         path: 'load',
         component: () => import('pages/LoadGame.vue')
       },
