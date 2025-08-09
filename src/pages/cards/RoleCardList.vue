@@ -1,6 +1,6 @@
 <script setup>
-import {useRoleCardStore} from '/src/stores/roleCardStore.js';
-import {useRoute} from 'vue-router';
+import { useRoleCardStore } from '/src/stores/roleCardStore.js';
+import { useRoute } from 'vue-router';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
@@ -21,13 +21,13 @@ const roleCards = roleCardStore.getRoleCardListByRole(roleParam);
     >
       <q-card-section class="row justify-between">
         <div>
-          <h5>{{ card.name }}
+          <h5>
+            {{ card.name }}
 
             <!-- TODO: Change icons... -->
             <q-icon v-if="card.icon === '1 Success'" color="green" name="star"/>
             <q-icon v-else-if="card.icon === '1 Fate'" color="red" name="emergency"/>
             <q-icon v-else color="blue" name="emergency"/>
-
           </h5>
           <i class="it">{{card.trait}}</i>
         </div>

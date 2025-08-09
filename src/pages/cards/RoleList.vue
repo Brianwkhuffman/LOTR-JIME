@@ -1,7 +1,7 @@
 <script setup>
-import {useRoleCardStore} from '/src/stores/roleCardStore.js';
-import {useRouter} from 'vue-router';
-import {formatCamelCase} from '/src/utils/formatDisplay.js';
+import { useRoleCardStore } from '/src/stores/roleCardStore.js';
+import { useRouter } from 'vue-router';
+import { formatCamelCase } from '/src/utils/formatDisplay.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const router = useRouter();

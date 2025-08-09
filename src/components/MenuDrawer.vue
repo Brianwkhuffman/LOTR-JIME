@@ -1,6 +1,6 @@
 <script setup>
-import {ref} from 'vue'
-import MenuLink from 'components/MenuLink.vue'
+import { ref } from 'vue';
+import MenuLink from 'components/MenuLink.vue';
 
 const menuLinksList = [
   {
@@ -27,18 +27,18 @@ const menuLinksList = [
     icon: 'code',
     link: '/load'
   }
-]
+];
 
-const leftDrawerOpen = ref(false)
+const leftDrawerOpen = ref(false);
 
 function toggleLeftDrawer () {
-  leftDrawerOpen.value = !leftDrawerOpen.value
+  leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 </script>
 
 <template>
   <q-header elevated>
-   <q-toolbar>
+    <q-toolbar>
       <q-btn
         flat
         dense
@@ -48,7 +48,7 @@ function toggleLeftDrawer () {
       />
       <q-toolbar-title>LoTR JiME Companion</q-toolbar-title>
       <div>Qv{{ $q.version }}</div>
-   </q-toolbar>
+    </q-toolbar>
   </q-header>
 
   <q-drawer

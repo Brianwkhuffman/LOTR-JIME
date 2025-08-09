@@ -1,5 +1,5 @@
 <script setup>
-import {useRouter} from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -8,16 +8,16 @@ const { hero } = defineProps({
     type: Object,
     required: true
   }
-})
+});
 
 const goToHeroDetails = (name) => {
   router.push('/heroes/' + name);
-}
+};
 
 const selectHero = (name) => {
   // TODO: handle selected hero
   alert(name + ' selected!');
-}
+};
 
 </script>
 
@@ -48,7 +48,6 @@ const selectHero = (name) => {
         Select Hero
       </q-btn>
     </q-card-actions>
-
   </q-card>
 </template>
 
