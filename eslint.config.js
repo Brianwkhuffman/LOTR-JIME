@@ -1,70 +1,43 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import pluginVue from 'eslint-plugin-vue'
-import pluginQuasar from '@quasar/app-vite/eslint'
+import js from '@eslint/js';
+import globals from 'globals';
+import pluginVue from 'eslint-plugin-vue';
+import json from '@eslint/json';
+import markdown from '@eslint/markdown';
+import css from '@eslint/css';
+import {defineConfig} from 'eslint/config';
 
-export default [
+export default defineConfig([
   {
-    /**
-     * Ignore the following files.
-     * Please note that pluginQuasar.configs.recommended() already ignores
-     * the "node_modules" folder for you (and all other Quasar project
-     * relevant folders and files).
-     *
-     * ESLint requires "ignores" key to be the only one in this object
-     */
-    // ignores: []
-  },
-
-  ...pluginQuasar.configs.recommended(),
-  js.configs.recommended,
-
-  /**
-   * https://eslint.vuejs.org
-   *
-   * pluginVue.configs.base
-   *   -> Settings and rules to enable correct ESLint parsing.
-   * pluginVue.configs[ 'flat/essential']
-   *   -> base, plus rules to prevent errors or unintended behavior.
-   * pluginVue.configs["flat/strongly-recommended"]
-   *   -> Above, plus rules to considerably improve code readability and/or dev experience.
-   * pluginVue.configs["flat/recommended"]
-   *   -> Above, plus rules to enforce subjective community defaults to ensure consistency.
-   */
-  ...pluginVue.configs[ 'flat/essential' ],
-
-  {
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-
-      globals: {
-        ...globals.browser,
-        ...globals.node, // SSR, Electron, config files
-        process: 'readonly', // process.env.*
-        ga: 'readonly', // Google Analytics
-        cordova: 'readonly',
-        Capacitor: 'readonly',
-        chrome: 'readonly', // BEX related
-        browser: 'readonly' // BEX related
-      }
-    },
-
-    // add your custom rules here
+    files: ['**/*.{js,mjs,cjs,vue}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.browser },
     rules: {
-      'prefer-promise-reject-errors': 'off',
+      semi: ['warn', 'always'],
+      quotes: ['warn', 'single', { avoidEscape: true }],
+      indent: ['warn', 2],
+      'no-trailing-spaces': 'warn',
+      'no-multiple-empty-lines': ['warn', { max: 1 }],
+      'no-unused-vars': ['warn', { args: 'none', ignoreRestSiblings: true }],
+      'keyword-spacing': ['error', { before: true, after: true }],
+      'comma-spacing': ['error', { before: false, after: true }],
+      'comma-dangle': ['error', 'never'],
+      'object-curly-spacing': ['warn', 'always'],
+      'array-bracket-spacing': ['warn', 'never'],
+      'space-before-blocks': ['warn', 'always'],
+      'space-in-parens': ['warn', 'never'],
+      'eqeqeq': ['warn', 'always'],
+      'no-console': 'warn',
+      'no-debugger': 'error',
+      'curly': ['warn', 'all'],
+      'no-duplicate-imports': 'warn',
 
-      // allow debugger during development only
-      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+      // End file with newline
+      'eol-last': ['warn', 'always']
     }
   },
-
-  {
-    files: [ 'src-pwa/custom-service-worker.js' ],
-    languageOptions: {
-      globals: {
-        ...globals.serviceworker
-      }
-    }
-  }
-]
+  pluginVue.configs['flat/essential'],
+  { files: ['**/*.json'], plugins: { json }, language: 'json/json', extends: ['json/recommended'] },
+  { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'] },
+  { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
+]);
