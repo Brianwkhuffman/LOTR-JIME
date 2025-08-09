@@ -23,7 +23,7 @@ const equipmentList = equipmentStore.getEquipmentListByType(typeParam);
       <q-card-section class="row justify-between">
         <div>
           <h5>{{ equip.name }}</h5>
-          <p>{{equip.item}} - Tier {{equip.tier}}</p>
+          <p>{{ equip.item }} - Tier {{ equip.tier }}</p>
         </div>
         <q-img
           src="/assets/equipPh.png"

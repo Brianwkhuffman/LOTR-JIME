@@ -15,31 +15,31 @@ const { hero } = defineProps({
                v-close-popup />
       </q-card-actions>
       <q-card-section>
-        <p class="text-h6">{{hero.name}}</p>
-        <div class="text-subtitle2">Race: {{hero.race}}</div>
-        <div class="text-subtitle2">Suggested role: {{hero.suggestedRole}}</div>
-        <div class="text-subtitle2">Suggested equip: {{hero.suggestedEquip}}</div>
+        <p class="text-h6">{{ hero.name }}</p>
+        <div class="text-subtitle2">Race: {{ hero.race }}</div>
+        <div class="text-subtitle2">Suggested role: {{ hero.suggestedRole }}</div>
+        <div class="text-subtitle2">Suggested equip: {{ hero.suggestedEquip }}</div>
       </q-card-section>
       <q-separator />
       <q-card-section>
         <div class="flex row justify-evenly">
-          <p>Inspiration: {{hero.maxInspiration}}</p>
-          <p>Damage: {{hero.maxDamage}}</p>
-          <p>Fear: {{hero.maxFear}}</p>
+          <p>Inspiration: {{ hero.maxInspiration }}</p>
+          <p>Damage: {{ hero.maxDamage }}</p>
+          <p>Fear: {{ hero.maxFear }}</p>
         </div>
       </q-card-section>
       <q-separator />
       <q-card-section>
         <div class="flex row justify-between">
           <p v-for="(stat, key) in hero.stats" :key="key" class="text-capitalize">
-            {{key}}: {{stat}}
+            {{ key }}: {{ stat }}
           </p>
         </div>
       </q-card-section>
       <q-separator />
       <q-card-section>
         <span>
-          {{hero.ability}}
+          {{ hero.ability }}
         </span>
       </q-card-section>
       <q-card-section>
