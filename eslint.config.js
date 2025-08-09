@@ -38,6 +38,18 @@ export default defineConfig([
   },
   pluginVue.configs['flat/essential'],
   { files: ['**/*.json'], plugins: { json }, language: 'json/json', extends: ['json/recommended'] },
+  {
+    files: ['**/*.vue'],
+    rules: {
+      // Vue template & script style
+      'vue/html-indent': ['warn', 2],
+      'vue/max-attributes-per-line': ['warn', { singleline: 3, multiline: 1 }],
+      'vue/multiline-html-element-content-newline': 'warn',
+      'vue/html-self-closing': ['warn', { html: { void: 'never', normal: 'always' } }],
+      'vue/attribute-hyphenation': ['warn', 'always'],
+      'vue/prop-name-casing': ['warn', 'camelCase']
+    }
+  },
   { files: ['**/*.md'], plugins: { markdown }, language: 'markdown/commonmark', extends: ['markdown/recommended'] },
-  { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
+  { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] }
 ]);
