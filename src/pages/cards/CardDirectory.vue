@@ -1,5 +1,5 @@
 <script setup>
-import {useRouter} from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const cardTypes = ['heroes', 'equipment', 'roles', 'titles', 'weakness', 'damageFear', 'info'];

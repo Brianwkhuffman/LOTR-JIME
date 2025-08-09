@@ -1,6 +1,6 @@
 <script setup>
-import {useRouter} from 'vue-router';
-import {useEquipmentStore} from '/src/stores/equipmentStore.js';
+import { useRouter } from 'vue-router';
+import { useEquipmentStore } from '/src/stores/equipmentStore.js';
 import BackButton from 'components/button/BackButton.vue';
 
 const router = useRouter();

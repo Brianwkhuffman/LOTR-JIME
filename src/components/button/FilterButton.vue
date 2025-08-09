@@ -2,7 +2,7 @@
 
 const addFilter = () => {
   return alert('filter');
-}
+};
 </script>
 
 <template>
