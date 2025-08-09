@@ -27,7 +27,7 @@ export default defineConfig([
       'space-before-blocks': ['warn', 'always'],
       'space-in-parens': ['warn', 'never'],
       'eqeqeq': ['warn', 'always'],
-      'no-console': 'warn',
+      "no-console": ["warn", { allow: ["warn", "error", "log"] }],
       'no-debugger': 'error',
       'curly': ['warn', 'all'],
       'no-duplicate-imports': 'warn',
