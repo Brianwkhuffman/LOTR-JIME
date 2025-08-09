@@ -31,7 +31,10 @@ const { hero } = defineProps({
       <q-separator />
       <q-card-section>
         <div class="flex row justify-between">
-          <p v-for="(stat, key) in hero.stats" :key="key" class="text-capitalize">
+          <p v-for="(stat, key) in hero.stats"
+             :key="key"
+             class="text-capitalize"
+          >
             {{ key }}: {{ stat }}
           </p>
         </div>

@@ -14,15 +14,16 @@ import titleCardData from '/src/data/titleCards.json';
  */
 
 /**
- * @typedef {TitleCard[]} TitleCardsArray
+ * @typedef {Object} TitleCardData
+ * @property {TitleCard[]} titleCards
  */
 
 export const useTitleCardStore = defineStore('titleCardStore', () =>{
-  /** @type {import('vue').Ref<TitleCardsArray>} */
+  /** @type {import('vue').Ref<TitleCardData>} */
   const titleList = ref(titleCardData);
 
   const getTitleList = computed(() => {
-    return Object.keys(titleList.value.titleCards);
+    return titleList.value.titleCards;
   });
 
   const getTitleCardsByName = (name) => {
