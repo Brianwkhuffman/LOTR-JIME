@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router';
 import BackButton from 'components/button/BackButton.vue';
 
 const router = useRouter();
-const cardTypes = ['heroes', 'equipment', 'roles', 'titles', 'weakness', 'damageFear', 'info'];
+const cardTypes = ['heroes', 'equipment', 'roles', 'titles', 'weakness', 'damage', 'fear', 'info'];
 
 const goToType = (type) => {
   router.push('/cards/' + type);
