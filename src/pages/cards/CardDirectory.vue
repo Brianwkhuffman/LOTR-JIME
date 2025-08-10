@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import BackButton from 'components/button/BackButton.vue';
 
 const router = useRouter();
 const cardTypes = ['heroes', 'equipment', 'roles', 'titles', 'weakness', 'damageFear', 'info'];
@@ -10,6 +11,7 @@ const goToType = (type) => {
 </script>
 
 <template>
+  <back-button />
   <div class="q-pa-md">
     <div class="q-gutter-sm">
       <q-card

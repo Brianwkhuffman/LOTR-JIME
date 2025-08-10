@@ -4,9 +4,7 @@ import BackButton from 'src/components/button/BackButton.vue';
 import FilterButton from 'components/button/FilterButton.vue';
 
 const titleCardStore = useTitleCardStore();
-console.log('heh');
 const titleCards = titleCardStore.getTitleList;
-// this is a test
 
 </script>
 
