@@ -40,6 +40,14 @@ const routes = [
         component: () => import('pages/cards/WeaknessList.vue')
       },
       {
+        path: 'cards/damage',
+        component: () => import('pages/cards/DamageCardList.vue')
+      },
+      {
+        path: 'cards/fear',
+        component: () => import('pages/cards/FearCardList.vue')
+      },
+      {
         path: 'load',
         component: () => import('pages/LoadGame.vue')
       },
