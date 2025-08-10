@@ -9,7 +9,7 @@
     {
       "id": 2,
       "name": "Weariness",
-      "description": "Flip this card facedown. (11 copies)",
+      "description": "Flip this card facedown.",
       "amount": 11
     },
     {
@@ -113,7 +113,7 @@
     {
       "id": 1,
       "name": "Gloom",
-      "description": "Flip this card facedown. (11 copies)",
+      "description": "Flip this card facedown.",
       "amount": 11
     },
     {
