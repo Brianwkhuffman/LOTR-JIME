@@ -12,7 +12,7 @@ const titleCards = titleCardStore.getTitleList;
   <filter-button />
   <back-button />
     <section class="q-pa-md">
-      <div class="card-grid" role="list">
+      <ul class="card-grid" role="list">
         <li v-for="card in titleCards"
             :key="card.id"
             class="card"
@@ -34,6 +34,6 @@ const titleCards = titleCardStore.getTitleList;
           <p class="card-description">{{ card.description }}</p>
           <p>{{ card.id }}</p>
         </li>
-      </div>
+      </ul>
     </section>
 </template>

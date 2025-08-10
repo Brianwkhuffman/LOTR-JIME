@@ -10,7 +10,7 @@ const weaknessCards = weaknessCardStore.getWeaknessCards;
 <template>
   <back-button />
   <section class="q-pa-md">
-    <div class="card-grid" role="list">
+    <ul class="card-grid" role="list">
       <li v-for="card in weaknessCards"
           :key="card.id"
           class="card"
@@ -25,7 +25,7 @@ const weaknessCards = weaknessCardStore.getWeaknessCards;
           {{ card.name }}
         </header>
       </li>
-    </div>
+    </ul>
   </section>
 </template>
 
