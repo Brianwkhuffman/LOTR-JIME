@@ -36,6 +36,10 @@ const routes = [
         component: () => import('pages/cards/TitleList.vue')
       },
       {
+        path: 'cards/weakness',
+        component: () => import('pages/cards/WeaknessList.vue')
+      },
+      {
         path: 'load',
         component: () => import('pages/LoadGame.vue')
       },
