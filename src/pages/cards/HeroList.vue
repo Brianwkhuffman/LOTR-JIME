@@ -48,7 +48,7 @@ const getStatColor = (value) => {
           </div>
           <div class="col-auto">
             <q-img
-              src="/assets/equipPh.png"
+              src="/assets/heroPh.png"
               alt="Hero image"
               style="width: 80px; height: auto"
               class="rounded-borders"
