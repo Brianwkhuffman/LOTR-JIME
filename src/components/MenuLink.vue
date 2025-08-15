@@ -1,4 +1,9 @@
 <script setup>
+import { useRoute } from 'vue-router';
+import { computed } from 'vue';
+
+const route = useRoute();
+
 const props = defineProps({
   title: {
     type: String,
@@ -17,12 +22,20 @@ const props = defineProps({
     default: ''
   }
 });
+
+const isActiveRoute = computed(() => {
+  if (props.link !== '/') {
+    return route.path.startsWith(props.link);
+  }
+  return route.path === '/';
+});
 </script>
 
 <template>
   <q-item
     clickable
     :to="props.link"
+    :active="isActiveRoute"
     @click="$emit('toggleDrawer')"
   >
     <q-item-section

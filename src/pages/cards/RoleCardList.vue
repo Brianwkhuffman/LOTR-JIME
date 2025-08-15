@@ -29,11 +29,11 @@ const roleCards = roleCardStore.getRoleCardListByRole(roleParam);
               color="green"
               name="star"/>
             <q-icon v-else-if="card.icon === '1 Fate'"
-              color="red"
-              name="emergency"/>
+                    color="red"
+                    name="emergency"/>
             <q-icon v-else
-              color="blue"
-              name="emergency"/>
+                    color="blue"
+                    name="emergency"/>
           </h5>
           <i>{{ card.trait }}</i>
         </div>

@@ -25,7 +25,7 @@ const routes = [
       },
       {
         path: 'cards/roles',
-        component: () => import('pages/cards/RoleList.vue')
+        component: () => import('pages/cards/RoleTypeList.vue')
       },
       {
         path: 'cards/roles/:role',
@@ -37,15 +37,15 @@ const routes = [
       },
       {
         path: 'cards/weakness',
-        component: () => import('pages/cards/WeaknessList.vue')
+        component: () => import('pages/cards/DamageFearWeakCardList.vue')
       },
       {
         path: 'cards/damage',
-        component: () => import('pages/cards/DamageCardList.vue')
+        component: () => import('pages/cards/DamageFearWeakCardList.vue')
       },
       {
         path: 'cards/fear',
-        component: () => import('pages/cards/FearCardList.vue')
+        component: () => import('pages/cards/DamageFearWeakCardList.vue')
       },
       {
         path: 'cards/info',

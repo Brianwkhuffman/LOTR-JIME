@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
-import heroDetails from '/src/data/heroDetails.json';
+import heroDetailData from '/src/data/heroDetails.json';
 
 /**
  * @typedef {Object} HeroStats
@@ -30,9 +30,9 @@ import heroDetails from '/src/data/heroDetails.json';
  * @typedef {Object.<string, Hero>} HeroesMap
  */
 
-export const useHeroDetailStore = defineStore('heroDetail', () => {
+export const useHeroDetailStore = defineStore('heroDetailStore', () => {
   /** @type {import('vue').Ref<HeroesMap>} */
-  const heroes = ref(heroDetails);
+  const heroes = ref(heroDetailData);
 
   const getHeroList = computed(() => {
     return Object.values(heroes.value);

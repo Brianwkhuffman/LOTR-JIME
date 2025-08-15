@@ -11,29 +11,29 @@ const titleCards = titleCardStore.getTitleList;
 <template>
   <filter-button />
   <back-button />
-    <section class="q-pa-md">
-      <ul class="card-grid" role="list">
-        <li v-for="card in titleCards"
-            :key="card.id"
-            class="card"
-            tabindex="0">
-          <header class="card-name">
-            {{ card.name }}
-            <q-icon
-              v-if="card.icon === '1 Success'"
-              color="green"
-              name="star"/>
-            <q-icon v-else-if="card.icon === '1 Fate'"
-                    color="red"
-                    name="emergency"/>
-            <q-icon v-else
-                    color="blue"
-                    name="emergency"/>
-          </header>
-          <i>{{ card.trait }}</i>
-          <p class="card-description">{{ card.description }}</p>
-          <p>{{ card.id }}</p>
-        </li>
-      </ul>
-    </section>
+  <section class="q-pa-md">
+    <ul class="card-grid" role="list">
+      <li v-for="card in titleCards"
+          :key="card.id"
+          class="card"
+          tabindex="0">
+        <header class="card-name">
+          {{ card.name }}
+          <q-icon
+            v-if="card.icon === '1 Success'"
+            color="green"
+            name="star"/>
+          <q-icon v-else-if="card.icon === '1 Fate'"
+                  color="red"
+                  name="emergency"/>
+          <q-icon v-else
+                  color="blue"
+                  name="emergency"/>
+        </header>
+        <i>{{ card.trait }}</i>
+        <p class="card-description">{{ card.description }}</p>
+        <p>{{ card.id }}</p>
+      </li>
+    </ul>
+  </section>
 </template>

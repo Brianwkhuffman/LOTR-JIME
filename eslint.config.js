@@ -39,6 +39,7 @@ export default defineConfig([
   pluginVue.configs['flat/essential'],
   {
     rules: {
+      'vue/html-indent': ['warn', 2],
       'vue/max-attributes-per-line': ['warn', { singleline: 2, multiline: 1 }],
       'vue/multiline-html-element-content-newline': 'warn',
       'vue/html-self-closing': ['warn', { html: { void: 'never', normal: 'always' } }],

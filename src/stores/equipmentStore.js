@@ -20,7 +20,7 @@ import equipData from '/src/data/equipCards.json';
  * @typedef {Object.<string, EquipmentItem[]>} EquipmentMap
  */
 
-export const useEquipmentStore = defineStore('equipment', () => {
+export const useEquipmentStore = defineStore('equipmentStore', () => {
   /** @type {import('vue').Ref<EquipmentMap>} */
   const equipList = ref(equipData);
 
