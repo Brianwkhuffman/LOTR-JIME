@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import weaknessCardData from '/src/data/weaknessCards.json';
 
 /**
@@ -16,9 +16,9 @@ export const useWeaknessCardStore = defineStore('weaknessStore', () => {
   /** @type {import('vue').Ref<WeaknessCardsMap>} */
   const weaknessCardList = ref(weaknessCardData);
 
-  const getWeaknessCards = computed(() => {
-    return Object.values(weaknessCardList.value.weaknessCards);
-  });
+  const getWeaknessCards = () => {
+    return weaknessCardList.value.weaknessCards;
+  };
 
   return {
     weaknessCardList,
