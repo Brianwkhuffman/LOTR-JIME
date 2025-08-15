@@ -25,7 +25,7 @@ const routes = [
       },
       {
         path: 'cards/roles',
-        component: () => import('pages/cards/RoleList.vue')
+        component: () => import('pages/cards/RoleTypeList.vue')
       },
       {
         path: 'cards/roles/:role',
