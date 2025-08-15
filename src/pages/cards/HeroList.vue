@@ -29,8 +29,8 @@ const getStatColor = (value) => {
 </script>
 
 <template>
-  <FilterButton/>
-  <BackButton/>
+  <filter-button />
+  <back-button />
   <section class="q-pa-lg">
     <q-card
       v-for="hero in heroList"

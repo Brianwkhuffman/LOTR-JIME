@@ -61,7 +61,7 @@ function toggleLeftDrawer () {
         Menu
       </q-item-label>
 
-      <MenuLink
+      <menu-link
         v-for="link in menuLinksList"
         :key="link.title"
         v-bind="link"

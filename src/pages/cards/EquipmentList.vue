@@ -11,8 +11,8 @@ const equipmentList = equipmentStore.getEquipmentListByType(typeParam);
 </script>
 
 <template>
-  <FilterButton/>
-  <BackButton/>
+  <filter-button />
+  <back-button />
   <section class="q-pa-lg">
     <q-card
       v-for="equip in equipmentList"
