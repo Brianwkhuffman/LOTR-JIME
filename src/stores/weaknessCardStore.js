@@ -12,7 +12,7 @@ import weaknessCardData from '/src/data/weaknessCards.json';
  * @typedef {Object.<string, WeaknessCard[]>} WeaknessCardsMap
  */
 
-export const useWeaknessCardStore = defineStore('weakness', () => {
+export const useWeaknessCardStore = defineStore('weaknessStore', () => {
   /** @type {import('vue').Ref<WeaknessCardsMap>} */
   const weaknessCardList = ref(weaknessCardData);
 

@@ -20,7 +20,7 @@ import roleCardData from '/src/data/roleCards.json';
  * @typedef {Object.<string, RoleCard[]>} RoleCardsMap
  */
 
-export const useRoleCardStore = defineStore('role', () => {
+export const useRoleCardStore = defineStore('roleCardStore', () => {
   /** @type {import('vue').Ref<RoleCardsMap>} */
   const roleCardList = ref(roleCardData);
 

@@ -16,7 +16,7 @@ import damageFearCardData from '/src/data/damageFearCards.json';
  * @property {DamageFearCard[]} fear
  */
 
-export const useDamageFearCardStore = defineStore('damageFearCard', () => {
+export const useDamageFearCardStore = defineStore('damageFearCardStore', () => {
   /** @type {import('vue').Ref<DamageFearCardData>} */
   const cards = ref(damageFearCardData);
 
