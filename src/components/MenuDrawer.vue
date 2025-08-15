@@ -5,25 +5,25 @@ import MenuLink from 'components/MenuLink.vue';
 const menuLinksList = [
   {
     title: 'Home',
-    caption: 'Home caption',
+    caption: 'Back to home',
     icon: 'public',
     link: '/'
   },
   {
-    title: 'Browse cards',
-    caption: '',
+    title: 'Card List',
+    caption: 'Browse through cards',
     icon: 'book',
     link: '/cards'
   },
   {
     title: 'Build Deck',
-    caption: 'Build deck caption',
+    caption: 'Start a custom deck',
     icon: 'school',
     link: '/start'
   },
   {
     title: 'Load Deck',
-    caption: 'Load deck caption',
+    caption: 'Load a previously saved deck',
     icon: 'code',
     link: '/load'
   }
