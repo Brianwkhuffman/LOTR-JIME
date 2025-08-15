@@ -41,11 +41,11 @@ const routes = [
       },
       {
         path: 'cards/damage',
-        component: () => import('pages/cards/DamageCardList.vue')
+        component: () => import('pages/cards/DamageFearCardList.vue')
       },
       {
         path: 'cards/fear',
-        component: () => import('pages/cards/FearCardList.vue')
+        component: () => import('pages/cards/DamageFearCardList.vue')
       },
       {
         path: 'cards/info',
