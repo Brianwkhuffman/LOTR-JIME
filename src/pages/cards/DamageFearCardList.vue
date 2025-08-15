@@ -22,9 +22,9 @@ const cards = computed(() => {
   <section class="q-pa-md">
     <ul class="card-grid">
       <li v-for="card in cards"
-        :key="card.id"
-        class="card"
-        tabindex="0"
+          :key="card.id"
+          class="card"
+          tabindex="0"
       >
         <header class="card-name">
           {{ card.name }}
