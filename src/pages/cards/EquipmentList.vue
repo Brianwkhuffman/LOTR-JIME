@@ -1,21 +1,40 @@
 <script setup>
 import { useEquipmentStore } from '/src/stores/equipmentStore.js';
 import { useRoute } from 'vue-router';
+import { computed, ref } from 'vue';
 import FilterButton from '/src/components/button/FilterButton.vue';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
 const typeParam = route.params.type;
 const equipmentStore = useEquipmentStore();
-const equipmentList = equipmentStore.getEquipmentListByType(typeParam);
+const equipmentList = ref(equipmentStore.getEquipmentListByType(typeParam));
+
+const filter = ref({ tier: '', trait: '' });
+const filteredEquipment = computed(() => {
+  return equipmentList.value.filter(item => {
+    const tierMatch = filter.value.tier ? item.tier === filter.value.tier : true;
+    const traitMatch = filter.value.trait ? item.trait === filter.value.trait : true;
+    return tierMatch && traitMatch;
+  });
+});
+
+const onFilterChanged = (selected) => {
+  filter.value = selected;
+};
 </script>
 
 <template>
-  <filter-button />
+  <filter-button
+    :tiers="['I','II','III', 'IV']"
+    :traits="['Agility', 'Might', 'Spirit', 'Wisdom', 'Wit']"
+    :equipment-list="equipmentList"
+    @filterChanged="onFilterChanged"
+  />
   <back-button />
   <section class="q-pa-lg">
     <q-card
-      v-for="equip in equipmentList"
+      v-for="equip in filteredEquipment"
       :key="equip.id"
       bordered
       class="q-mb-md"
@@ -23,7 +42,8 @@ const equipmentList = equipmentStore.getEquipmentListByType(typeParam);
       <q-card-section class="row justify-between">
         <div>
           <h5>{{ equip.name }}</h5>
-          <p>{{ equip.item }} - Tier {{ equip.tier }}</p>
+          <h6>{{ equip.item }} - Tier {{ equip.tier }}</h6>
+          <h6 v-if="equip.trait">{{ equip.trait }}</h6>
         </div>
         <q-img
           src="/assets/equipPh.png"
