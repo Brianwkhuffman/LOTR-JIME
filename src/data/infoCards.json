@@ -176,32 +176,32 @@
   "keywords": [
     {
       "id": 1,
-      "keywords": "Scout X",
+      "name": "Scout X",
       "description": "When an effect instructs you to 'Scout X,' reveal X cards from the top of your skill deck. You may prepare one of those cards (place it faceup under your hero card). Then, place each of the remaining revealed cards on the top or bottom of your skill deck in any order."
     },
     {
       "id": 2,
-      "keywords": "Strike X",
+      "name": "Strike X",
       "description": "During your attack test, you may discard a card that has the 'Strike X' keyword to add X hits to the attack."
     },
     {
       "id": 3,
-      "keywords": "Guard X",
+      "name": "Guard X",
       "description": "When you or a hero in your space would suffer damage or fear, you may discard a card that has the 'Guard X' keyword to prevent any combination of X damage and fear."
     },
     {
       "id": 4,
-      "keywords": "Sprint X",
+      "name": "Sprint X",
       "description": "During your turn, you can discard a card that has the 'Sprint X' keyword to move X additional spaces. You can perform actions between each movement."
     },
     {
       "id": 5,
-      "keywords": "Rest X",
+      "name": "Rest X",
       "description": "At the end of your turn, you can discard a card that has the 'Rest X' keyword to discard any combination of X of your facedown damage or fear cards"
     },
     {
       "id": 6,
-      "keywords": "Hide X",
+      "name": "Hide X",
       "description": "After performing a test, you can discard a card that has the 'Hide' keyword to gain a 'Hidden' boon card."
     }
   ]
