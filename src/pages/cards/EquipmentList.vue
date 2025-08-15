@@ -42,7 +42,7 @@ const onFilterChanged = (selected) => {
       <q-card-section class="row justify-between">
         <div>
           <h5>{{ equip.name }}</h5>
-          <h6>{{ equip.item }} - Tier {{ equip.tier }}</h6>
+          <h6 v-if="equip.tier">{{ equip.item }} - Tier {{ equip.tier }}</h6>
           <h6 v-if="equip.trait">{{ equip.trait }}</h6>
         </div>
         <q-img
@@ -58,4 +58,3 @@ const onFilterChanged = (selected) => {
     </q-card>
   </section>
 </template>
-
