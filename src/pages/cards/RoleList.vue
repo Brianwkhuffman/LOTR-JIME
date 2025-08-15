@@ -19,7 +19,7 @@ const goToType = (role) => {
 </script>
 
 <template>
-  <BackButton/>
+  <back-button/>
   <div class="q-pa-md">
     <div class="q-gutter-sm">
       <q-card
