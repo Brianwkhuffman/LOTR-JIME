@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
 import MenuLink from 'components/MenuLink.vue';
 
 const menuLinksList = [
@@ -19,7 +19,7 @@ const menuLinksList = [
     title: 'Build Deck',
     caption: 'Start a custom deck',
     icon: 'school',
-    link: '/start'
+    link: '/build-deck'
   },
   {
     title: 'Load Deck',
