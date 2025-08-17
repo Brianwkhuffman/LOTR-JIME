@@ -38,6 +38,10 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     return Object.values(heroes.value);
   });
 
+  const getHeroNames = computed(() => {
+    return Object.keys(heroes.value);
+  });
+
   const getHeroDetailsByName = (name) => {
     return heroes.value[name];
   };
@@ -45,6 +49,7 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
   return {
     heroes,
     getHeroList,
+    getHeroNames,
     getHeroDetailsByName
   };
 });

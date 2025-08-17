@@ -20,6 +20,7 @@ export default defineConfig([
       'eqeqeq': ['warn', 'always'],
       'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
       'no-debugger': 'error',
+      'object-curly-spacing': ['warn', 'always'],
       // End file with newline
       'eol-last': ['warn', 'always']
     }
@@ -27,6 +28,7 @@ export default defineConfig([
   pluginVue.configs['flat/essential'],
   {
     rules: {
+      'vue/html-indent': ['warn', 2],
       'vue/html-self-closing': ['warn', { html: { void: 'never', normal: 'always' } }],
       'vue/attribute-hyphenation': ['warn', 'always'],
       'vue/prop-name-casing': ['warn', 'camelCase']

@@ -1,16 +1,9 @@
 <script setup>
-defineEmits(['back', 'next']);
 
 </script>
 
 <template>
   <div>
-    <h1>Step Equip</h1>
-    <q-btn @click="$emit('back')">
-      Back
-    </q-btn>
-    <q-btn @click="$emit('next')">
-      Next
-    </q-btn>
+    <h3>Step Equip</h3>
   </div>
 </template>

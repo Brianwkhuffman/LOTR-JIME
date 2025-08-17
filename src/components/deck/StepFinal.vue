@@ -8,12 +8,7 @@ const finalizeDeck = () => {
 
 <template>
   <div>
-    <h1>Step Review</h1>
-    <q-btn @click="$emit('back')">
-      Back
-    </q-btn>
-    <q-btn @click="finalizeDeck">
-      Start
-    </q-btn>
+    <h3>Step Final</h3>
+    <q-btn @click="finalizeDeck">Finish</q-btn>
   </div>
 </template>

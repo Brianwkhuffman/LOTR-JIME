@@ -1,45 +1,38 @@
 <script setup>
-import {useDeckStore} from 'stores/deckStore.js';
-import {useHeroDetailStore} from 'stores/heroDetailStore.js';
-import {ref} from 'vue';
+import { useHeroDetailStore } from 'stores/heroDetailStore.js';
+import { computed, ref } from 'vue';
 
-defineEmits(['back', 'next']);
-const deckStore = useDeckStore();
 const heroDetailStore = useHeroDetailStore();
 
-const heroList = heroDetailStore.getHeroList;
+const selectedHero = ref(null);
 
-const selectedHero = ref({});
-
-const selectHero = (hero) => {
-  selectedHero.value = hero;
-  deckStore.addHeroCards(hero.name);
-  alert('added hero to deck');
-};
+const heroOptions = computed(() =>
+  heroDetailStore.getHeroNames.map(name => {
+    const label = name
+      // insert space before capital letters
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      // capitalize first letter of each word
+      .replace(/\b\w/g, char => char.toUpperCase());
+    return {
+      label,
+      value: name
+    };
+  })
+);
 
 </script>
 
 <template>
   <div>
-    <h3>Chose a Hero</h3>
+    <q-select
+      :options="heroOptions"
+      v-model="selectedHero"
+      label="Select a Hero"
+      clearable
+    />
 
-    <ul class="card-grid">
-      <li v-for="hero in heroList"
-        :key="hero.id"
-        class="card"
-        tabindex="0"
-      >
-        <header class="card-name">
-          {{ hero.name }}
-        </header>
-        <q-btn @click="selectHero(hero)" class="q-pa-sm">Select</q-btn>
-      </li>
-    </ul>
-    <q-btn @click="$emit('back')">
-      Back
-    </q-btn>
-    <q-btn @click="$emit('next')">
-      Next
-    </q-btn>
+    <div>
+      <p v-if="selectedHero">{{selectedHero.value}}</p>
+    </div>
   </div>
 </template>
