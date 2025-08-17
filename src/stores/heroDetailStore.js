@@ -12,18 +12,30 @@ import heroDetailData from '/src/data/heroDetails.json';
  */
 
 /**
+ * @typedef {Object} HeroCards
+ * @property {string} cardType
+ * @property {number} number
+ * @property {string} name
+ * @property {string} traot
+ * @property {string} icon
+ * @property {string} description
+ * @property {string} collection
+ */
+
+/**
  * @typedef {Object} Hero
  * @property {number} id
  * @property {string} name
  * @property {string} race
  * @property {string} suggestedRole
  * @property {Array} suggestedEquip
- * @property {HeroStats} stats - Hero's stats
+ * @property {HeroStats} stats
  * @property {number} maxInspiration
  * @property {number} maxFear
  * @property {number} maxDamage
- * @property {string} ability - Hero special ability description
- * @property {string} collection - Collection source (e.g., "Base")
+ * @property {string} ability
+ * @property {string} collection
+ * @property {HeroCards} cards
  */
 
 /**
@@ -46,10 +58,15 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     return heroes.value[name];
   };
 
+  const getHeroCardsByName = (name) => {
+    return heroes.value[name].cards;
+  };
+
   return {
     heroes,
     getHeroList,
     getHeroNames,
-    getHeroDetailsByName
+    getHeroDetailsByName,
+    getHeroCardsByName
   };
 });
