@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import MenuLink from 'components/MenuLink.vue';
+import MenuLink from 'components/menu/MenuLink.vue';
 
 const menuLinksList = [
   {
