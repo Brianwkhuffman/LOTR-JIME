@@ -23,8 +23,8 @@ export const useDeckStore = defineStore('deckStore', () => {
     if (saved.basic) currentDeck.value = saved;
   };
 
-  const addHeroCards = (heroName) => {
-    currentDeck.value.hero.push(heroName);
+  const addHeroCards = (heroCardList) => {
+    currentDeck.value.hero.push(heroCardList);
   };
 
   const addCards = (type, card) => {
