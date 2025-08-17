@@ -81,7 +81,7 @@
     "maxInspiration": 5,
     "maxFear": 6,
     "maxDamage": 4,
-    "ability": "Once during your turn, you or a nearby hero may flip 1 maxDamage or maxFear facedown, or discard 1 facedown maxDamage or maxFear.",
+    "ability": "Once during your turn, you or a nearby hero may flip 1 Damage or Fear facedown, or discard 1 facedown Damage or Fear.",
     "collection": "SP",
     "cards": [
       {
@@ -147,7 +147,7 @@
     "maxInspiration": 4,
     "maxFear": 4,
     "maxDamage": 6,
-    "ability": "Once per round, when you suffer maxDamage, after resolving all maxDamage from a single source, you may prepare 1 skill from your discard pile.",
+    "ability": "Once per round, when you suffer Damage, after resolving all Damage from a single source, you may prepare 1 skill from your discard pile.",
     "collection": "SP",
     "cards": [
       {
@@ -263,8 +263,26 @@
       }
     ]
   },
-  "beravor": {
+  "theGreatBear": {
     "id": 5,
+    "name": "The Great Bear",
+    "race": "Beorning",
+    "stats": {
+      "might": 5,
+      "wisdom": 2,
+      "agility": 3,
+      "spirit": 4,
+      "wit": 2
+    },
+    "maxInspiration": 3,
+    "maxFear": 6,
+    "maxDamage": 6,
+    "ability": "Before you interact, as an additional cost, choose and discard 1 prepared skill.\n(You can only equip Rending Claws and Hoary Coat.)",
+    "collection": "SW",
+    "cards": []
+  },
+  "beravor": {
+    "id": 6,
     "name": "Beravor",
     "race": "Human",
     "suggestedRole": "Pathfinder",
@@ -330,7 +348,7 @@
     ]
   },
   "bilbo": {
-    "id": 6,
+    "id": 7,
     "name": "Bilbo",
     "race": "Hobbit",
     "suggestedRole": "Burgler",
@@ -396,7 +414,7 @@
     ]
   },
   "boromir": {
-    "id": 7,
+    "id": 8,
     "name": "Boromir",
     "race": "Human",
     "suggestedRole": "Soldier",
@@ -411,7 +429,7 @@
     "maxInspiration": 4,
     "maxFear": 3,
     "maxDamage": 7,
-    "ability": "When you perform a last stand test, you may suffer 1 maxDamage or maxFear to add 1 success to that test.\n(Limit once per test.)",
+    "ability": "When you perform a last stand test, you may suffer 1 Damage or Fear to add 1 success to that test.\n(Limit once per test.)",
     "collection": "SW",
     "cards": [
       {
@@ -462,7 +480,7 @@
     ]
   },
   "calaminthTook": {
-    "id": 8,
+    "id": 9,
     "name": "Calaminth Took",
     "race": "Hobbit",
     "suggestedRole": "Provisioner",
@@ -528,7 +546,7 @@
     ]
   },
   "dis": {
-    "id": 9,
+    "id": 10,
     "name": "Dis",
     "race": "Dwarf",
     "suggestedRole": "Smith",
@@ -594,7 +612,7 @@
     ]
   },
   "dwalin": {
-    "id": 10,
+    "id": 11,
     "name": "Dwalin",
     "race": "Dwarf",
     "suggestedRole": "Lorekeeper",
@@ -660,7 +678,7 @@
     ]
   },
   "eleanor": {
-    "id": 11,
+    "id": 12,
     "name": "Eleanor",
     "race": "Human",
     "suggestedRole": "Traveller",
@@ -726,7 +744,7 @@
     ]
   },
   "elena": {
-    "id": 12,
+    "id": 13,
     "name": "Elena",
     "race": "Elf",
     "suggestedRole": "Musician",
@@ -792,7 +810,7 @@
     ]
   },
   "freahild": {
-    "id": 13,
+    "id": 14,
     "name": "Fréahild",
     "race": "Human",
     "suggestedRole": "Shieldmaiden",
@@ -858,7 +876,7 @@
     ]
   },
   "gandalf": {
-    "id": 14,
+    "id": 15,
     "name": "Gandalf",
     "race": "Istari",
     "suggestedRole": "Meddler",
@@ -926,7 +944,7 @@
     ]
   },
   "gimli": {
-    "id": 15,
+    "id": 16,
     "name": "Gimli",
     "race": "Dwarf",
     "suggestedRole": "Guardian",
@@ -991,26 +1009,6 @@
       }
     ]
   },
-  "theGreatBear": {
-    "id": 16,
-    "name": "The Great Bear",
-    "race": "Beorning",
-    "suggestedRole": "Guide",
-    "suggestedEquip": [],
-    "stats": {
-      "might": 5,
-      "wisdom": 2,
-      "agility": 3,
-      "spirit": 4,
-      "wit": 2
-    },
-    "maxInspiration": 3,
-    "maxFear": 6,
-    "maxDamage": 6,
-    "ability": "Before you interact, as an additional cost, choose and discard 1 prepared skill.\n(You can only equip Rending Claws and Hoary Coat.)",
-    "collection": "SW",
-    "cards": []
-    },
   "legolas": {
     "id": 17,
     "name": "Legolas",
@@ -1093,7 +1091,7 @@
     "maxInspiration": 4,
     "maxFear": 5,
     "maxDamage": 5,
-    "ability": "Action: Scout 2.  If you prepare a card with success, discard 1 facedown maxDamage or maxFear.  If you prepare a card with a fate, gain 1 maxInspiration.",
+    "ability": "Action: Scout 2.  If you prepare a card with success, discard 1 facedown Damage or Fear.  If you prepare a card with a fate, gain 1 maxInspiration.",
     "collection": "SW",
     "cards": [
       {

@@ -19,7 +19,7 @@ const getStatColor = (value) => {
     return 'stat-good';
   }
   if (value === 3) {
-    return 'stat-meh';
+    return 'stat-ok';
   }
   if (value < 3) {
     return 'stat-low';
@@ -40,18 +40,15 @@ const getStatColor = (value) => {
       <q-card-section>
         <div class="row items-center no-wrap">
           <div class="col">
-            <div class="text-h6 text-center">{{ hero.name }}</div>
-            <div class="text-subtitle2 text-center">{{ hero.race }}</div>
-            <div class="text-subtitle2 text-center">Suggested Role: {{ hero.suggestedRole }}</div>
+            <h6>{{ hero.name }}</h6>
+            <p>Race: {{ hero.race }}</p>
           </div>
-          <div class="col-auto">
-            <q-img
-              src="/assets/heroPh.png"
-              alt="Hero image"
-              style="width: 80px; height: auto"
-              class="rounded-borders"
-            />
-          </div>
+          <q-img
+            src="/assets/heroPh.png"
+            alt="Hero image"
+            style="width: 80px; height: auto"
+            class="rounded-borders"
+          />
         </div>
       </q-card-section>
 
@@ -72,7 +69,6 @@ const getStatColor = (value) => {
       </q-card-section>
     </q-card>
   </section>
-
   <hero-details v-model="showHeroDetails" :hero="selectedHero" />
 </template>
 
@@ -94,12 +90,12 @@ const getStatColor = (value) => {
   color: black
 }
 .stat-good {
-  background-color: #1c9822;
+  background-color: #09d119;
 }
-.stat-meh {
-  background-color: #add8ae;
+.stat-ok {
+  background-color: #c8a476;
 }
 .stat-low {
-  background-color: #c8b78c;
+  background-color: #871d20;
 }
 </style>
