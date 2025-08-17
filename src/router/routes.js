@@ -56,6 +56,10 @@ const routes = [
         component: () => import('pages/cards/InfoCardList.vue')
       },
       {
+        path: 'build-deck',
+        component: () => import('pages/deck/BuildDeck.vue')
+      },
+      {
         path: 'load',
         component: () => import('pages/LoadGame.vue')
       },

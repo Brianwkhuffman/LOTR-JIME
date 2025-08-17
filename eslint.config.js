@@ -4,7 +4,7 @@ import pluginVue from 'eslint-plugin-vue';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import css from '@eslint/css';
-import { defineConfig } from 'eslint/config';
+import {defineConfig} from 'eslint/config';
 
 export default defineConfig([
   {
@@ -15,23 +15,12 @@ export default defineConfig([
     rules: {
       semi: ['warn', 'always'],
       quotes: ['warn', 'single', { avoidEscape: true }],
-      indent: ['warn', 2],
-      'no-trailing-spaces': 'warn',
-      'no-multiple-empty-lines': ['warn', { max: 1 }],
-      'no-unused-vars': ['warn', { args: 'none', ignoreRestSiblings: true }],
-      'keyword-spacing': ['warn', { before: true, after: true }],
-      'comma-spacing': ['warn', { before: false, after: true }],
       'comma-dangle': ['warn', 'never'],
-      'object-curly-spacing': ['warn', 'always'],
-      'array-bracket-spacing': ['warn', 'never'],
       'space-before-blocks': ['warn', 'always'],
-      'space-in-parens': ['warn', 'never'],
       'eqeqeq': ['warn', 'always'],
       'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
       'no-debugger': 'error',
-      'curly': ['warn', 'all'],
-      'no-duplicate-imports': 'warn',
-
+      'object-curly-spacing': ['warn', 'always'],
       // End file with newline
       'eol-last': ['warn', 'always']
     }
@@ -40,13 +29,9 @@ export default defineConfig([
   {
     rules: {
       'vue/html-indent': ['warn', 2],
-      'vue/max-attributes-per-line': ['warn', { singleline: 2, multiline: 1 }],
-      'vue/multiline-html-element-content-newline': 'warn',
       'vue/html-self-closing': ['warn', { html: { void: 'never', normal: 'always' } }],
       'vue/attribute-hyphenation': ['warn', 'always'],
-      'vue/prop-name-casing': ['warn', 'camelCase'],
-      'object-curly-spacing': ['warn', 'always'],
-      'vue/object-curly-spacing': ['warn', 'always']
+      'vue/prop-name-casing': ['warn', 'camelCase']
     }
   },
   { files: ['**/*.json'], plugins: { json }, language: 'json/json', extends: ['json/recommended'] },
