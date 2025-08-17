@@ -1,5 +1,5 @@
 <script setup>
-import MenuDrawer from 'components/MenuDrawer.vue';
+import MenuDrawer from 'components/menu/MenuDrawer.vue';
 </script>
 <template>
   <q-layout view="lHh Lpr lFf">

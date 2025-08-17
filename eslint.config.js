@@ -4,7 +4,7 @@ import pluginVue from 'eslint-plugin-vue';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import css from '@eslint/css';
-import {defineConfig} from 'eslint/config';
+import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
@@ -15,7 +15,11 @@ export default defineConfig([
     rules: {
       semi: ['warn', 'always'],
       quotes: ['warn', 'single', { avoidEscape: true }],
-      'comma-dangle': ['warn', 'never'],
+      indent: ['warn', 2],
+      'no-unused-vars': ['warn', { args: 'none', ignoreRestSiblings: true }],
+      'keyword-spacing': ['warn', { before: true, after: true }],
+      'comma-spacing': ['warn', { before: false, after: true }],
+      'object-curly-spacing': ['warn', 'always'],
       'space-before-blocks': ['warn', 'always'],
       'eqeqeq': ['warn', 'always'],
       'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
@@ -27,9 +31,11 @@ export default defineConfig([
   pluginVue.configs['flat/essential'],
   {
     rules: {
+      'vue/html-indent': ['warn', 2],
       'vue/html-self-closing': ['warn', { html: { void: 'never', normal: 'always' } }],
       'vue/attribute-hyphenation': ['warn', 'always'],
-      'vue/prop-name-casing': ['warn', 'camelCase']
+      'object-curly-spacing': ['warn', 'always'],
+      'vue/object-curly-spacing': ['warn', 'always']
     }
   },
   { files: ['**/*.json'], plugins: { json }, language: 'json/json', extends: ['json/recommended'] },
