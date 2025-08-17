@@ -7,13 +7,6 @@ const { hero } = defineProps({
 <template>
   <q-dialog>
     <q-card>
-      <q-card-actions align="right">
-        <q-btn flat
-               icon="close"
-               label="close"
-               color="primary"
-               v-close-popup />
-      </q-card-actions>
       <q-card-section>
         <p class="text-h6">{{ hero.name }}</p>
         <div class="text-subtitle2">Race: {{ hero.race }}</div>
@@ -46,8 +39,9 @@ const { hero } = defineProps({
         </span>
       </q-card-section>
       <q-card-section>
-        <div>
-          TODO: hero cards list here
+        <p>Hero Cards:</p>
+        <div v-for="card in hero.cards" :key="card.name">
+          <p>{{card.name}}</p>
         </div>
       </q-card-section>
     </q-card>

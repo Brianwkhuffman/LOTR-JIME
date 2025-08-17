@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import { useHeroDetailStore } from '/src/stores/heroDetailStore.js';
 import HeroDetails from 'components/dialog/HeroDetails.vue';
-import FilterButton from '/src/components/button/FilterButton.vue';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const heroDetailStore = useHeroDetailStore();
@@ -29,7 +28,6 @@ const getStatColor = (value) => {
 </script>
 
 <template>
-  <filter-button />
   <back-button />
   <section class="q-pa-lg">
     <q-card
