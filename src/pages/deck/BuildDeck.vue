@@ -27,7 +27,7 @@ const selectedTab = ref('hero');
     <q-tab-panel name="role">
       <step-role/>
     </q-tab-panel>
-    <q-tab-panel name="equipment">
+    <q-tab-panel name="equip">
       <step-equipment/>
     </q-tab-panel>
     <q-tab-panel name="final">
