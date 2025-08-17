@@ -1,38 +1,44 @@
 <script setup>
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
+// import { useDeckStore } from 'stores/deckStore';
 import { computed, ref } from 'vue';
 
 const heroDetailStore = useHeroDetailStore();
+const heroList = heroDetailStore.getHeroNames;
+// const deckStore = useDeckStore();
 
 const selectedHero = ref(null);
 
-const heroOptions = computed(() =>
-  heroDetailStore.getHeroNames.map(name => {
-    const label = name
-      // insert space before capital letters
-      .replace(/([a-z])([A-Z])/g, '$1 $2')
-      // capitalize first letter of each word
-      .replace(/\b\w/g, char => char.toUpperCase());
-    return {
-      label,
-      value: name
-    };
-  })
-);
+const heroDetails = computed(() => {
+  if (!selectedHero.value) {
+    return [];
+  }
+  console.log(heroDetailStore.getHeroCards(selectedHero.value));
+  return heroDetailStore.getHeroCards(selectedHero.value);
+});
+
+const addHero = () => {
+  console.log('test', heroList);
+};
 
 </script>
 
 <template>
   <div>
     <q-select
-      :options="heroOptions"
+      :options="heroList"
       v-model="selectedHero"
       label="Select a Hero"
       clearable
     />
+    <q-btn @click="addHero">
+      Select Hero
+    </q-btn>
 
-    <div>
-      <p v-if="selectedHero">{{selectedHero.value}}</p>
+    <div v-if="heroDetails.length > 0">
+      <div v-for="details in heroDetails" :key="details.name">
+        <p>{{ details.name }} - {{ details.description }}</p>
+      </div>
     </div>
   </div>
 </template>
