@@ -267,6 +267,8 @@
     "id": 5,
     "name": "The Great Bear",
     "race": "Beorning",
+    "suggestedRole": "",
+    "suggestedEquip": [],
     "stats": {
       "might": 5,
       "wisdom": 2,

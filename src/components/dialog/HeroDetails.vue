@@ -1,9 +1,19 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 
 const selectedTab = ref('details');
-const { hero } = defineProps({
-  hero: Object
+const props = defineProps({
+  hero: {
+    type: Object,
+    required: true
+  }
+});
+const hasCards = computed(() =>
+  !!(props.hero && Array.isArray(props.hero.cards) && props.hero.cards.length)
+);
+
+watchEffect(() => {
+
 });
 </script>
 
@@ -13,11 +23,12 @@ const { hero } = defineProps({
 
       <q-tabs v-model="selectedTab" no-caps>
         <q-tab name="details" icon="military_tech" label="Details" />
-        <q-tab name="cards" icon="assignment_ind" label="Hero Cards" />
+        <q-tab v-if="hasCards" name="cards" icon="assignment_ind" label="Hero Cards" />
       </q-tabs>
 
       <q-tab-panels
         v-model="selectedTab"
+        animated
         dense
         no-caps
       >
@@ -26,7 +37,7 @@ const { hero } = defineProps({
             <h5>{{ hero.name }}</h5>
             <p>Race: {{ hero.race }}</p>
             <p>Suggested role: {{ hero.suggestedRole }}</p>
-            <p>Suggested equip: {{ hero.suggestedEquip.length > 1 ? hero.suggestedEquip : "None" }}</p>
+            <p>Suggested equip: {{ hero.suggestedEquip.length > 0 ? hero.suggestedEquip : "None" }}</p>
           </q-card-section>
           <q-separator />
           <q-card-section>
@@ -55,9 +66,13 @@ const { hero } = defineProps({
           </q-card-section>
         </q-tab-panel>
 
-        <q-tab-panel name="cards">
+        <q-tab-panel v-if="hasCards" name="cards">
           <q-card-section class="flex row">
-            <div class="hero-card-preview q-pa-sm" v-for="card in hero.cards" :key="card.name">
+            <div
+              v-for="card in hero.cards"
+              :key="card.name"
+              class="hero-card-preview q-pa-sm"
+            >
               <i>{{ card.name }}</i>
               <p>{{ card.description }}</p>
             </div>
