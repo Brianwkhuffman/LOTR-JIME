@@ -9,6 +9,11 @@ export const useWeaknessCardStore = defineStore('weaknessStore', () => {
   const weaknessCards = ref([]);
 
   const fetchWeaknessCards = async () => {
+    const hasData = weaknessCards.value.length;
+    if (hasData) {
+      return;
+    }
+
     loading.value = true;
     try {
       const response = await axios.get(url);

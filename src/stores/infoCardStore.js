@@ -13,6 +13,7 @@ export const useInfoCardStore = defineStore('infoCardStore', () => {
     if (hasData) {
       return;
     }
+
     loading.value = true;
     try {
       const response = await axios.get(url);
