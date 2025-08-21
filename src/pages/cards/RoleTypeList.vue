@@ -1,19 +1,24 @@
 <script setup>
-import { useRoleCardStore } from '/src/stores/roleCardStore.js';
+import { computed, onBeforeMount } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
+import { useRoleCardStore } from '/src/stores/roleCardStore.js';
 import { formatCamelCase } from '/src/utils/formatDisplay.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const router = useRouter();
 const roleCardStore = useRoleCardStore();
-const roleList = roleCardStore.getRoles;
+const { loading } = storeToRefs(roleCardStore);
 
-const formattedRoles = roleList.map(role => ({
-  raw: role,
-  label: formatCamelCase(role)
-}));
+onBeforeMount(() => {
+  roleCardStore.fetchRoleCards();
+});
 
-const goToType = (role) => {
+const roleList = computed(() => {
+  return roleCardStore.getRoles;
+});
+
+const goToRoleList = (role) => {
   router.push('/cards/roles/' + role);
 };
 </script>
@@ -21,17 +26,21 @@ const goToType = (role) => {
 <template>
   <back-button/>
   <div class="q-pa-md">
-    <div class="q-gutter-sm">
+    <div v-if="loading" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+
+    <div v-else class="q-gutter-sm">
       <q-card
-        v-for="role in formattedRoles"
-        :key="role.raw"
-        @click="goToType(role.raw)"
+        v-for="role in roleList"
+        :key="role"
+        @click="goToRoleList(role)"
         class="cursor-pointer hoverable"
         flat
         bordered
       >
         <q-card-section class="text-center">
-          <div class="text-h6 text-capitalize">{{ role.label }}</div>
+          <div class="text-h6 text-capitalize">{{ formatCamelCase(role) }}</div>
         </q-card-section>
       </q-card>
     </div>
