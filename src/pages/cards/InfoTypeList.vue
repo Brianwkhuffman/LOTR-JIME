@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 import { useRouter } from 'vue-router';
 import { useInfoCardStore } from 'stores/infoCardStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
@@ -7,7 +7,7 @@ import BackButton from 'src/components/button/BackButton.vue';
 const router = useRouter();
 const infoCardStore = useInfoCardStore();
 
-onMounted(() => {
+onBeforeMount(() => {
   infoCardStore.fetchInfoCards();
 });
 

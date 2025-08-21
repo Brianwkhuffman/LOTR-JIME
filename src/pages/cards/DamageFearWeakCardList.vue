@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useDamageFearCardStore } from '/src/stores/damageFearCardStore.js';
@@ -13,7 +13,7 @@ const { loading: loadingDmgFear } = storeToRefs(damageFearCardStore);
 const { loading: loadingWeakness } = storeToRefs(weaknessCardStore);
 
 
-onMounted(() => {
+onBeforeMount(() => {
   damageFearCardStore.fetchDamageFearCards();
   weaknessCardStore.fetchWeaknessCards();
 });
