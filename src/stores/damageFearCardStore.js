@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
 import axios from 'axios';
+import { computed, ref } from 'vue';
+import { defineStore } from 'pinia';
 
 export const useDamageFearCardStore = defineStore('damageFearCardStore', () => {
   const url = '/src/data/damageFearCards.json';

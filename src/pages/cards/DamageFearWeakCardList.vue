@@ -36,7 +36,9 @@ const cards = computed(() => {
   <back-button />
 
   <section class="q-pa-md">
-    <h6 v-if="loadingDmgFear || loadingWeakness">loading....</h6>
+    <div v-if="loadingDmgFear || loadingWeakness" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
 
     <ul v-else class="card-grid">
       <li v-for="card in cards"
