@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watchEffect } from 'vue';
+import { computed, ref } from 'vue';
 
 const selectedTab = ref('details');
 const props = defineProps({
@@ -12,9 +12,6 @@ const hasCards = computed(() =>
   !!(props.hero && Array.isArray(props.hero.cards) && props.hero.cards.length)
 );
 
-watchEffect(() => {
-
-});
 </script>
 
 <template>

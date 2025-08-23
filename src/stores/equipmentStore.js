@@ -7,7 +7,7 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
   const loading = ref(false);
   const error = ref(null);
   const equipList = ref({});
-  const equipTypes= ref([]);
+  const equipTypes = ref([]);
 
   const fetchEquipCards = async () => {
     const hasData = Object.keys(equipList.value).length && equipTypes.value.length;
