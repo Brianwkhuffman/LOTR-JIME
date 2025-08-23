@@ -8,14 +8,18 @@ const props = defineProps({
     required: true
   }
 });
+
 const hasCards = computed(() =>
   !!(props.hero && Array.isArray(props.hero.cards) && props.hero.cards.length)
 );
 
+const resetTabs = () => {
+  selectedTab.value = 'details';
+};
 </script>
 
 <template>
-  <q-dialog>
+  <q-dialog @before-show="resetTabs">
     <q-card style="height: 60vh;">
 
       <q-tabs v-model="selectedTab" no-caps>
