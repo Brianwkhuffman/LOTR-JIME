@@ -11,6 +11,10 @@ export const useDamageFearCardStore = defineStore('damageFearCardStore', () => {
 
   const fetchDamageFearCards = async () => {
     loading.value = true;
+    const hasData = damageCards.value.length && fearCards.value.length;
+    if (hasData) {
+      return;
+    }
     try {
       const response = await axios.get(url);
       const data = response.data;
