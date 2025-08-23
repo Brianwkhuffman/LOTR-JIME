@@ -21,7 +21,7 @@ const heroList = computed(() => {
 
 const openHeroDetails = (hero) => {
   showHeroDetails.value = true;
-  selectedHero.value = heroDetailStore.getHeroByName(hero.name);;
+  selectedHero.value = heroDetailStore.getHeroByName(hero.name);
 };
 
 </script>

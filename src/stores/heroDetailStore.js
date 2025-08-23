@@ -31,17 +31,20 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
   };
 
   const getAllHeroDetails = computed(() => {
-    // console.log(heroDetails.value);
     return heroDetails.value;
   });
 
   const getHeroes = computed(() => {
     return heroes.value;
   });
-  
+
   const getHeroByName = (name) => {
-    console.log(heroDetails.value[name]);
-    return heroDetails.value[name];
+    for (const hero in heroDetails.value) {
+      if (heroDetails.value[hero].name === name) {
+        return  heroDetails.value[hero];
+      }
+    }
+    return error.value = 'No hero found...';
   };
 
   return {
