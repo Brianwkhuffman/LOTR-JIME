@@ -58,7 +58,7 @@ const getStatColor = (value) => {
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .stat-circle {
   width: 3rem;
   height: 3rem;
@@ -76,12 +76,12 @@ const getStatColor = (value) => {
   color: black
 }
 .stat-good {
-  background-color: #09d119;
+  background-color: $positive;
 }
 .stat-ok {
-  background-color: #c8a476;
+  background-color: $warning;
 }
 .stat-low {
-  background-color: #871d20;
+  background-color: $negative;
 }
 </style>
