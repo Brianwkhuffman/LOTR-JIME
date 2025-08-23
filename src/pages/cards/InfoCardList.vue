@@ -1,18 +1,33 @@
 <script setup>
-import { useInfoCardStore } from 'stores/infoCardStore.js';
+import { computed, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
+import { useInfoCardStore } from 'stores/infoCardStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
 const typeParam = route.params.type;
 const infoCardStore = useInfoCardStore();
-const infoCardList = infoCardStore.getInfoCardsByType(typeParam);
+const { loading } = storeToRefs(infoCardStore);
+
+onMounted(() => {
+  infoCardStore.fetchInfoCards();
+});
+
+const infoCardList = computed(() => {
+  return infoCardStore.getInfoCardsByType(typeParam);
+});
 </script>
 
 <template>
   <back-button />
   <section class="q-pa-lg">
+    <div v-if="loading" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+
     <q-card
+      v-else
       v-for="card in infoCardList"
       :key="card.id"
       bordered

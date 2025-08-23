@@ -1,40 +1,34 @@
 <script setup>
-import { useEquipmentStore } from '/src/stores/equipmentStore.js';
+import { computed, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
-import { computed, ref } from 'vue';
-import FilterButton from '/src/components/button/FilterButton.vue';
+import { storeToRefs } from 'pinia';
+import { useEquipmentStore } from '/src/stores/equipmentStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
 const typeParam = route.params.type;
-const equipmentStore = useEquipmentStore();
-const equipmentList = ref(equipmentStore.getEquipmentListByType(typeParam));
+const equipStore = useEquipmentStore();
+const { loading } = storeToRefs(equipStore);
 
-const filter = ref({ tier: '', trait: '' });
-const filteredEquipment = computed(() => {
-  return equipmentList.value.filter(item => {
-    const tierMatch = filter.value.tier ? item.tier === filter.value.tier : true;
-    const traitMatch = filter.value.trait ? item.trait === filter.value.trait : true;
-    return tierMatch && traitMatch;
-  });
+onBeforeMount(() => {
+  equipStore.fetchEquipCards();
 });
 
-const onFilterChanged = (selected) => {
-  filter.value = selected;
-};
+const equipList = computed(() => {
+  return equipStore.getEquipmentListByType(typeParam);
+});
 </script>
 
 <template>
-  <filter-button
-    :tiers="['I','II','III', 'IV']"
-    :traits="['Agility', 'Might', 'Spirit', 'Wisdom', 'Wit']"
-    :equipment-list="equipmentList"
-    @filterChanged="onFilterChanged"
-  />
   <back-button />
   <section class="q-pa-lg">
+    <div v-if="loading" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+    
     <q-card
-      v-for="equip in filteredEquipment"
+      v-else
+      v-for="equip in equipList"
       :key="equip.id"
       bordered
       class="q-mb-md"

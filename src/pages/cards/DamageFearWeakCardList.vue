@@ -1,23 +1,32 @@
 <script setup>
+import { computed, onBeforeMount } from 'vue';
+import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
 import { useDamageFearCardStore } from '/src/stores/damageFearCardStore.js';
 import { useWeaknessCardStore } from '/src/stores/weaknessCardStore.js';
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
 const damageFearCardStore = useDamageFearCardStore();
 const weaknessCardStore = useWeaknessCardStore();
+const { loading: loadingDmgFear } = storeToRefs(damageFearCardStore);
+const { loading: loadingWeakness } = storeToRefs(weaknessCardStore);
+
+
+onBeforeMount(() => {
+  damageFearCardStore.fetchDamageFearCards();
+  weaknessCardStore.fetchWeaknessCards();
+});
 
 const cards = computed(() => {
   if (route.path.includes('/damage')) {
-    return damageFearCardStore.getDamageCards();
+    return damageFearCardStore.getDamageCards;
   }
   if (route.path.includes('/fear')) {
-    return damageFearCardStore.getFearCards();
+    return damageFearCardStore.getFearCards;
   }
   if (route.path.includes('/weakness')) {
-    return weaknessCardStore.getWeaknessCards();
+    return weaknessCardStore.getWeaknessCards;
   }
   return [];
 });
@@ -25,8 +34,13 @@ const cards = computed(() => {
 
 <template>
   <back-button />
+
   <section class="q-pa-md">
-    <ul class="card-grid">
+    <div v-if="loadingDmgFear || loadingWeakness" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+
+    <ul v-else class="card-grid">
       <li v-for="card in cards"
           :key="card.id"
           class="card"

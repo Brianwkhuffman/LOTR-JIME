@@ -1,35 +1,58 @@
-import { defineStore } from 'pinia';
+import axios from 'axios';
 import { computed, ref } from 'vue';
-import heroDetailData from '/src/data/heroDetails.json';
+import { defineStore } from 'pinia';
 
 export const useHeroDetailStore = defineStore('heroDetailStore', () => {
-  const heroes = ref(heroDetailData);
+  const url = '/src/data/heroDetails.json';
+  const loading = ref(false);
+  const error = ref(null);
+  const heroDetails = ref({});
+  const heroes = ref([]);
 
-  const getHeroList = computed(() => {
-    return Object.values(heroes.value);
-  });
+  const fetchHeroDetails = async () => {
+    const hasData = Object.keys(heroDetails.value).length && heroes.value.length;
+    if (hasData) {
+      return;
+    }
 
-  const getHeroNames = computed(() =>
-    Object.values(heroes.value).map(hero => hero.name)
-  );
-
-  const getHeroDetailsByName = (name) => {
-    return heroes.value[name];
+    loading.value = true;
+    try {
+      const response = await axios.get(url);
+      const data = response.data;
+      heroDetails.value = data;
+      heroes.value = Object.keys(data);
+    }
+    catch (error) {
+      error.value = error.message;
+    }
+    finally {
+      loading.value = false;
+    }
   };
 
-  const getHeroCards = (heroName) => {
-    const hero = Object.values(heroes.value).find(h => h.name === heroName);
-    if (!hero) {
-      return [];
+  const getAllHeroDetails = computed(() => {
+    return heroDetails.value;
+  });
+
+  const getHeroes = computed(() => {
+    return heroes.value;
+  });
+
+  const getHeroByName = (name) => {
+    for (const hero in heroDetails.value) {
+      if (heroDetails.value[hero].name === name) {
+        return  heroDetails.value[hero];
+      }
     }
-    return hero;
+    return error.value = 'No hero found...';
   };
 
   return {
-    heroes,
-    getHeroList,
-    getHeroNames,
-    getHeroDetailsByName,
-    getHeroCards
+    error,
+    fetchHeroDetails,
+    getAllHeroDetails,
+    getHeroes,
+    getHeroByName,
+    loading
   };
 });

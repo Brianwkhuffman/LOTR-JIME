@@ -1,5 +1,5 @@
 {
-  "damage": [
+  "damageCards": [
     {
       "id": 1,
       "name": "Shaken",
@@ -109,7 +109,7 @@
       "amount": 1
     }
   ],
-  "fear": [
+  "fearCards": [
     {
       "id": 1,
       "name": "Gloom",

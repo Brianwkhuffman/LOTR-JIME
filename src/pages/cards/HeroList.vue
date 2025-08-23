@@ -1,18 +1,27 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useHeroDetailStore } from '/src/stores/heroDetailStore.js';
+import BackButton from 'src/components/button/BackButton.vue';
 import HeroDetailCard from 'components/cards/HeroDetailCard.vue';
 import HeroDetails from 'components/dialog/HeroDetails.vue';
-import BackButton from 'src/components/button/BackButton.vue';
 
 const heroDetailStore = useHeroDetailStore();
-const heroList = heroDetailStore.getHeroList;
-
-const selectedHero = ref(null);
+const { loading } = storeToRefs(heroDetailStore);
+const selectedHero = ref({});
 const showHeroDetails = ref(false);
+
+onBeforeMount(() => {
+  heroDetailStore.fetchHeroDetails();
+});
+
+const heroList = computed(() => {
+  return heroDetailStore.getAllHeroDetails;
+});
+
 const openHeroDetails = (hero) => {
-  selectedHero.value = hero;
   showHeroDetails.value = true;
+  selectedHero.value = heroDetailStore.getHeroByName(hero.name);
 };
 
 </script>
@@ -20,7 +29,12 @@ const openHeroDetails = (hero) => {
 <template>
   <back-button />
   <section class="q-pa-lg">
+    <div v-if="loading" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+
     <hero-detail-card
+      v-else
       v-for="hero in heroList"
       :key="hero.id"
       :hero="hero"
@@ -28,7 +42,7 @@ const openHeroDetails = (hero) => {
     />
   </section>
   <hero-details
-    v-if="selectedHero"
+    v-if="!loading && selectedHero"
     v-model="showHeroDetails"
     :hero="selectedHero"
     :show-hero-details="showHeroDetails"
