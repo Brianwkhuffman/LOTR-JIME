@@ -27,7 +27,8 @@ const getStatColor = (value) => {
       <div class="row items-center no-wrap">
         <div class="col">
           <h6>{{ props.hero.name }}</h6>
-          <p>Race: {{ props.hero.race }}</p>
+          <p>Race: <b>{{ props.hero.race }}</b></p>
+          <p>Suggested Role: <b>{{ props.hero.suggestedRole }}</b></p>
         </div>
         <q-img
           src="/assets/heroPh.png"
