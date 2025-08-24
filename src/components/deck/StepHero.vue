@@ -1,11 +1,17 @@
 <script setup>
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 // import { useDeckStore } from 'stores/deckStore';
-import { computed, ref } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
 const heroDetailStore = useHeroDetailStore();
-const heroList = heroDetailStore.getHeroNames;
-// const deckStore = useDeckStore();
+
+onBeforeMount(() => {
+  console.log('before mount fetching...');
+  heroDetailStore.fetchHeroDetails();
+});
+
+const { getHeroes, loading } = storeToRefs(heroDetailStore);
 
 const selectedHero = ref(null);
 
@@ -18,15 +24,19 @@ const heroDetails = computed(() => {
 });
 
 const addHero = () => {
-  console.log('test', heroList);
+  console.log('test');
 };
 
 </script>
 
 <template>
   <div>
+    <div v-if="loading" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+
     <q-select
-      :options="heroList"
+      :options="getHeroes"
       v-model="selectedHero"
       label="Select a Hero"
       clearable
