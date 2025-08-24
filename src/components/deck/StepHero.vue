@@ -7,26 +7,24 @@ import { storeToRefs } from 'pinia';
 const heroDetailStore = useHeroDetailStore();
 
 onBeforeMount(() => {
-  console.log('before mount fetching...');
   heroDetailStore.fetchHeroDetails();
 });
 
-const { getHeroes, loading } = storeToRefs(heroDetailStore);
+const { loading, getHeroOptions } = storeToRefs(heroDetailStore);
 
 const selectedHero = ref(null);
-
 const heroDetails = computed(() => {
-  if (!selectedHero.value) {
-    return [];
+  if (selectedHero.value) {
+    return heroDetailStore.getHeroByOptionValue(selectedHero.value);
   }
-  console.log(heroDetailStore.getHeroCards(selectedHero.value));
-  return heroDetailStore.getHeroCards(selectedHero.value);
+  return null;
 });
 
 const addHero = () => {
-  console.log('test');
+  // Add hero to deck
+  console.log(heroDetails.value);
+  alert('test');
 };
-
 </script>
 
 <template>
@@ -36,18 +34,27 @@ const addHero = () => {
     </div>
 
     <q-select
-      :options="getHeroes"
+      :options="getHeroOptions"
       v-model="selectedHero"
-      label="Select a Hero"
       clearable
     />
     <q-btn @click="addHero">
       Select Hero
     </q-btn>
 
-    <div v-if="heroDetails.length > 0">
-      <div v-for="details in heroDetails" :key="details.name">
-        <p>{{ details.name }} - {{ details.description }}</p>
+    <div v-if="heroDetails">
+      <p>Suggested Role: {{heroDetails.suggestedRole}}</p>
+      <p>Suggested Equip: {{heroDetails.suggestedEquip}}</p>
+      <div v-if="heroDetails.cards">
+        <div
+          v-for="card in heroDetails.cards"
+          :key="card.name"
+          class="hero-card-preview q-pa-sm"
+          style="border: 1px solid black;"
+        >
+          <i>{{ card.name }}</i>
+          <p>{{ card.description }}</p>
+        </div>
       </div>
     </div>
   </div>
