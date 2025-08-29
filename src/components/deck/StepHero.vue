@@ -1,16 +1,21 @@
 <script setup>
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
-// import { useDeckStore } from 'stores/deckStore';
+import { useDeckStore } from 'stores/deckStore';
 import { computed, onBeforeMount, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 
 const heroDetailStore = useHeroDetailStore();
+const deckStore = useDeckStore();
+
+const emit = defineEmits(['nextStep']);
+const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
+const { loading: deckLoading } = storeToRefs(deckStore);
 
 onBeforeMount(() => {
   heroDetailStore.fetchHeroDetails();
+  deckStore.initializeDeck();
 });
 
-const { loading, getHeroOptions } = storeToRefs(heroDetailStore);
 
 const selectedHero = ref(null);
 const heroDetails = computed(() => {
@@ -20,16 +25,29 @@ const heroDetails = computed(() => {
   return null;
 });
 
-const addHero = () => {
+const selectHero = () => {
+  const validate = validateHeroSelection();
+  if (!validate) {
+    return;
+  }
   // Add hero to deck
-  console.log(heroDetails.value);
-  alert('test');
+  console.log('hero detail: ', heroDetails.value.cards);
+  deckStore.addHeroCards(heroDetails.value.cards);
+  console.log(deckStore.getDeck());
+  emit('nextStep');
+};
+
+const validateHeroSelection = () => {
+  if (!heroDetails.value) {
+    return false;
+  }
+  return true;
 };
 </script>
 
 <template>
   <div>
-    <div v-if="loading" class="row justify-center">
+    <div v-if="detailsLoading && deckLoading" class="row justify-center">
       <q-spinner-oval color="primary" size="10rem" />
     </div>
 
@@ -38,7 +56,7 @@ const addHero = () => {
       v-model="selectedHero"
       clearable
     />
-    <q-btn @click="addHero">
+    <q-btn @click="selectHero">
       Select Hero
     </q-btn>
 

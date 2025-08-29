@@ -1,14 +1,18 @@
 <script setup>
-defineEmits(['back', 'next']);
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const finalizeDeck = () => {
-  alert('finished');
+  router.push('/play');
 };
 </script>
 
 <template>
   <div>
     <h3>Step Final</h3>
-    <q-btn @click="finalizeDeck">Finish</q-btn>
+    <q-btn @click="finalizeDeck">
+      Finish
+    </q-btn>
   </div>
 </template>

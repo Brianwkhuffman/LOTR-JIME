@@ -22,13 +22,13 @@ const selectedTab = ref('hero');
 
   <q-tab-panels v-model="selectedTab">
     <q-tab-panel name="hero">
-      <step-hero/>
+      <step-hero @nextStep="selectedTab='role'"/>
     </q-tab-panel>
     <q-tab-panel name="role">
-      <step-role/>
+      <step-role @nextStep="selectedTab='equip'"/>
     </q-tab-panel>
     <q-tab-panel name="equip">
-      <step-equipment/>
+      <step-equipment @nextStep="selectedTab='final'"/>
     </q-tab-panel>
     <q-tab-panel name="final">
       <step-final/>
