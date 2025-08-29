@@ -2,15 +2,7 @@
 defineProps({
   card: {
     type: Object,
-    required: true,
-    validator: (card) => {
-      if (!card.name) {
-        console.warn('Card object requires a name.');
-      }
-      if (!card.description) {
-        console.warn('Card object requires a description.');
-      }
-    }
+    required: true
   }
 });
 
