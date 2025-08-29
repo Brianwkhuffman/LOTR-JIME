@@ -1,8 +1,9 @@
 <script setup>
+import { computed, onBeforeMount, ref } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
-import { computed, onBeforeMount, ref } from 'vue';
 import { storeToRefs } from 'pinia';
+import SmallCard from 'components/cards/SmallCard.vue';
 
 const heroDetailStore = useHeroDetailStore();
 const deckStore = useDeckStore();
@@ -16,8 +17,7 @@ onBeforeMount(() => {
   deckStore.initializeDeck();
 });
 
-
-const selectedHero = ref(null);
+const selectedHero = ref('');
 const heroDetails = computed(() => {
   if (selectedHero.value) {
     return heroDetailStore.getHeroByOptionValue(selectedHero.value);
@@ -25,15 +25,13 @@ const heroDetails = computed(() => {
   return null;
 });
 
+// Build Deck
 const selectHero = () => {
   const validate = validateHeroSelection();
   if (!validate) {
     return;
   }
-  // Add hero to deck
-  console.log('hero detail: ', heroDetails.value.cards);
   deckStore.addHeroCards(heroDetails.value.cards);
-  console.log(deckStore.getDeck());
   emit('nextStep');
 };
 
@@ -62,23 +60,18 @@ const validateHeroSelection = () => {
       style="width: 18rem;"
     />
 
-    <div class="q-pa-md">
+    <div class="q-pa-md row justify-between">
       <q-btn color="primary" @click="selectHero">
         Next
       </q-btn>
     </div>
 
-    <div v-if="heroDetails?.cards.length">
-      <h6>{{ heroDetails.name }} cards:</h6>
-      <div
-        v-for="card in heroDetails.cards"
-        :key="card.number"
-        class="hero-card-preview q-pa-sm"
-        style="border: 1px solid black;"
-      >
-        <i>{{ card.name }}</i>
-        <p>{{ card.description }}</p>
-      </div>
+    <div
+      v-for="card in heroDetails?.cards"
+      :key="card.number"
+      class="q-pa-sm"
+    >
+      <small-card  :card="card"/>
     </div>
   </div>
 </template>
