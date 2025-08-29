@@ -7,10 +7,10 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
   const loading = ref(false);
   const error = ref(null);
   const heroDetails = ref({});
-  const heroes = ref([]);
+  const heroNames = ref([]);
 
   const fetchHeroDetails = async () => {
-    const hasData = Object.keys(heroDetails.value).length && heroes.value.length;
+    const hasData = Object.keys(heroDetails.value).length && heroNames.value.length;
     if (hasData) {
       return;
     }
@@ -20,7 +20,7 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
       const response = await axios.get(url);
       const data = response.data;
       heroDetails.value = data;
-      heroes.value = Object.keys(data);
+      heroNames.value = Object.keys(data);
     }
     catch (error) {
       error.value = error.message;
@@ -30,29 +30,46 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     }
   };
 
+  // Getters-------------------
   const getAllHeroDetails = computed(() => {
     return heroDetails.value;
   });
 
-  const getHeroes = computed(() => {
-    return heroes.value;
+  const getHeroNames = computed(() => {
+    return heroNames.value;
   });
 
-  const getHeroByName = (name) => {
-    for (const hero in heroDetails.value) {
-      if (heroDetails.value[hero].name === name) {
-        return  heroDetails.value[hero];
+  // List of objects for q-select dropdown
+  const getHeroOptions = computed(() => {
+    const options = [];
+    for (const hero of Object.values(heroDetails.value)) {
+      options.push({
+        label: hero.name,
+        value: hero.id,
+      });
+    }
+    return options;
+  });
+
+  // Actions-------------------
+
+  // Get Hero object using hero.id
+  const getHeroByOptionValue = (option) => {
+    for (const hero of Object.values(heroDetails.value)) {
+      if (hero.id === option.value) {
+        return hero;
       }
     }
-    return error.value = 'No hero found...';
+    return null;
   };
 
   return {
     error,
     fetchHeroDetails,
     getAllHeroDetails,
-    getHeroes,
-    getHeroByName,
+    getHeroNames,
+    getHeroOptions,
+    getHeroByOptionValue,
     loading
   };
 });

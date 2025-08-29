@@ -1,44 +1,77 @@
 <script setup>
+import { computed, onBeforeMount, ref } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
-// import { useDeckStore } from 'stores/deckStore';
-import { computed, ref } from 'vue';
+import { useDeckStore } from 'stores/deckStore';
+import { storeToRefs } from 'pinia';
+import SmallCard from 'components/cards/SmallCard.vue';
 
 const heroDetailStore = useHeroDetailStore();
-const heroList = heroDetailStore.getHeroNames;
-// const deckStore = useDeckStore();
+const deckStore = useDeckStore();
 
-const selectedHero = ref(null);
+const emit = defineEmits(['nextStep']);
+const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
+const { loading: deckLoading } = storeToRefs(deckStore);
 
-const heroDetails = computed(() => {
-  if (!selectedHero.value) {
-    return [];
-  }
-  console.log(heroDetailStore.getHeroCards(selectedHero.value));
-  return heroDetailStore.getHeroCards(selectedHero.value);
+onBeforeMount(() => {
+  heroDetailStore.fetchHeroDetails();
+  deckStore.initializeDeck();
 });
 
-const addHero = () => {
-  console.log('test', heroList);
+const selectedHero = ref('');
+const heroDetails = computed(() => {
+  if (selectedHero.value) {
+    return heroDetailStore.getHeroByOptionValue(selectedHero.value);
+  }
+  return null;
+});
+
+// Build Deck
+const selectHero = () => {
+  const validate = validateHeroSelection();
+  if (!validate) {
+    return;
+  }
+  deckStore.addHeroCards(heroDetails.value.cards);
+  emit('nextStep');
 };
 
+const validateHeroSelection = () => {
+  if (!heroDetails.value) {
+    return false;
+  }
+  return true;
+};
 </script>
 
 <template>
-  <div>
-    <q-select
-      :options="heroList"
-      v-model="selectedHero"
-      label="Select a Hero"
-      clearable
-    />
-    <q-btn @click="addHero">
-      Select Hero
-    </q-btn>
+  <div v-if="detailsLoading && deckLoading" class="row justify-center">
+    <q-spinner-oval color="primary" size="10rem" />
+  </div>
 
-    <div v-if="heroDetails.length > 0">
-      <div v-for="details in heroDetails" :key="details.name">
-        <p>{{ details.name }} - {{ details.description }}</p>
-      </div>
+  <div v-else style="display: grid; place-items: center;">
+    <q-select
+      :options="getHeroOptions"
+      v-model="selectedHero"
+      label="Hero:"
+      clearable
+      outlined
+      stack-label
+      color="primary"
+      style="width: 18rem;"
+    />
+
+    <div class="q-pa-md row justify-between">
+      <q-btn color="primary" @click="selectHero">
+        Next
+      </q-btn>
+    </div>
+
+    <div
+      v-for="card in heroDetails?.cards"
+      :key="card.number"
+      class="q-pa-sm"
+    >
+      <small-card  :card="card"/>
     </div>
   </div>
 </template>

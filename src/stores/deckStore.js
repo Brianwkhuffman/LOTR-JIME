@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
+import axios from 'axios';
 
 export const useDeckStore = defineStore('deckStore', () => {
+  const basicCardsUrl = '/src/data/basicCards.json';
+  const loading = ref(false);
+  const error = ref(null);
   const currentDeck = ref({
     basic: [],
     hero: [],
@@ -9,18 +13,27 @@ export const useDeckStore = defineStore('deckStore', () => {
     equipment: []
   });
 
-  // Persist to sessionStorage
-  watch(currentDeck, (newDeck) => {
-    sessionStorage.setItem('deck', JSON.stringify(newDeck.value));
-  }, { deep: true });
+  const initializeDeck = async() => {
+    loading.value = true;
+    try {
+      const response = await axios.get(basicCardsUrl);
+      const basicCards = response.data.basicCards;
+      currentDeck.value.basic.push(basicCards);
+    }
+    catch (error) {
+      error.value = error.message;
+    }
+    finally {
+      loading.value = false;
+    }
+  };
 
   const getDeck = () => {
     return currentDeck.value;
   };
 
   const loadDeck = () => {
-    const saved = JSON.parse(sessionStorage.getItem('deck') || '{}');
-    if (saved.basic) currentDeck.value = saved;
+    return currentDeck.value;
   };
 
   const addHeroCards = (heroCardList) => {
@@ -43,6 +56,9 @@ export const useDeckStore = defineStore('deckStore', () => {
 
   return {
     currentDeck,
+    initializeDeck,
+    error,
+    loading,
     getDeck,
     loadDeck,
     addHeroCards,
