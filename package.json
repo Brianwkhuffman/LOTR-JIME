@@ -10,7 +10,8 @@
     "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{js,cjs,mjs,vue}\"",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
-    "build": "quasar build",
+    "clean": "quasar clean",
+    "build": "quasar build -m pwa",
     "postinstall": "quasar prepare"
   },
   "dependencies": {

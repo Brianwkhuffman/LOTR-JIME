@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useInfoCardStore = defineStore('infoCardStore', () => {
-  const url = '/src/data/infoCards.json';
+  const url = '/data/infoCards.json';
   const loading = ref(false);
   const error = ref(null);
   const infoCards = ref({});
