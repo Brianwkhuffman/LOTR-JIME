@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 export const useDeckStore = defineStore('deckStore', () => {
-  const basicCardsUrl = '/src/data/basicCards.json';
+  const basicCardsUrl = '/data/basicCards.json';
   const loading = ref(false);
   const error = ref(null);
   const currentDeck = ref({

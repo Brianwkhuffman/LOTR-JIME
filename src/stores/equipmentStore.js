@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useEquipmentStore = defineStore('equipmentStore', () => {
-  const url = '/src/data/equipCards.json';
+  const url = '/data/equipCards.json';
   const loading = ref(false);
   const error = ref(null);
   const equipList = ref({});
@@ -33,7 +33,7 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
   const getEquipmentTypes = computed(() => {
     return equipTypes.value;
   });
-  
+
   const getEquipmentListByType = (type) => {
     return equipList.value[type];
   };

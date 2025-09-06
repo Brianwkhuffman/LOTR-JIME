@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 
 
 export const useTitleCardStore = defineStore('titleCardStore', () =>{
-  const url = '/src/data/titleCards.json';
+  const url = '/data/titleCards.json';
   const loading = ref(false);
   const error = ref(null);
   const titleCards = ref([]);

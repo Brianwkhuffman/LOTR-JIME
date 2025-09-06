@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useHeroDetailStore = defineStore('heroDetailStore', () => {
-  const url = '/src/data/heroDetails.json';
+  const url = '/data/heroDetails.json';
   const loading = ref(false);
   const error = ref(null);
   const heroDetails = ref({});
@@ -30,7 +30,6 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     }
   };
 
-  // Getters-------------------
   const getAllHeroDetails = computed(() => {
     return heroDetails.value;
   });
@@ -51,8 +50,6 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     return options;
   });
 
-  // Actions-------------------
-
   // Get Hero object using hero.id
   const getHeroByOptionValue = (option) => {
     for (const hero of Object.values(heroDetails.value)) {
@@ -63,9 +60,19 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     return null;
   };
 
+  const getHeroByName = (name) => {
+    for (const hero in heroDetails.value) {
+      if (heroDetails.value[hero].name === name) {
+        return  heroDetails.value[hero];
+      }
+    }
+    return error.value = 'No hero found...';
+  };
+
   return {
     error,
     fetchHeroDetails,
+    getHeroByName,
     getAllHeroDetails,
     getHeroNames,
     getHeroOptions,

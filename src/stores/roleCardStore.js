@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useRoleCardStore = defineStore('roleCardStore', () => {
-  const url = '/src/data/roleCards.json';
+  const url = '/data/roleCards.json';
   const loading = ref(false);
   const error = ref(null);
   const roleCards = ref({});

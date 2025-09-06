@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useWeaknessCardStore = defineStore('weaknessStore', () => {
-  const url = '/src/data/weaknessCards.json';
+  const url = '/data/weaknessCards.json';
   const loading = ref(false);
   const error = ref(null);
   const weaknessCards = ref([]);
