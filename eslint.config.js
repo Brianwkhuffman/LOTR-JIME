@@ -16,14 +16,11 @@ export default defineConfig([
       semi: ['warn', 'always'],
       quotes: ['warn', 'single', { avoidEscape: true }],
       indent: ['warn', 2],
-      'no-unused-vars': ['warn', { args: 'none', ignoreRestSiblings: true }],
       'keyword-spacing': ['warn', { before: true, after: true }],
       'comma-spacing': ['warn', { before: false, after: true }],
       'object-curly-spacing': ['warn', 'always'],
       'space-before-blocks': ['warn', 'always'],
       'eqeqeq': ['warn', 'always'],
-      'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
-      'no-debugger': 'error',
       // End file with newline
       'eol-last': ['warn', 'always']
     }
