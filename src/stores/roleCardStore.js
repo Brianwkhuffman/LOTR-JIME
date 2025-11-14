@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
+import { formatCamelCase } from 'src/utils/formatDisplay.js';
 
 export const useRoleCardStore = defineStore('roleCardStore', () => {
   const url = '/data/roleCards.json';
@@ -38,11 +39,24 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     return roleCards.value[type];
   };
 
+  // List of objects for q-select dropdown
+  const getRoleOptions = computed(() => {
+    const options = [];
+    for (const role of roles.value) {
+      options.push({
+        label: formatCamelCase(role),
+        value: role,
+      });
+    }
+    return options;
+  });
+
   return {
     error,
     fetchRoleCards,
     getRoles,
     getRoleCardsByType,
+    getRoleOptions,
     loading
   };
 });
