@@ -16,7 +16,6 @@ export default async ({ store }) => {
   const roleCardStore = useRoleCardStore(store);
   const titleCardStore = useTitleCardStore(store);
   const weaknessCardStore = useWeaknessCardStore(store);
-  console.log('Initializing all stores...');
 
   await Promise.all([
     damageFearCardStore.fetchDamageFearCards(),
