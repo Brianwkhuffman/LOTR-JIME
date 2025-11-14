@@ -13,6 +13,9 @@ export const useDeckStore = defineStore('deckStore', () => {
     equipment: []
   });
 
+  const selectedHero = ref({ label: '', value: '' });
+  const selectedRole = ref({ label: '', value: '' });
+
   const initializeDeck = async() => {
     loading.value = true;
     try {
@@ -57,6 +60,8 @@ export const useDeckStore = defineStore('deckStore', () => {
     loadDeck,
     addCards,
     removeCards,
-    clearDeck
+    clearDeck,
+    selectedHero,
+    selectedRole
   };
 });

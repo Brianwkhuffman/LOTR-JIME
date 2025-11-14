@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
@@ -10,13 +10,7 @@ const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
-const { loading: deckLoading } = storeToRefs(deckStore);
-
-const selectedHero = ref('');
-// TODO: if hero already selected then set ref
-// if (currentDeck.value.hero.length) {
-//   selectedHero.value = { label: 'Aragorn', value: 1 };
-// }
+const { loading: deckLoading, selectedHero } = storeToRefs(deckStore);
 
 const heroCards = computed(() => {
   if (selectedHero.value) {
@@ -68,7 +62,7 @@ const validateHeroSelection = () => {
       :key="card.number"
       class="q-pa-sm"
     >
-      <small-card  :card="card"/>
+      <small-card :card="card"/>
     </div>
   </div>
 </template>

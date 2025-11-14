@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useRoleCardStore } from 'stores/roleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
@@ -9,10 +9,8 @@ const roleCardStore = useRoleCardStore();
 const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
-const { loading: deckLoading } = storeToRefs(deckStore);
 const { loading: rolesLoading, getRoleOptions } = storeToRefs(roleCardStore);
-
-const selectedRole = ref('');
+const { loading: deckLoading, selectedRole } = storeToRefs(deckStore);
 
 const roleCards = computed(() => {
   if (selectedRole.value) {
