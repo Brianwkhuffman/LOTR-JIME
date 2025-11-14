@@ -25,6 +25,7 @@ const addRoleCards = () => {
   if (!validRole) {
     return;
   }
+  // TODO: make cards selectable, only add selected cards
   deckStore.addCards('role', roleCards);
   emit('nextStep');
 };
