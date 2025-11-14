@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeMount, ref } from 'vue';
+import { computed } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
@@ -10,36 +10,27 @@ const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
-const { loading: deckLoading } = storeToRefs(deckStore);
+const { loading: deckLoading, selectedHero } = storeToRefs(deckStore);
 
-onBeforeMount(() => {
-  heroDetailStore.fetchHeroDetails();
-  deckStore.initializeDeck();
-});
-
-const selectedHero = ref('');
-const heroDetails = computed(() => {
+const heroCards = computed(() => {
   if (selectedHero.value) {
-    return heroDetailStore.getHeroByOptionValue(selectedHero.value);
+    const cards = heroDetailStore.getHeroCardsByHeroId(selectedHero.value.value);
+    return cards;
   }
   return null;
 });
 
-// Build Deck
-const selectHero = () => {
-  const validate = validateHeroSelection();
-  if (!validate) {
+const addHeroCards = () => {
+  const validHero = validateHeroSelection();
+  if (!validHero) {
     return;
   }
-  deckStore.addHeroCards(heroDetails.value.cards);
+  deckStore.addCards('hero', heroCards);
   emit('nextStep');
 };
 
 const validateHeroSelection = () => {
-  if (!heroDetails.value) {
-    return false;
-  }
-  return true;
+  return heroCards.value;
 };
 </script>
 
@@ -61,17 +52,17 @@ const validateHeroSelection = () => {
     />
 
     <div class="q-pa-md row justify-between">
-      <q-btn color="primary" @click="selectHero">
-        Next
+      <q-btn color="primary" @click="addHeroCards">
+        Select Hero
       </q-btn>
     </div>
 
     <div
-      v-for="card in heroDetails?.cards"
+      v-for="card in heroCards"
       :key="card.number"
       class="q-pa-sm"
     >
-      <small-card  :card="card"/>
+      <small-card :card="card"/>
     </div>
   </div>
 </template>
