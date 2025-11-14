@@ -50,11 +50,10 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     return options;
   });
 
-  // Get Hero object using hero.id
-  const getHeroByOptionValue = (option) => {
+  const getHeroCardsByHeroId = (id) => {
     for (const hero of Object.values(heroDetails.value)) {
-      if (hero.id === option.value) {
-        return hero;
+      if (hero.id === id) {
+        return hero.cards;
       }
     }
     return null;
@@ -76,7 +75,7 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     getAllHeroDetails,
     getHeroNames,
     getHeroOptions,
-    getHeroByOptionValue,
+    getHeroCardsByHeroId,
     loading
   };
 });
