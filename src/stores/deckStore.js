@@ -18,7 +18,7 @@ export const useDeckStore = defineStore('deckStore', () => {
     try {
       const response = await axios.get(basicCardsUrl);
       const basicCards = response.data.basicCards;
-      currentDeck.value.basic.push(basicCards);
+      currentDeck.value.basic = basicCards;
     }
     catch (error) {
       error.value = error.message;
@@ -36,14 +36,8 @@ export const useDeckStore = defineStore('deckStore', () => {
     return currentDeck.value;
   };
 
-  const addHeroCards = (heroCardList) => {
-    currentDeck.value.hero.push(heroCardList);
-  };
-
-  const addCards = (type, card) => {
-    if (!currentDeck.value[type].includes(card)) {
-      currentDeck.value[type].push(card);
-    }
+  const addCards = (type, cardList) => {
+    currentDeck.value[type] = cardList;
   };
 
   const removeCards = (type, card) => {
@@ -61,7 +55,6 @@ export const useDeckStore = defineStore('deckStore', () => {
     loading,
     getDeck,
     loadDeck,
-    addHeroCards,
     addCards,
     removeCards,
     clearDeck
