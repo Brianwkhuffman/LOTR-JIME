@@ -53,7 +53,7 @@ const validateHeroSelection = () => {
 
     <div class="q-pa-md row justify-between">
       <q-btn color="primary" @click="addHeroCards">
-        Next
+        Select Hero
       </q-btn>
     </div>
 
