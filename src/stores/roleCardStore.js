@@ -38,7 +38,7 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
   /**
    * Method to create Role objects formatted for q-select dropdown.
    *
-   * @returns An array of objects with keys: label (role using camelCase) and value (role)
+   * @returns An array of objects with keys: label (role name using camelCase) and value (role)
    */
   const getRoleOptions = computed(() => {
     const options = [];
