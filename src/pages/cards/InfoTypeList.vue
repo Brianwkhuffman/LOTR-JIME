@@ -1,19 +1,12 @@
 <script setup>
-import { computed, onBeforeMount } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useInfoCardStore } from 'stores/infoCardStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const router = useRouter();
 const infoCardStore = useInfoCardStore();
-
-onBeforeMount(() => {
-  infoCardStore.fetchInfoCards();
-});
-
-const infoTypes = computed(() => {
-  return infoCardStore.getInfoTypes;
-});
+const { loading, infoTypes } = storeToRefs(infoCardStore);
 
 const goToCardList = (type) => {
   router.push('/cards/info/' + type);
@@ -23,7 +16,11 @@ const goToCardList = (type) => {
 <template>
   <back-button />
   <div class="q-pa-md">
-    <div class="q-gutter-sm">
+    <div v-if="loading" class="row justify-center">
+      <q-spinner-oval color="primary" size="10rem" />
+    </div>
+
+    <div v-else class="q-gutter-sm">
       <q-card
         v-for="type in infoTypes"
         :key="type"

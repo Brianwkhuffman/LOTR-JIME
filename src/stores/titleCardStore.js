@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 
@@ -28,14 +28,10 @@ export const useTitleCardStore = defineStore('titleCardStore', () =>{
     }
   };
 
-  const getTitleCards = computed(() => {
-    return titleCards.value;
-  });
-
   return {
     error,
-    fetchTitleCards,
-    getTitleCards,
-    loading
+    loading,
+    titleCards,
+    fetchTitleCards
   };
 });

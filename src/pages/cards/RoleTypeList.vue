@@ -1,5 +1,4 @@
 <script setup>
-import { computed, onBeforeMount } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useRoleCardStore } from '/src/stores/roleCardStore.js';
@@ -8,15 +7,7 @@ import BackButton from 'src/components/button/BackButton.vue';
 
 const router = useRouter();
 const roleCardStore = useRoleCardStore();
-const { loading } = storeToRefs(roleCardStore);
-
-onBeforeMount(() => {
-  roleCardStore.fetchRoleCards();
-});
-
-const roleList = computed(() => {
-  return roleCardStore.getRoles;
-});
+const { loading, roles } = storeToRefs(roleCardStore);
 
 const goToRoleList = (role) => {
   router.push('/cards/roles/' + role);
@@ -32,7 +23,7 @@ const goToRoleList = (role) => {
 
     <div v-else class="q-gutter-sm">
       <q-card
-        v-for="role in roleList"
+        v-for="role in roles"
         :key="role"
         @click="goToRoleList(role)"
         class="cursor-pointer hoverable"

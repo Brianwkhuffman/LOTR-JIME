@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeMount, ref } from 'vue';
+import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useHeroDetailStore } from '/src/stores/heroDetailStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
@@ -7,17 +7,9 @@ import HeroDetailCard from 'components/cards/HeroDetailCard.vue';
 import HeroDetails from 'components/dialog/HeroDetails.vue';
 
 const heroDetailStore = useHeroDetailStore();
-const { loading } = storeToRefs(heroDetailStore);
+const { loading, heroes } = storeToRefs(heroDetailStore);
 const selectedHero = ref({});
 const showHeroDetails = ref(false);
-
-onBeforeMount(() => {
-  heroDetailStore.fetchHeroDetails();
-});
-
-const heroList = computed(() => {
-  return heroDetailStore.getAllHeroDetails;
-});
 
 const openHeroDetails = (hero) => {
   showHeroDetails.value = true;
@@ -35,7 +27,7 @@ const openHeroDetails = (hero) => {
 
     <hero-detail-card
       v-else
-      v-for="hero in heroList"
+      v-for="hero in heroes"
       :key="hero.id"
       :hero="hero"
       @open-hero-details="openHeroDetails"

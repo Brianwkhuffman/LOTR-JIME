@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeMount } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useEquipmentStore } from '/src/stores/equipmentStore.js';
@@ -9,10 +9,6 @@ const route = useRoute();
 const typeParam = route.params.type;
 const equipStore = useEquipmentStore();
 const { loading } = storeToRefs(equipStore);
-
-onBeforeMount(() => {
-  equipStore.fetchEquipCards();
-});
 
 const equipList = computed(() => {
   return equipStore.getEquipmentListByType(typeParam);
@@ -25,7 +21,7 @@ const equipList = computed(() => {
     <div v-if="loading" class="row justify-center">
       <q-spinner-oval color="primary" size="10rem" />
     </div>
-    
+
     <q-card
       v-else
       v-for="equip in equipList"

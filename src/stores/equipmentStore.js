@@ -1,16 +1,16 @@
 import axios from 'axios';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useEquipmentStore = defineStore('equipmentStore', () => {
   const url = '/data/equipCards.json';
   const loading = ref(false);
   const error = ref(null);
-  const equipList = ref({});
+  const equipmentMap = ref({});
   const equipTypes = ref([]);
 
   const fetchEquipCards = async () => {
-    const hasData = Object.keys(equipList.value).length && equipTypes.value.length;
+    const hasData = Object.keys(equipmentMap.value).length && equipTypes.value.length;
     if (hasData) {
       return;
     }
@@ -19,7 +19,7 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     try {
       const response = await axios.get(url);
       const data = response.data;
-      equipList.value = data;
+      equipmentMap.value = data;
       equipTypes.value = Object.keys(data);
     }
     catch (error) {
@@ -30,19 +30,16 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     }
   };
 
-  const getEquipmentTypes = computed(() => {
-    return equipTypes.value;
-  });
-
   const getEquipmentListByType = (type) => {
-    return equipList.value[type];
+    return equipmentMap.value[type];
   };
 
   return {
     error,
+    loading,
+    equipmentMap,
+    equipTypes,
     fetchEquipCards,
-    getEquipmentTypes,
-    getEquipmentListByType,
-    loading
+    getEquipmentListByType
   };
 });

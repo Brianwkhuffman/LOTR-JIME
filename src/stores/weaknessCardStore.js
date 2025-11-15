@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useWeaknessCardStore = defineStore('weaknessStore', () => {
@@ -27,14 +27,10 @@ export const useWeaknessCardStore = defineStore('weaknessStore', () => {
     }
   };
 
-  const getWeaknessCards = computed(() => {
-    return weaknessCards.value;
-  });
-
   return {
     error,
-    fetchWeaknessCards,
-    getWeaknessCards,
-    loading
+    loading,
+    weaknessCards,
+    fetchWeaknessCards
   };
 });
