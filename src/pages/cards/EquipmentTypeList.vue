@@ -1,5 +1,4 @@
 <script setup>
-import { computed, onBeforeMount } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useEquipmentStore } from '/src/stores/equipmentStore.js';
@@ -7,15 +6,7 @@ import BackButton from 'components/button/BackButton.vue';
 
 const router = useRouter();
 const equipStore = useEquipmentStore();
-const { loading } = storeToRefs(equipStore);
-
-onBeforeMount(() => {
-  equipStore.fetchEquipCards();
-});
-
-const equipTypes = computed(() => {
-  return equipStore.getEquipmentTypes;
-});
+const { loading, equipTypes } = storeToRefs(equipStore);
 
 const goToType = (type) => {
   router.push('/cards/equipment/' + type);
@@ -28,7 +19,7 @@ const goToType = (type) => {
     <div v-if="loading" class="row justify-center">
       <q-spinner-oval color="primary" size="10rem" />
     </div>
-    
+
     <div v-else class="q-gutter-sm">
       <q-card
         v-for="type in equipTypes"

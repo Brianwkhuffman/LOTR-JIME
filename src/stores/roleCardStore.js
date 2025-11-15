@@ -7,11 +7,11 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
   const url = '/data/roleCards.json';
   const loading = ref(false);
   const error = ref(null);
-  const roleCards = ref({});
+  const roleCardsMap = ref({});
   const roles = ref([]);
 
   const fetchRoleCards = async () => {
-    const hasData = Object.keys(roleCards.value).length && roles.value.length;
+    const hasData = Object.keys(roleCardsMap.value).length && roles.value.length;
     if (hasData) {
       return;
     }
@@ -20,7 +20,7 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     try {
       const response = await axios.get(url);
       const data = response.data;
-      roleCards.value = data;
+      roleCardsMap.value = data;
       roles.value = Object.keys(data);
     }
     catch (error) {
@@ -31,15 +31,15 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     }
   };
 
-  const getRoles = computed(() => {
-    return roles.value;
-  });
-
   const getRoleCardsByType = (type) => {
-    return roleCards.value[type];
+    return roleCardsMap.value[type];
   };
 
-  // List of objects for q-select dropdown
+  /**
+   * Method to create Role objects formatted for q-select dropdown.
+   *
+   * @returns An array of objects with keys: label (role using camelCase) and value (role)
+   */
   const getRoleOptions = computed(() => {
     const options = [];
     for (const role of roles.value) {
@@ -53,10 +53,11 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
 
   return {
     error,
+    loading,
+    roleCardsMap,
+    roles,
     fetchRoleCards,
-    getRoles,
     getRoleCardsByType,
-    getRoleOptions,
-    loading
+    getRoleOptions
   };
 });

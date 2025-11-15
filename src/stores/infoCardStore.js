@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useInfoCardStore = defineStore('infoCardStore', () => {
@@ -7,6 +7,7 @@ export const useInfoCardStore = defineStore('infoCardStore', () => {
   const loading = ref(false);
   const error = ref(null);
   const infoCards = ref({});
+  const infoTypes = ref([]);
 
   const fetchInfoCards = async () => {
     const hasData = Object.keys(infoCards.value).length;
@@ -17,7 +18,9 @@ export const useInfoCardStore = defineStore('infoCardStore', () => {
     loading.value = true;
     try {
       const response = await axios.get(url);
-      infoCards.value = response.data;
+      const data = response.data;
+      infoCards.value = data;
+      infoTypes.value = Object.keys(data);
     }
     catch (error) {
       error.value = error.message;
@@ -27,19 +30,15 @@ export const useInfoCardStore = defineStore('infoCardStore', () => {
     }
   };
 
-  const getInfoTypes = computed(() => {
-    return Object.keys(infoCards.value);
-  });
-
   const getInfoCardsByType = (type) => {
     return infoCards.value[type];
   };
 
   return {
     error,
+    loading,
+    infoTypes,
     fetchInfoCards,
-    getInfoTypes,
-    getInfoCardsByType,
-    loading
+    getInfoCardsByType
   };
 });

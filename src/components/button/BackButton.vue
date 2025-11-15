@@ -5,16 +5,12 @@ const router = useRouter();
 const route = useRoute();
 const goBack = () => {
   if (window.history.state?.back) {
-    return router.back();
+    const urlPaths = route.path.split('/').filter(Boolean);
+    if (urlPaths.length === 1) {
+      return router.push('/');
+    }
   }
-
-  const urlPaths = route.path.split('/').filter(Boolean);
-  if (urlPaths.length > 1) {
-    urlPaths.pop();
-    const fallBackPath = '/' + urlPaths.join('/');
-    return router.push(fallBackPath);
-  }
-  return router.push('/');
+  return router.back();
 };
 </script>
 
