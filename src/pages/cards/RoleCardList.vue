@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { useRoleCardStore } from '/src/stores/roleCardStore.js';
@@ -9,10 +9,6 @@ const route = useRoute();
 const roleType = route.params.role;
 const roleCardStore = useRoleCardStore();
 const { loading } = storeToRefs(roleCardStore);
-
-onMounted(() => {
-  roleCardStore.fetchRoleCards();
-});
 
 const roleCards = computed(() => {
   return roleCardStore.getRoleCardsByType(roleType);

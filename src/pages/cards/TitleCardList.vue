@@ -1,20 +1,11 @@
 <script setup>
-import { computed, onBeforeMount } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useTitleCardStore } from '/src/stores/titleCardStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
 import FilterButton from 'components/button/FilterButton.vue';
 
 const titleCardStore = useTitleCardStore();
-const { loading } = storeToRefs(titleCardStore);
-
-onBeforeMount(() => {
-  titleCardStore.fetchTitleCards();
-});
-
-const titleCards = computed(() => {
-  return titleCardStore.getTitleCards;
-});
+const { loading, titleCards } = storeToRefs(titleCardStore);
 
 </script>
 

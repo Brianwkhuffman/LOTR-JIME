@@ -6,11 +6,11 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
   const url = '/data/heroDetails.json';
   const loading = ref(false);
   const error = ref(null);
-  const heroDetails = ref({});
+  const heroes = ref({});
   const heroNames = ref([]);
 
   const fetchHeroDetails = async () => {
-    const hasData = Object.keys(heroDetails.value).length && heroNames.value.length;
+    const hasData = Object.keys(heroes.value).length && heroNames.value.length;
     if (hasData) {
       return;
     }
@@ -19,7 +19,7 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     try {
       const response = await axios.get(url);
       const data = response.data;
-      heroDetails.value = data;
+      heroes.value = data;
       heroNames.value = Object.keys(data);
     }
     catch (error) {
@@ -30,18 +30,26 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     }
   };
 
-  const getAllHeroDetails = computed(() => {
-    return heroDetails.value;
-  });
+  const getHeroByName = (name) => {
+    const heroesArray = Object.values(heroes.value);
+    const hero = heroesArray.find(hero => hero.name === name);
+    return hero ? hero : null;
+  };
 
-  const getHeroNames = computed(() => {
-    return heroNames.value;
-  });
+  const getHeroCardsByHeroId = (id) => {
+    const heroesArray = Object.values(heroes.value);
+    const hero = heroesArray.find(hero => hero.id === id);
+    return hero ? hero.cards : null;
+  };
 
-  // List of objects for q-select dropdown
+  /**
+   * Method to create Hero objects formatted for q-select dropdown.
+   *
+   * @returns An array of objects with keys: label (hero.name) and value (hero.id)
+   */
   const getHeroOptions = computed(() => {
     const options = [];
-    for (const hero of Object.values(heroDetails.value)) {
+    for (const hero of Object.values(heroes.value)) {
       options.push({
         label: hero.name,
         value: hero.id,
@@ -50,32 +58,14 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
     return options;
   });
 
-  const getHeroCardsByHeroId = (id) => {
-    for (const hero of Object.values(heroDetails.value)) {
-      if (hero.id === id) {
-        return hero.cards;
-      }
-    }
-    return null;
-  };
-
-  const getHeroByName = (name) => {
-    for (const hero in heroDetails.value) {
-      if (heroDetails.value[hero].name === name) {
-        return  heroDetails.value[hero];
-      }
-    }
-    return error.value = 'No hero found...';
-  };
-
   return {
     error,
+    loading,
+    heroes,
+    heroNames,
     fetchHeroDetails,
     getHeroByName,
-    getAllHeroDetails,
-    getHeroNames,
-    getHeroOptions,
     getHeroCardsByHeroId,
-    loading
+    getHeroOptions
   };
 });
