@@ -31,7 +31,8 @@ export const useTitleCardStore = defineStore('titleCardStore', () =>{
   /**
    * Method to create Title Card objects formatted for q-select dropdown.
    *
-   * @returns An array of objects with keys: label (card name) and value (card id)
+   * @returns {Array<{label: string, value: string}>}
+   * An array of objects, each containing the card's name (label) and ID (value).
    */
   const getTitleCardOptions = computed(() => {
     return titleCards.value.map((card) => {

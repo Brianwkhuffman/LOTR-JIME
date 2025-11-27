@@ -30,7 +30,8 @@ export const useWeaknessCardStore = defineStore('weaknessStore', () => {
   /**
    * Method to create Weakness Card objects formatted for q-select dropdown.
    *
-   * @returns An array of objects with keys: label (card name) and value (card id)
+   * @returns {Array<{label: string, value: string}>}
+   * An array of objects, each containing the card's name (label) and ID (value).
    */
   const getWeaknessCardOptions = computed(() => {
     return weaknessCards.value.map((card) => {
