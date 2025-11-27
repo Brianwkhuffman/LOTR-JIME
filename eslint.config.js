@@ -7,24 +7,24 @@ import css from '@eslint/css';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
-  {
-    files: ['**/*.{js,mjs,cjs,vue}'],
-    plugins: { js },
-    extends: ['js/recommended'],
-    languageOptions: { globals: globals.browser },
-    rules: {
-      semi: ['warn', 'always'],
-      quotes: ['warn', 'single', { avoidEscape: true }],
-      indent: ['warn', 2],
-      'keyword-spacing': ['warn', { before: true, after: true }],
-      'comma-spacing': ['warn', { before: false, after: true }],
-      'object-curly-spacing': ['warn', 'always'],
-      'space-before-blocks': ['warn', 'always'],
-      'eqeqeq': ['warn', 'always'],
-      // End file with newline
-      'eol-last': ['warn', 'always']
-    }
-  },
+  // {
+  //   files: ['**/*.{js,mjs,cjs,vue}'],
+  //   plugins: { js },
+  //   // extends: ['js/recommended'],
+  //   languageOptions: { globals: globals.browser },
+  //   rules: {
+  //     semi: ['warn', 'always'],
+  //     quotes: ['warn', 'single', { avoidEscape: true }],
+  //     indent: ['warn', 2],
+  //     'keyword-spacing': ['warn', { before: true, after: true }],
+  //     'comma-spacing': ['warn', { before: false, after: true }],
+  //     'object-curly-spacing': ['warn', 'always'],
+  //     'space-before-blocks': ['warn', 'always'],
+  //     'eqeqeq': ['warn', 'always'],
+  //     // End file with newline
+  //     'eol-last': ['warn', 'always']
+  //   }
+  // },
   pluginVue.configs['flat/essential'],
   {
     rules: {

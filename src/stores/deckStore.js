@@ -16,6 +16,10 @@ export const useDeckStore = defineStore('deckStore', () => {
   const selectedHero = ref({ label: '', value: '' });
   const selectedRole = ref({ label: '', value: '' });
   const selectedArmor = ref({ label: '', value: '' });
+  const selectedWeapon = ref({ label: '', value: '' });
+  const selectedTrinket = ref({ label: '', value: '' });
+  const selectedMount = ref({ label: '', value: '' });
+
 
   const initializeDeck = async() => {
     loading.value = true;
@@ -59,6 +63,9 @@ export const useDeckStore = defineStore('deckStore', () => {
     selectedHero,
     selectedRole,
     selectedArmor,
+    selectedWeapon,
+    selectedTrinket,
+    selectedMount,
     initializeDeck,
     getDeck,
     loadDeck,
