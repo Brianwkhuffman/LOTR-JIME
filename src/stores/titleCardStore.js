@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 
@@ -28,10 +28,22 @@ export const useTitleCardStore = defineStore('titleCardStore', () =>{
     }
   };
 
+  /**
+   * Method to create Title Card objects formatted for q-select dropdown.
+   *
+   * @returns An array of objects with keys: label (card name) and value (card id)
+   */
+  const getTitleCardOptions = computed(() => {
+    return titleCards.value.map((card) => {
+      return { label: card.name, value: card.id };
+    });
+  });
+
   return {
     error,
     loading,
     titleCards,
-    fetchTitleCards
+    fetchTitleCards,
+    getTitleCardOptions
   };
 });

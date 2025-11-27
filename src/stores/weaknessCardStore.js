@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useWeaknessCardStore = defineStore('weaknessStore', () => {
@@ -27,10 +27,22 @@ export const useWeaknessCardStore = defineStore('weaknessStore', () => {
     }
   };
 
+  /**
+   * Method to create Weakness Card objects formatted for q-select dropdown.
+   *
+   * @returns An array of objects with keys: label (card name) and value (card id)
+   */
+  const getWeaknessCardOptions = computed(() => {
+    return weaknessCards.value.map((card) => {
+      return { label: card.name, value: card.id };
+    });
+  });
+
   return {
     error,
     loading,
     weaknessCards,
-    fetchWeaknessCards
+    fetchWeaknessCards,
+    getWeaknessCardOptions
   };
 });
