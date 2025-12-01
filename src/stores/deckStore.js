@@ -47,7 +47,16 @@ export const useDeckStore = defineStore('deckStore', () => {
   };
 
   const addCards = (type, cardList) => {
-    currentDeck.value[type] = cardList;
+    loading.value = true;
+    try {
+      currentDeck.value[type] = cardList;
+    }
+    catch (error) {
+      error.value = error.message;
+    }
+    finally {
+      loading.value = false;
+    }
   };
 
   const removeCards = (type, card) => {
