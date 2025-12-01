@@ -15,11 +15,13 @@ export const useDeckStore = defineStore('deckStore', () => {
     titles: []
   });
 
+  // Maybe we should move the refs out to the components
+  // then we can have onBeforeMount load them or something...
   const selectedHero = ref({ label: '', value: '' });
   const selectedRole = ref({ label: '', value: '' });
   const selectedArmor = ref({ label: '', value: '' });
-  const selectedWeakness = ref(null);
-  const selectedTitles = ref(null);
+  const selectedWeakness = ref([]);
+  const selectedTitles = ref([]);
 
   const initializeDeck = async() => {
     loading.value = true;
