@@ -13,11 +13,15 @@ const { loading: weaknessLoading, weaknessCards, getWeaknessCardOptions } = stor
 const { loading: titlesLoading, getTitleCardOptions, titleCards } = storeToRefs(titleStore);
 const { loading: deckLoading, selectedWeakness, selectedTitles } = storeToRefs(deckStore);
 
+const getChosenCards = (selectedCardOptions, cards) => {
+  const optionIds = selectedCardOptions.map(selectedOption => selectedOption.value);
+  const chosenCards = cards.filter(card => optionIds.includes(card.id));
+  return chosenCards;
+};
+
 const getTitlesDisplay = computed(() => {
   if (selectedTitles.value?.length > 0) {
-    const titleIds = selectedTitles.value.map(selectedOption => selectedOption.value);
-    const chosenTitleCards = titleCards.value.filter(obj => titleIds.includes(obj.id));
-    return chosenTitleCards;
+    return getChosenCards(selectedTitles.value, titleCards.value);
   }
   return [];
 });
@@ -27,13 +31,11 @@ const finalizeDeck = () => {
   // Weakness cards reset to 1 after every chapter
 
   if (selectedWeakness.value) {
-    const weaknessIds = selectedWeakness.value.map(selectedOption => selectedOption.value);
-    const weaknessCardsToAdd = weaknessCards.value.filter(obj => weaknessIds.includes(obj.id));
+    const weaknessCardsToAdd = getChosenCards(selectedWeakness.value, weaknessCards.value);
     deckStore.addCards('weakness', weaknessCardsToAdd);
   }
   if (selectedTitles.value) {
-    const titleIds = selectedTitles.value.map(selectedOption => selectedOption.value);
-    const titleCardsToAdd = titleCards.value.filter(obj => titleIds.includes(obj.id));
+    const titleCardsToAdd = getChosenCards(selectedTitles.value, titleCards.value);
     deckStore.addCards('titles', titleCardsToAdd);
   }
 };
@@ -61,7 +63,8 @@ const finalizeDeck = () => {
           :options="getWeaknessCardOptions"
           v-model="selectedWeakness"
           label="Cards"
-          :rules="[val => val || 'You must select one Weakness card.']"
+          :error="selectedWeakness.length === 0"
+          error-message="Must select one Weakness card."
           multiple
           outlined
           dense
