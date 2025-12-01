@@ -10,12 +10,16 @@ export const useDeckStore = defineStore('deckStore', () => {
     basic: [],
     hero: [],
     role: [],
-    equipment: []
+    equipment: [],
+    weakness: [],
+    titles: []
   });
 
   const selectedHero = ref({ label: '', value: '' });
   const selectedRole = ref({ label: '', value: '' });
   const selectedArmor = ref({ label: '', value: '' });
+  const selectedWeakness = ref([]);
+  const selectedTitles = ref([]);
 
   const initializeDeck = async() => {
     loading.value = true;
@@ -41,7 +45,16 @@ export const useDeckStore = defineStore('deckStore', () => {
   };
 
   const addCards = (type, cardList) => {
-    currentDeck.value[type] = cardList;
+    loading.value = true;
+    try {
+      currentDeck.value[type] = cardList;
+    }
+    catch (error) {
+      error.value = error.message;
+    }
+    finally {
+      loading.value = false;
+    }
   };
 
   const removeCards = (type, card) => {
@@ -49,7 +62,7 @@ export const useDeckStore = defineStore('deckStore', () => {
   };
 
   const clearDeck = () => {
-    currentDeck.value = { basic: [], hero: [], role: [], equipment: [] };
+    currentDeck.value = { basic: [], hero: [], role: [], equipment: [], weakness: [], titles: [] };
   };
 
   return {
@@ -59,6 +72,8 @@ export const useDeckStore = defineStore('deckStore', () => {
     selectedHero,
     selectedRole,
     selectedArmor,
+    selectedWeakness,
+    selectedTitles,
     initializeDeck,
     getDeck,
     loadDeck,

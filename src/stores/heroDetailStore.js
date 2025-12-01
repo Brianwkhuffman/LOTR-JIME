@@ -45,7 +45,8 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
   /**
    * Method to create Hero objects formatted for q-select dropdown.
    *
-   * @returns An array of objects with keys: label (hero.name) and value (hero.id)
+   * @returns {Array<{label: string, value: string}>}
+   * An array of objects, each containing the hero's name (label) and ID (value).
    */
   const getHeroOptions = computed(() => {
     const options = [];

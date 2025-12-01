@@ -34,6 +34,16 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     return equipmentMap.value[type];
   };
 
+  /**
+   * Retrieves and formats a list of equipment options based on the specified type.
+   * It filters equipment to include only Tier I items.
+   *
+   * Note: Mounts have no tiers so it simply returns the list.
+   *
+   * @param {string} type - The category of equipment to retrieve: 'armors', 'weapons', 'supports', 'trinkets' & 'mounts'
+   * @returns {Array<{label: string, value: string}>}
+   * An array of objects where `label` is the tier 1 equipment name and `value` is the equipment's family type.
+   */
   const getEquipmentOptionsByType = (type) => {
     const options = [];
     const equipTypeList = getEquipmentListByType(type);
