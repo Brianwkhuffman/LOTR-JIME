@@ -14,7 +14,7 @@ const { loading: titlesLoading, getTitleCardOptions, titleCards } = storeToRefs(
 const { loading: deckLoading, selectedWeakness, selectedTitles } = storeToRefs(deckStore);
 
 const getTitlesDisplay = computed(() => {
-  if (selectedTitles.value.length > 0) {
+  if (selectedTitles.value?.length > 0) {
     const titleIds = selectedTitles.value.map(selectedOption => selectedOption.value);
     const chosenTitleCards = titleCards.value.filter(obj => titleIds.includes(obj.id));
     return chosenTitleCards;
@@ -93,10 +93,8 @@ const finalizeDeck = () => {
         />
       </q-expansion-item>
 
-      <div v-if="getTitlesDisplay.length > 0">
-        <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
-          <small-card :card="card"/>
-        </div>
+      <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
+        <small-card :card="card"/>
       </div>
     </q-list>
 
