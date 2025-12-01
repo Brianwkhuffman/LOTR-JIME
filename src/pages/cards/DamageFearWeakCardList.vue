@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeMount } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useDamageFearCardStore } from '/src/stores/damageFearCardStore.js';
@@ -9,24 +9,18 @@ import BackButton from 'src/components/button/BackButton.vue';
 const route = useRoute();
 const damageFearCardStore = useDamageFearCardStore();
 const weaknessCardStore = useWeaknessCardStore();
-const { loading: loadingDmgFear } = storeToRefs(damageFearCardStore);
-const { loading: loadingWeakness } = storeToRefs(weaknessCardStore);
-
-
-onBeforeMount(() => {
-  damageFearCardStore.fetchDamageFearCards();
-  weaknessCardStore.fetchWeaknessCards();
-});
+const { loading: loadingDmgFear, damageCards, fearCards } = storeToRefs(damageFearCardStore);
+const { loading: loadingWeakness, weaknessCards } = storeToRefs(weaknessCardStore);
 
 const cards = computed(() => {
   if (route.path.includes('/damage')) {
-    return damageFearCardStore.getDamageCards;
+    return damageCards.value;
   }
   if (route.path.includes('/fear')) {
-    return damageFearCardStore.getFearCards;
+    return fearCards.value;
   }
   if (route.path.includes('/weakness')) {
-    return weaknessCardStore.getWeaknessCards;
+    return weaknessCards.value;
   }
   return [];
 });

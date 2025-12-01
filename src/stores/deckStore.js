@@ -10,15 +10,23 @@ export const useDeckStore = defineStore('deckStore', () => {
     basic: [],
     hero: [],
     role: [],
-    equipment: []
+    equipment: [],
+    weakness: [],
+    titles: []
   });
+
+  const selectedHero = ref({ label: '', value: '' });
+  const selectedRole = ref({ label: '', value: '' });
+  const selectedArmor = ref({ label: '', value: '' });
+  const selectedWeakness = ref([]);
+  const selectedTitles = ref([]);
 
   const initializeDeck = async() => {
     loading.value = true;
     try {
       const response = await axios.get(basicCardsUrl);
       const basicCards = response.data.basicCards;
-      currentDeck.value.basic.push(basicCards);
+      currentDeck.value.basic = basicCards;
     }
     catch (error) {
       error.value = error.message;
@@ -36,13 +44,16 @@ export const useDeckStore = defineStore('deckStore', () => {
     return currentDeck.value;
   };
 
-  const addHeroCards = (heroCardList) => {
-    currentDeck.value.hero.push(heroCardList);
-  };
-
-  const addCards = (type, card) => {
-    if (!currentDeck.value[type].includes(card)) {
-      currentDeck.value[type].push(card);
+  const addCards = (type, cardList) => {
+    loading.value = true;
+    try {
+      currentDeck.value[type] = cardList;
+    }
+    catch (error) {
+      error.value = error.message;
+    }
+    finally {
+      loading.value = false;
     }
   };
 
@@ -51,17 +62,21 @@ export const useDeckStore = defineStore('deckStore', () => {
   };
 
   const clearDeck = () => {
-    currentDeck.value = { basic: [], hero: [], role: [], equipment: [] };
+    currentDeck.value = { basic: [], hero: [], role: [], equipment: [], weakness: [], titles: [] };
   };
 
   return {
-    currentDeck,
-    initializeDeck,
     error,
     loading,
+    currentDeck,
+    selectedHero,
+    selectedRole,
+    selectedArmor,
+    selectedWeakness,
+    selectedTitles,
+    initializeDeck,
     getDeck,
     loadDeck,
-    addHeroCards,
     addCards,
     removeCards,
     clearDeck

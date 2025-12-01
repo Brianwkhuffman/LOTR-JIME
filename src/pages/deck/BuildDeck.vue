@@ -17,7 +17,7 @@ const selectedTab = ref('hero');
     <q-tab name="hero" icon="military_tech" label="Hero" />
     <q-tab name="role" icon="assignment_ind" label="Role" />
     <q-tab name="equip" icon="shopping_cart" label="Equip" />
-    <q-tab name="final" icon="check" label="Finish" />
+    <q-tab name="final" icon="check" label="Finalize" />
   </q-tabs>
 
   <q-tab-panels v-model="selectedTab">
