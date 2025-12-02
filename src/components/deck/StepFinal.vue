@@ -13,15 +13,15 @@ const { loading: weaknessLoading, weaknessCards, getWeaknessCardOptions } = stor
 const { loading: titlesLoading, getTitleCardOptions, titleCards } = storeToRefs(titleStore);
 const { loading: deckLoading, selectedWeakness, selectedTitles } = storeToRefs(deckStore);
 
-const getChosenCards = (selectedCardOptions, cards) => {
-  const optionIds = selectedCardOptions.map(selectedOption => selectedOption.value);
-  const chosenCards = cards.filter(card => optionIds.includes(card.id));
+const getChosenCardsByIds = (selectedOptions, allCards) => {
+  const optionIds = selectedOptions.map(selectedOption => selectedOption.value);
+  const chosenCards = allCards.filter(card => optionIds.includes(card.id));
   return chosenCards;
 };
 
 const getTitlesDisplay = computed(() => {
   if (selectedTitles.value?.length > 0) {
-    return getChosenCards(selectedTitles.value, titleCards.value);
+    return getChosenCardsByIds(selectedTitles.value, titleCards.value);
   }
   return [];
 });
@@ -31,11 +31,11 @@ const finalizeDeck = () => {
   // Weakness cards reset to 1 after every chapter
 
   if (selectedWeakness.value) {
-    const weaknessCardsToAdd = getChosenCards(selectedWeakness.value, weaknessCards.value);
+    const weaknessCardsToAdd = getChosenCardsByIds(selectedWeakness.value, weaknessCards.value);
     deckStore.addCards('weakness', weaknessCardsToAdd);
   }
   if (selectedTitles.value) {
-    const titleCardsToAdd = getChosenCards(selectedTitles.value, titleCards.value);
+    const titleCardsToAdd = getChosenCardsByIds(selectedTitles.value, titleCards.value);
     deckStore.addCards('titles', titleCardsToAdd);
   }
 };
