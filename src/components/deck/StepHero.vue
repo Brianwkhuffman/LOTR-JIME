@@ -21,7 +21,7 @@ const heroCards = computed(() => {
 });
 
 const addHeroCards = () => {
-  const validHero = validateHeroSelection();
+  const validHero = hasSelectedHero.value;
   if (!validHero) {
     return;
   }
@@ -29,9 +29,10 @@ const addHeroCards = () => {
   emit('nextStep');
 };
 
-const validateHeroSelection = () => {
-  return heroCards.value;
-};
+const hasSelectedHero = computed(() => {
+  return selectedHero.value.label;
+});
+
 </script>
 
 <template>
@@ -52,7 +53,7 @@ const validateHeroSelection = () => {
     />
 
     <div class="q-pa-md row justify-between">
-      <q-btn color="primary" @click="addHeroCards">
+      <q-btn color="primary" @click="addHeroCards" :disable="!hasSelectedHero">
         Select Hero
       </q-btn>
     </div>
