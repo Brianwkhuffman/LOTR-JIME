@@ -31,8 +31,8 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     }
   };
 
-  const getRoleCardsByType = (type) => {
-    return roleCardsMap.value[type];
+  const getRoleCardsByName = (name) => {
+    return roleCardsMap.value[name];
   };
 
   /**
@@ -57,7 +57,7 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     roleCardsMap,
     roles,
     fetchRoleCards,
-    getRoleCardsByType,
+    getRoleCardsByName,
     getRoleOptions
   };
 });
