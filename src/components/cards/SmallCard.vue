@@ -40,6 +40,7 @@ defineProps({
     </q-card-section>
     <q-card-section>
       <p>{{ card.description }}</p>
+      <p v-if="card.type === 'Role'">{{ card.role + ' ' + card.number }}</p>
     </q-card-section>
   </q-card>
 </template>
