@@ -3,13 +3,17 @@ defineProps({
   card: {
     type: Object,
     required: true
+  },
+  isSelected : {
+    type: Boolean,
+    default: false
   }
 });
 
 </script>
 
 <template>
-  <q-card>
+  <q-card :class="{ 'selected-card-border': isSelected }">
     <q-card-section class="col">
       <h5>
         {{ card.name }}
@@ -36,6 +40,14 @@ defineProps({
     </q-card-section>
     <q-card-section>
       <p>{{ card.description }}</p>
+      <p v-if="card.type === 'Role'">{{ card.role + ' ' + card.number }}</p>
     </q-card-section>
   </q-card>
 </template>
+
+<style>
+.selected-card-border {
+  border: 1px solid var(--q-primary);
+  box-shadow: 0 0 10px var(--q-primary);
+}
+</style>

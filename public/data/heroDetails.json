@@ -19,6 +19,7 @@
     "collection": "Base",
     "cards": [
       {
+        "heroId": 1,
         "cardType": "Character",
         "number": 1,
         "name": "Wanderer",
@@ -28,6 +29,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 1,
         "cardType": "Character",
         "number": 2,
         "name": "Strider",
@@ -37,6 +39,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 1,
         "cardType": "Character",
         "number": 3,
         "name": "Strider",
@@ -46,6 +49,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 1,
         "cardType": "Character",
         "number": 4,
         "name": "Thorongil",
@@ -55,6 +59,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 1,
         "cardType": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -85,6 +90,7 @@
     "collection": "SP",
     "cards": [
       {
+        "heroId": 2,
         "cardType": "Character",
         "number": 1,
         "name": "Nobility",
@@ -94,6 +100,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 2,
         "cardType": "Character",
         "number": 2,
         "name": "Elven Light",
@@ -103,6 +110,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 2,
         "cardType": "Character",
         "number": 3,
         "name": "Evenstar",
@@ -112,6 +120,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 2,
         "cardType": "Character",
         "number": 4,
         "name": "Evenstar",
@@ -121,6 +130,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 2,
         "cardType": "Character",
         "number": 5,
         "name": "Willful",
@@ -151,6 +161,7 @@
     "collection": "SP",
     "cards": [
       {
+        "heroId": 3,
         "cardType": "Character",
         "number": 1,
         "name": "Kinship",
@@ -160,6 +171,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 3,
         "cardType": "Character",
         "number": 2,
         "name": "Raven Companion",
@@ -169,6 +181,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 3,
         "cardType": "Character",
         "number": 3,
         "name": "Loyal Friend",
@@ -178,6 +191,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 3,
         "cardType": "Character",
         "number": 4,
         "name": "Loyal Friend",
@@ -187,6 +201,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 3,
         "cardType": "Character",
         "number": 5,
         "name": "Misty Mountain Cold",
@@ -217,6 +232,7 @@
     "collection": "SW",
     "cards": [
       {
+        "heroId": 4,
         "cardType": "Character",
         "number": 1,
         "name": "The Day Will Come",
@@ -226,6 +242,7 @@
         "collection": "SotW"
       },
       {
+        "heroId": 4,
         "cardType": "Character",
         "number": 2,
         "name": "Beast Tongue",
@@ -235,6 +252,7 @@
         "collection": "SotW"
       },
       {
+        "heroId": 4,
         "cardType": "Character",
         "number": 3,
         "name": "Friend of Bees",
@@ -244,6 +262,7 @@
         "collection": "SotW"
       },
       {
+        "heroId": 4,
         "cardType": "Character",
         "number": 4,
         "name": "The First Beorning",
@@ -253,6 +272,7 @@
         "collection": "SotW"
       },
       {
+        "heroId": 4,
         "cardType": "Character",
         "number": 5,
         "name": "The First Beorning",
@@ -303,6 +323,7 @@
     "collection": "Base",
     "cards": [
       {
+        "heroId": 6,
         "cardType": "Character",
         "number": 1,
         "name": "Into Hiding",
@@ -312,6 +333,7 @@
         "collection": "SotW"
       },
       {
+        "heroId": 6,
         "cardType": "Character",
         "number": 2,
         "name": "Ways of Old",
@@ -321,6 +343,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 6,
         "cardType": "Character",
         "number": 3,
         "name": "Ways of Old",
@@ -330,6 +353,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 6,
         "cardType": "Character",
         "number": 4,
         "name": "Fateless",
@@ -339,6 +363,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 6,
         "cardType": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -369,6 +394,7 @@
     "collection": "Base",
     "cards": [
       {
+        "heroId": 7,
         "cardType": "Character",
         "number": 1,
         "name": "The Tookish Part",
@@ -378,6 +404,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 7,
         "cardType": "Character",
         "number": 2,
         "name": "The Tookish Part",
@@ -387,6 +414,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 7,
         "cardType": "Character",
         "number": 3,
         "name": "Well-Nourished",
@@ -396,6 +424,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 7,
         "cardType": "Character",
         "number": 4,
         "name": "Simple Desires",
@@ -405,6 +434,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 7,
         "cardType": "Character",
         "number": 5,
         "name": "The Road Goes Ever On",
@@ -435,6 +465,7 @@
     "collection": "SW",
     "cards": [
       {
+        "heroId": 8,
         "cardType": "Character",
         "number": 1,
         "name": "Fierce Resolve",
@@ -444,6 +475,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 8,
         "cardType": "Character",
         "number": 2,
         "name": "Born to Lead",
@@ -453,6 +485,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 8,
         "cardType": "Character",
         "number": 3,
         "name": "Overpower",
@@ -462,6 +495,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 8,
         "cardType": "Character",
         "number": 4,
         "name": "Blood of Gondor",
@@ -471,6 +505,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 8,
         "cardType": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -501,6 +536,7 @@
     "collection": "SW",
     "cards": [
       {
+        "heroId":9,
         "cardType": "Character",
         "number": 1,
         "name": "Simple Desires",
@@ -510,6 +546,7 @@
         "collection": "Base"
       },
       {
+        "heroId":9,
         "cardType": "Character",
         "number": 2,
         "name": "The Tookish Part",
@@ -519,6 +556,7 @@
         "collection": "SW"
       },
       {
+        "heroId":9,
         "cardType": "Character",
         "number": 3,
         "name": "Hobbit-Sense",
@@ -528,6 +566,7 @@
         "collection": "SW"
       },
       {
+        "heroId":9,
         "cardType": "Character",
         "number": 4,
         "name": "Drinking Ditty",
@@ -537,6 +576,7 @@
         "collection": "SW"
       },
       {
+        "heroId":9,
         "cardType": "Character",
         "number": 5,
         "name": "Fierce Resolve",
@@ -567,6 +607,7 @@
     "collection": "SP",
     "cards": [
       {
+        "heroId": 10,
         "cardType": "Character",
         "number": 1,
         "name": "Fury",
@@ -576,6 +617,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 10,
         "cardType": "Character",
         "number": 2,
         "name": "Kinship",
@@ -585,6 +627,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 10,
         "cardType": "Character",
         "number": 3,
         "name": "Strength of Thrain",
@@ -594,6 +637,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 10,
         "cardType": "Character",
         "number": 4,
         "name": "Fire Heart",
@@ -603,6 +647,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 10,
         "cardType": "Character",
         "number": 5,
         "name": "Fire Heart",
@@ -633,6 +678,7 @@
     "collection": "SW",
     "cards": [
       {
+        "heroId":11,
         "cardType": "Character",
         "number": 1,
         "name": "Kinship",
@@ -642,6 +688,7 @@
         "collection": "Base"
       },
       {
+        "heroId":11,
         "cardType": "Character",
         "number": 2,
         "name": "Ancestral Grudge",
@@ -651,6 +698,7 @@
         "collection": "Base"
       },
       {
+        "heroId":11,
         "cardType": "Character",
         "number": 3,
         "name": "Ancestral Grudge",
@@ -660,6 +708,7 @@
         "collection": "Base"
       },
       {
+        "heroId":11,
         "cardType": "Character",
         "number": 4,
         "name": "Misty Mountain Cold",
@@ -669,6 +718,7 @@
         "collection": "Base"
       },
       {
+        "heroId":11,
         "cardType": "Character",
         "number": 5,
         "name": "Stirring Performance",
@@ -699,6 +749,7 @@
     "collection": "SP",
     "cards": [
       {
+        "heroId": 12,
         "cardType": "Character",
         "number": 1,
         "name": "Nobility",
@@ -708,6 +759,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 12,
         "cardType": "Character",
         "number": 2,
         "name": "Fateless",
@@ -717,6 +769,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 12,
         "cardType": "Character",
         "number": 3,
         "name": "Blood of Gondor",
@@ -726,6 +779,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 12,
         "cardType": "Character",
         "number": 4,
         "name": "Blood of Gondor",
@@ -735,6 +789,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 12,
         "cardType": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -765,6 +820,7 @@
     "collection": "Base",
     "cards": [
       {
+        "heroId": 13,
         "cardType": "Character",
         "number": 1,
         "name": "Child of the Lhun",
@@ -774,6 +830,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 13,
         "cardType": "Character",
         "number": 2,
         "name": "Elven Light",
@@ -783,6 +840,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 13,
         "cardType": "Character",
         "number": 3,
         "name": "Immortality",
@@ -792,6 +850,7 @@
         "collection": "SW"
       },
       {
+        "heroId": 13,
         "cardType": "Character",
         "number": 4,
         "name": "Lay of Twilight",
@@ -801,6 +860,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 13,
         "cardType": "Character",
         "number": 5,
         "name": "Lay of Twilight",
@@ -831,6 +891,7 @@
     "collection": "SW",
     "cards": [
       {
+        "heroId": 14,
         "cardType": "Character",
         "number": 1,
         "name": "Fateless",
@@ -840,6 +901,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 14,
         "cardType": "Character",
         "number": 2,
         "name": "Faithful Companion",
@@ -849,6 +911,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 14,
         "cardType": "Character",
         "number": 3,
         "name": "Gift of Men",
@@ -858,6 +921,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 14,
         "cardType": "Character",
         "number": 4,
         "name": "Cavalry Combat",
@@ -867,6 +931,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 14,
         "cardType": "Character",
         "number": 5,
         "name": "Cavalry Combat",
@@ -897,6 +962,7 @@
     "collection": "SP",
     "cards": [
       {
+        "heroId": 15,
         "cardType": "Character",
         "number": 1,
         "name": "Grey Pilgrim",
@@ -906,6 +972,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 15,
         "cardType": "Character",
         "number": 2,
         "name": "Uncanny",
@@ -915,6 +982,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 15,
         "cardType": "Character",
         "number": 3,
         "name": "Flame Imperishable",
@@ -924,6 +992,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 15,
         "cardType": "Character",
         "number": 4,
         "name": "Greater Power",
@@ -933,6 +1002,7 @@
         "collection": "Base"
       },
       {
+        "heroId": 15,
         "id": 70,
         "cardType": "Character",
         "character": "Gandalf",
@@ -965,6 +1035,7 @@
     "collection": "Base",
     "cards": [
       {
+        "heroId": 16,
         "cardType": "Character",
         "number": 1,
         "name": "Poet's Heart",
@@ -974,6 +1045,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 16,
         "cardType": "Character",
         "number": 2,
         "name": "Restless Axe",
@@ -983,6 +1055,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 16,
         "cardType": "Character",
         "number": 3,
         "name": "Restless Axe",
@@ -992,6 +1065,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 16,
         "cardType": "Character",
         "number": 4,
         "name": "Kinship",
@@ -1001,6 +1075,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 16,
         "cardType": "Character",
         "number": 5,
         "name": "Fury",
@@ -1031,6 +1106,7 @@
     "collection": "Base",
     "cards": [
       {
+        "heroId":17,
         "cardType": "Character",
         "number": 1,
         "name": "Keen Eyes",
@@ -1040,6 +1116,7 @@
         "collection": "SP"
       },
       {
+        "heroId":17,
         "cardType": "Character",
         "number": 2,
         "name": "Light-Footed",
@@ -1049,6 +1126,7 @@
         "collection": "SP"
       },
       {
+        "heroId":17,
         "cardType": "Character",
         "number": 3,
         "name": "Light-Footed",
@@ -1058,6 +1136,7 @@
         "collection": "SP"
       },
       {
+        "heroId":17,
         "cardType": "Character",
         "number": 4,
         "name": "Tireless",
@@ -1067,6 +1146,7 @@
         "collection": "SP"
       },
       {
+        "heroId":17,
         "cardType": "Character",
         "number": 5,
         "name": "Immortality",
@@ -1097,6 +1177,7 @@
     "collection": "SW",
     "cards": [
       {
+        "heroId": 18,
         "cardType": "Character",
         "number": 1,
         "name": "Child of the Lhun",
@@ -1106,6 +1187,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 18,
         "cardType": "Character",
         "number": 2,
         "name": "Mischief",
@@ -1115,6 +1197,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 18,
         "cardType": "Character",
         "number": 3,
         "name": "Tireless",
@@ -1124,6 +1207,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 18,
         "cardType": "Character",
         "number": 4,
         "name": "Grey Haven Craft",
@@ -1133,6 +1217,7 @@
         "collection": "SP"
       },
       {
+        "heroId": 18,
         "cardType": "Character",
         "number": 5,
         "name": "Grey Haven Craft",

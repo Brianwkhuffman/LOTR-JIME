@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { formatCamelCase } from 'src/utils/formatDisplay.js';
+import { formatCamelCaseWithDash } from 'src/utils/formatDisplay.js';
 
 export const useRoleCardStore = defineStore('roleCardStore', () => {
   const url = '/data/roleCards.json';
@@ -31,8 +31,8 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     }
   };
 
-  const getRoleCardsByType = (type) => {
-    return roleCardsMap.value[type];
+  const getRoleCardsByName = (name) => {
+    return roleCardsMap.value[name];
   };
 
   /**
@@ -44,7 +44,7 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     const options = [];
     for (const role of roles.value) {
       options.push({
-        label: formatCamelCase(role),
+        label: formatCamelCaseWithDash(role),
         value: role,
       });
     }
@@ -57,7 +57,7 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
     roleCardsMap,
     roles,
     fetchRoleCards,
-    getRoleCardsByType,
+    getRoleCardsByName,
     getRoleOptions
   };
 });
