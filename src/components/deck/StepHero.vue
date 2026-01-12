@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
@@ -10,7 +10,17 @@ const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
-const { loading: deckLoading, selectedHero } = storeToRefs(deckStore);
+const { loading: deckLoading, currentDeck } = storeToRefs(deckStore);
+
+const selectedHero = ref({ label: '', value: '' });
+
+onBeforeMount(() => {
+  const hasHeroCards = currentDeck.value.hero.length;
+  if (hasHeroCards) {
+    const heroId = currentDeck.value.hero[0].heroId;
+    selectedHero.value = getHeroOptions.value[heroId - 1];
+  }
+});
 
 const heroCards = computed(() => {
   if (selectedHero.value) {
@@ -30,7 +40,7 @@ const addHeroCards = () => {
 };
 
 const hasSelectedHero = computed(() => {
-  return selectedHero.value.label;
+  return selectedHero.value?.label;
 });
 
 </script>
