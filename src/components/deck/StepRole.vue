@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
 import { useRoleCardStore } from 'stores/roleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
@@ -10,27 +10,44 @@ const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: rolesLoading, getRoleOptions } = storeToRefs(roleCardStore);
-const { loading: deckLoading, selectedRole } = storeToRefs(deckStore);
+const { loading: deckLoading, currentDeck } = storeToRefs(deckStore);
 
+const selectedRole = ref({ label: '', value: '' });
 const selectedCardNumbers = ref([]);
+
+onBeforeMount(() => {
+  const hasRoleCards = currentDeck.value.role.length;
+  if (hasRoleCards) {
+    const roleType = currentDeck.value.role[0].role;
+    const roleOption = getRoleOptions.value.find((option) => option.label === roleType);
+    selectedRole.value = roleOption;
+
+    let roleCards = [];
+    for (const roleCard of currentDeck.value.role) {
+      roleCards.push(roleCard.number);
+    }
+    selectedCardNumbers.value = roleCards;
+  }
+});
 
 const roleCards = computed(() => {
   if (selectedRole.value) {
     const roleName = selectedRole.value.value;
-    const cards = roleCardStore.getRoleCardsByName(roleName);
-    return cards;
+    return roleCardStore.getRoleCardsByName(roleName);
   }
   return null;
 });
 
 const cardExpCount = computed(() => {
-  if (roleCards.value) {
-    const selectedCards = roleCards.value.filter((card) => selectedCardNumbers.value.includes(card.id));
-    return selectedCards.reduce((totalExp, card) => {
-      return totalExp + card.exp;
-    }, 0);
+  if (!roleCards.value) {
+    return 0;
   }
-  return 0;
+  return roleCards.value.reduce((totalExp, card) => {
+    if (selectedCardNumbers.value.includes(card.number)) {
+      return totalExp + (card.exp || 0);
+    }
+    return totalExp;
+  }, 0);
 });
 
 const addRoleCards = () => {
