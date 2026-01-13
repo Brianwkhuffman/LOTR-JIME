@@ -66,11 +66,8 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
   };
 
   const getEquipCardsByTypeAndFamily = (type, family) => {
-    console.log(type, family);
     const equipTypeList = getEquipmentListByType(type);
-    const final = equipTypeList.filter(equip => equip.family === family);
-    console.log(final);
-    return final;
+    return  equipTypeList.filter(equip => equip.family === family);
   };
 
   return {

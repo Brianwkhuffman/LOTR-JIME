@@ -11,11 +11,6 @@ const emit = defineEmits(['nextStep']);
 const { loading: equipLoading } = storeToRefs(equipStore);
 const { loading: deckLoading, selectedArmor } = storeToRefs(deckStore);
 
-const addEquipCards = () => {
-  // TODO: Save to deck store on each equip choice or at the end?
-  emit('nextStep');
-};
-
 const armorSlide = ref('');
 // Might need 2 refs for weapons, since one hero can have 2??
 
@@ -35,6 +30,18 @@ const getEquipFamily = computed(() => {
   }
   return null;
 });
+
+const resetCarousel = (newVal) => {
+  if (newVal && getEquipFamily.value.length > 0) {
+    armorSlide.value = getEquipFamily.value[0].name;
+  }
+};
+
+const addEquipCards = (equip) => {
+  // TODO: Save to deck store on each equip choice or at the end?
+  deckStore.addCards('equipment', equip);
+  emit('nextStep');
+};
 </script>
 
 <template>
@@ -60,10 +67,11 @@ const getEquipFamily = computed(() => {
           dense
           color="primary"
           class="q-pa-md"
+          @update:model-value="resetCarousel"
         />
 
         <q-carousel
-          v-if="selectedArmor.value"
+          v-if="selectedArmor && selectedArmor.value"
           v-model="armorSlide"
           arrows
           navigation
@@ -74,7 +82,16 @@ const getEquipFamily = computed(() => {
             :key="equip.id"
             :name="equip.name"
           >
-            <p>{{ equip.name }}</p>
+            <div class="q-pa-md text-center">
+              <div>
+                <p>{{ equip.name }}</p>
+                <p>Tier: {{ equip.tier }}</p>
+                <p>{{ equip.description }}</p>
+              </div>
+              <div class="q-pa-md">
+                <q-btn color="primary" @click="addEquipCards(equip)">Select Armor</q-btn>
+              </div>
+            </div>
           </q-carousel-slide>
 
         </q-carousel>
