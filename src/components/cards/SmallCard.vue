@@ -36,11 +36,17 @@ defineProps({
           style="width: 50px;"
         />
       </h5>
-      <i v-if="card.trait">{{ card.trait }}</i>
+      <div class="row justify-between">
+        <i v-if="card.trait">{{ card.trait }}</i>
+        <b v-if="card.type === 'Role'">{{ card.exp ? ' Exp:' + card.exp : '' }}</b>
+      </div>
     </q-card-section>
     <q-card-section>
       <p>{{ card.description }}</p>
-      <p v-if="card.type === 'Role'">{{ card.role + ' ' + card.number }}</p>
+    </q-card-section>
+    <q-card-section v-if="card.type === 'Role'">
+      <i>{{ card.role + ' ' + card.number }}</i>
+
     </q-card-section>
   </q-card>
 </template>

@@ -15,7 +15,6 @@ export const useDeckStore = defineStore('deckStore', () => {
     titles: []
   });
 
-  const selectedArmor = ref({ label: '', value: '' });
   const selectedWeakness = ref([]);
   const selectedTitles = ref([]);
 
@@ -67,7 +66,6 @@ export const useDeckStore = defineStore('deckStore', () => {
     error,
     loading,
     currentDeck,
-    selectedArmor,
     selectedWeakness,
     selectedTitles,
     initializeDeck,
