@@ -2,7 +2,8 @@
 import { useEquipmentStore } from 'stores/equipmentStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
+import { getIconImageSrc } from 'src/utils/assetUtil';
 
 const equipStore = useEquipmentStore();
 const deckStore = useDeckStore();
@@ -20,36 +21,9 @@ const selectedWeapon = ref({ label: '', value: '' });
 const armorSlide = ref('');
 const weaponSlide = ref('');
 const selectedEquipments = ref({});
-// Might need 2 refs for weapons, since one hero can have 2??
-
-// Armor/weapons/support all have 4 tiers
-// Trinkets all 3 tiers except Crown of Shadows (1 tier)
-// Mounts no tiers
 
 const getEquipTypeFromStore = (type) => {
   return equipStore.getEquipmentOptionsByType(type);
-};
-
-const getEquipFamily = computed(() => {
-  const hasData = selectedArmor.value;
-  if (hasData) {
-    const family = equipStore.getEquipCardsByTypeAndFamily('armors', selectedArmor.value.label);
-    return family;
-  }
-  return null;
-});
-
-const getEquipFamily2 = (type) => {
-  if (type === 'weapons') {
-    return equipStore.getEquipCardsByTypeAndFamily(type, selectedWeapon.value.label);
-  }
-  return null;
-};
-
-const resetCarousel = (newVal) => {
-  if (newVal && getEquipFamily.value.length > 0) {
-    armorSlide.value = getEquipFamily.value[0].name;
-  }
 };
 
 const addEquipCards = () => {
@@ -60,32 +34,37 @@ const addEquipCards = () => {
 
 const selectEquipmentSlot = (slot, equip) => {
   selectedEquipments.value[slot] = equip;
-  console.log(selectedEquipments.value);
   hasArmorSelection.value = true;
 };
-const getIcon = computed(() => {
-  if (hasArmorSelection.value) {
-    return 'check_circle';
-  }
-  return 'perm_identity';
-});
 
-const getLabel = computed(() => {
-  if (hasArmorSelection.value) {
-    return 'Armor Slot - Selected: ' + selectedEquipments.value['armor'].name;
+const getEquipFamily = (type) => {
+  if (type === 'armors') {
+    return equipStore.getEquipCardsByTypeAndFamily(type, selectedArmor.value.label);
   }
-  return 'Armor Slot';
-});
-
-const test = (newVal, type) => {
   if (type === 'weapons') {
-    if (selectedWeapon.value) {
-      const family = equipStore.getEquipCardsByTypeAndFamily(type, selectedWeapon.value.label);
-      console.log(family[0].name);
-      return weaponSlide.value = family[0].name;
-    }
+    // TODO: need to get and combine support cards into this list
+    return equipStore.getEquipCardsByTypeAndFamily(type, selectedWeapon.value.label);
+  }
+  if (type === 'trinkets') {
     return null;
-  }};
+  }
+  if (type === 'mounts') {
+    return null;
+  }
+};
+
+const resetCarousel = (newVal, type) => {
+  let family;
+  if (newVal && type === 'armors') {
+    family = equipStore.getEquipCardsByTypeAndFamily(type, newVal.label);
+    return armorSlide.value = family[0].name;
+  }
+  if (newVal && type === 'weapons') {
+    family = equipStore.getEquipCardsByTypeAndFamily(type, newVal.label);
+    return weaponSlide.value = family[0].name;
+  }
+};
+
 </script>
 
 <template>
@@ -98,8 +77,9 @@ const test = (newVal, type) => {
     <q-list padding bordered class="rounded-borders">
 
       <q-expansion-item
-        :icon=getIcon
-        :label=getLabel
+        icon="img:assets/armor.png"
+        label="Armor"
+        header-class="text-primary text-h6"
         dense
         dense-toggle
         expand-separator
@@ -107,10 +87,11 @@ const test = (newVal, type) => {
         <q-select
           :options="getEquipTypeFromStore('armors')"
           v-model="selectedArmor"
-          @update:model-value="resetCarousel"
+          @update:model-value="(val) => resetCarousel(val, 'armors')"
           outlined
           stack-label
           dense
+          clearable
           color="primary"
           class="q-pa-md"
         />
@@ -123,40 +104,72 @@ const test = (newVal, type) => {
           navigation
         >
           <q-carousel-slide
-            v-for="equip in getEquipFamily2('weapons')"
+            v-for="equip in getEquipFamily('armors')"
             :key="equip.id"
             :name="equip.name"
           >
-            <div class="q-pa-md text-center">
-              <div>
-                <p>{{ equip.name }}</p>
-                <p>Tier: {{ equip.tier }}</p>
-                <p>{{ equip.description }}</p>
+            <div class="q-pa-sm text-center">
+              <div class="row items-center justify-center q-gutter-x-sm">
+                <span class="text-h6">{{ equip.name }}</span>
+                <q-img
+                  v-if="equip.trait"
+                  :src="getIconImageSrc(equip.trait)"
+                  style="width: 20px;"
+                  class="cursor-pointer"
+                >
+                  <q-tooltip class="bg-primary text-body2">
+                    {{ equip.trait }}
+                  </q-tooltip>
+                </q-img>
+
+                <q-img
+                  v-if="equip.ranged"
+                  :src="getIconImageSrc('ranged')"
+                  style="width: 20px;"
+                >
+                  <q-tooltip class="bg-primary text-body2">
+                    Ranged
+                  </q-tooltip>
+                </q-img>
               </div>
+
+              <div class="q-mt-sm">
+                <b>Tier: {{ equip.tier }}</b>
+                <p>{{ equip.description }}</p>
+                <q-img
+                  v-if="equip.upgrade"
+                  :src="getIconImageSrc('lore')"
+                  style="width: 20px;"
+                />
+                <b>{{ equip.upgrade }}</b>
+              </div>
+
               <div class="q-pa-md">
-                <q-btn color="primary" @click="selectEquipmentSlot('armor', equip)">Select Armor</q-btn>
+                <q-btn color="primary" @click="selectEquipmentSlot('armor', equip)">
+                  Select
+                </q-btn>
               </div>
             </div>
           </q-carousel-slide>
         </q-carousel>
       </q-expansion-item>
 
-
-
       <q-expansion-item
+        icon="img:assets/1hand.png"
+        label="Hands"
+        header-class="text-primary text-h6"
         dense
         dense-toggle
         expand-separator
-        icon="perm_identity"
-        label="Weapons"
       >
         <q-select
           :options="getEquipTypeFromStore('weapons')"
           v-model="selectedWeapon"
-          @update:model-value="(val) => test(val, 'weapons')"
+          @update:model-value="(val) => resetCarousel(val, 'weapons')"
           outlined
           stack-label
           dense
+          clearable
           color="primary"
           class="q-pa-md"
         />
@@ -169,18 +182,51 @@ const test = (newVal, type) => {
           navigation
         >
           <q-carousel-slide
-            v-for="equip in getEquipFamily2"
+            v-for="equip in getEquipFamily('weapons')"
             :key="equip.id"
             :name="equip.name"
           >
-            <div class="q-pa-md text-center">
-              <div>
-                <p>{{ equip.name }}</p>
-                <p>Tier: {{ equip.tier }}</p>
-                <p>{{ equip.description }}</p>
+            <div class="q-pa-sm text-center">
+              <div class="row items-center justify-center q-gutter-x-sm">
+                <span class="text-h6">{{ equip.name }}</span>
+
+                <template v-for="t in equip.trait.split('/')" :key="t">
+                  <q-img
+                    :src="getIconImageSrc(t)"
+                    style="width: 20px;"
+                    class="cursor-pointer"
+                  >
+                    <q-tooltip class="bg-primary text-body2">
+                      {{ t }}
+                    </q-tooltip>
+                  </q-img>
+                </template>
+                <q-img
+                  v-if="equip.ranged"
+                  :src="getIconImageSrc('ranged')"
+                  style="width: 20px;"
+                >
+                  <q-tooltip class="bg-primary text-body2">
+                    Ranged
+                  </q-tooltip>
+                </q-img>
               </div>
+
+              <div class="q-mt-sm">
+                <b>Tier: {{ equip.tier }}</b>
+                <p>{{ equip.description }}</p>
+                <q-img
+                  v-if="equip.upgrade"
+                  :src="getIconImageSrc('lore')"
+                  style="width: 20px;"
+                />
+                <b>{{ equip.upgrade }}</b>
+              </div>
+
               <div class="q-pa-md">
-                <q-btn color="primary" @click="selectEquipmentSlot('armor', equip)">Select Armor</q-btn>
+                <q-btn color="primary" @click="selectEquipmentSlot('armor', equip)">
+                  Select
+                </q-btn>
               </div>
             </div>
           </q-carousel-slide>
@@ -189,18 +235,20 @@ const test = (newVal, type) => {
 
 
       <q-expansion-item
+        icon="img:assets/trinket.png"
+        label="Trinket"
+        header-class="text-primary text-h6"
         dense
         dense-toggle
         expand-separator
-        icon="perm_identity"
-        label="Trinkets"
       />
       <q-expansion-item
+        icon="img:assets/mount.png"
+        label="Mounts"
+        header-class="text-primary text-h6"
         dense
         dense-toggle
         expand-separator
-        icon="perm_identity"
-        label="Mounts"
       />
     </q-list>
 
@@ -212,8 +260,9 @@ const test = (newVal, type) => {
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
 .q-list {
   width: 100%;
+  border-color: $primary;
 }
 </style>
