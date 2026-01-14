@@ -4,8 +4,9 @@
  * @param {string} trait - The trait name (e.g., 'strength', 'agility').
  * @returns {string} The path to the image asset.
  */
-export function getTraitImageSrc(trait) {
-  // TODO: can remove list once all icons uploaded
+export function getIconImageSrc(trait) {
+  // TODO: Add any new icons to list here
+  // Can remove list once all uploaded
   const assets = [
     '1hand',
     '2hand',
