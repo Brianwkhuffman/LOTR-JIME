@@ -52,53 +52,67 @@ const finalizeDeck = () => {
 
     <q-list padding bordered class="rounded-borders">
 
+      <!-- Mounts TODO -->
       <q-expansion-item
+        icon="img:assets/mount.png"
+        label="Mounts"
+        header-class="text-primary text-h6"
         dense
         dense-toggle
         expand-separator
-        icon="perm_identity"
-        label="Weakness Card"
+      />
+
+      <!-- Titles -->
+      <div>
+        <q-expansion-item
+          icon="img:assets/scroll.png"
+          label="Titles"
+          header-class="text-primary text-h6"
+          dense
+          dense-toggle
+          expand-separator
+        >
+          <q-select
+            :options="getTitleCardOptions"
+            v-model="selectedTitles"
+            label="Cards"
+            multiple
+            outlined
+            dense
+            clearable
+            use-chips
+            color="primary"
+            class="q-pa-lg"
+          />
+          <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
+            <small-card :card="card"/>
+          </div>
+        </q-expansion-item>
+      </div>
+
+      <!-- Weakness -->
+      <q-expansion-item
+        icon="img:assets/bane.png"
+        label="Weakness"
+        header-class="text-primary text-h6"
+        dense
+        dense-toggle
+        expand-separator
       >
         <q-select
           :options="getWeaknessCardOptions"
           v-model="selectedWeakness"
           label="Cards"
-          :error="selectedWeakness.length === 0"
-          error-message="Must select one Weakness card."
+          :error="selectedWeakness?.length === 0"
+          error-message="Must select at least one Weakness card."
           multiple
           outlined
           dense
-          clearable
           use-chips
           color="primary"
           class="q-pa-lg"
         />
       </q-expansion-item>
-
-      <q-expansion-item
-        dense
-        dense-toggle
-        expand-separator
-        icon="perm_identity"
-        label="Title Cards"
-      >
-        <q-select
-          :options="getTitleCardOptions"
-          v-model="selectedTitles"
-          label="Cards"
-          multiple
-          outlined
-          dense
-          clearable
-          use-chips
-          color="primary"
-          class="q-pa-lg"
-        />
-      </q-expansion-item>
-
-      <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
-        <small-card :card="card"/>
-      </div>
     </q-list>
 
     <div class="q-pa-md row justify-between">
@@ -108,3 +122,10 @@ const finalizeDeck = () => {
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.q-list {
+  width: 100%;
+  border-color: $primary;
+}
+</style>
