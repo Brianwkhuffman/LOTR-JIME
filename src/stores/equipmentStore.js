@@ -45,32 +45,36 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
    * An array of objects where `label` is the tier 1 equipment name and `value` is the equipment's family type.
    */
   const getEquipmentOptionsByType = (type) => {
-    const options = [];
+    const optionsMap = new Map();
     const equipTypeList = getEquipmentListByType(type);
     let filteredList;
 
+    // Mounts have no tiers
     if (type === 'mounts') {
-      // Mounts have no tiers
       filteredList = equipTypeList;
     } else {
       filteredList = equipTypeList.filter(equip => equip.tier === 'I');
     }
 
+    // Map used to avoid duplicates like Knife/Sword
     for (const equip of filteredList) {
-      options.push({
+      optionsMap.set(equip.family, {
         label: equip.name,
         value: equip.family
       });
     }
-    return options;
+    return Array.from(optionsMap.values());
   };
 
   const getEquipCardsByTypeAndFamily = (type, family) => {
-    console.log(type, family);
     const equipTypeList = getEquipmentListByType(type);
-    const final = equipTypeList.filter(equip => equip.family === family);
-    console.log(final);
-    return final;
+    const familyCards = equipTypeList.filter(equip => equip.family === family);
+
+    // Removes duplicates like Knife/Sword
+    const uniqueFamilyCards = [
+      ...new Map(familyCards.map(item => [item.name, item])).values()
+    ];    
+    return uniqueFamilyCards;
   };
 
   return {
