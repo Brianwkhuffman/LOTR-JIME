@@ -20,7 +20,7 @@
     "cards": [
       {
         "heroId": 1,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Wanderer",
         "trait": null,
@@ -30,7 +30,7 @@
       },
       {
         "heroId": 1,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Strider",
         "trait": "Tactic",
@@ -40,7 +40,7 @@
       },
       {
         "heroId": 1,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Strider",
         "trait": "Tactic",
@@ -50,7 +50,7 @@
       },
       {
         "heroId": 1,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Thorongil",
         "trait": "Knowledge",
@@ -60,7 +60,7 @@
       },
       {
         "heroId": 1,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Gift of Men",
         "trait": "Innate, Valour",
@@ -91,7 +91,7 @@
     "cards": [
       {
         "heroId": 2,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Nobility",
         "trait": "Aid",
@@ -101,7 +101,7 @@
       },
       {
         "heroId": 2,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Elven Light",
         "trait": "Knowledge, Innate",
@@ -111,7 +111,7 @@
       },
       {
         "heroId": 2,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Evenstar",
         "trait": null,
@@ -121,7 +121,7 @@
       },
       {
         "heroId": 2,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Evenstar",
         "trait": null,
@@ -131,7 +131,7 @@
       },
       {
         "heroId": 2,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Willful",
         "trait": null,
@@ -162,7 +162,7 @@
     "cards": [
       {
         "heroId": 3,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Kinship",
         "trait": "Aid",
@@ -172,7 +172,7 @@
       },
       {
         "heroId": 3,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Raven Companion",
         "trait": "Creature, Shadow",
@@ -182,7 +182,7 @@
       },
       {
         "heroId": 3,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Loyal Friend",
         "trait": "Valour",
@@ -192,7 +192,7 @@
       },
       {
         "heroId": 3,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Loyal Friend",
         "trait": "Valour",
@@ -202,7 +202,7 @@
       },
       {
         "heroId": 3,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Misty Mountain Cold",
         "trait": "Song",
@@ -233,7 +233,7 @@
     "cards": [
       {
         "heroId": 4,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "The Day Will Come",
         "trait": null,
@@ -243,7 +243,7 @@
       },
       {
         "heroId": 4,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Beast Tongue",
         "trait": "Knowledge",
@@ -253,7 +253,7 @@
       },
       {
         "heroId": 4,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Friend of Bees",
         "trait": "Creature",
@@ -263,7 +263,7 @@
       },
       {
         "heroId": 4,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "The First Beorning",
         "trait": null,
@@ -273,7 +273,7 @@
       },
       {
         "heroId": 4,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "The First Beorning",
         "trait": null,
@@ -324,7 +324,7 @@
     "cards": [
       {
         "heroId": 6,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Into Hiding",
         "trait": null,
@@ -334,7 +334,7 @@
       },
       {
         "heroId": 6,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Ways of Old",
         "trait": "Tactic, Knowledge",
@@ -344,7 +344,7 @@
       },
       {
         "heroId": 6,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Ways of Old",
         "trait": "Tactic, Knowledge",
@@ -354,7 +354,7 @@
       },
       {
         "heroId": 6,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Fateless",
         "trait": "Innate",
@@ -364,7 +364,7 @@
       },
       {
         "heroId": 6,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Gift of Men",
         "trait": "Innate, Valour",
@@ -395,7 +395,7 @@
     "cards": [
       {
         "heroId": 7,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "The Tookish Part",
         "trait": "Innate, Valour",
@@ -405,7 +405,7 @@
       },
       {
         "heroId": 7,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "The Tookish Part",
         "trait": "Innate, Valour",
@@ -415,7 +415,7 @@
       },
       {
         "heroId": 7,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Well-Nourished",
         "trait": "Food",
@@ -425,7 +425,7 @@
       },
       {
         "heroId": 7,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Simple Desires",
         "trait": "Innate",
@@ -435,7 +435,7 @@
       },
       {
         "heroId": 7,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "The Road Goes Ever On",
         "trait": "Song",
@@ -466,7 +466,7 @@
     "cards": [
       {
         "heroId": 8,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Fierce Resolve",
         "trait": "Innate, Valour",
@@ -476,7 +476,7 @@
       },
       {
         "heroId": 8,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Born to Lead",
         "trait": null,
@@ -486,7 +486,7 @@
       },
       {
         "heroId": 8,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Overpower",
         "trait": "Tactic",
@@ -496,7 +496,7 @@
       },
       {
         "heroId": 8,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Blood of Gondor",
         "trait": "Innate",
@@ -506,7 +506,7 @@
       },
       {
         "heroId": 8,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Gift of Men",
         "trait": "Innate, Valour",
@@ -537,7 +537,7 @@
     "cards": [
       {
         "heroId":9,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Simple Desires",
         "trait": "Innate",
@@ -547,7 +547,7 @@
       },
       {
         "heroId":9,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "The Tookish Part",
         "trait": "Innate, Valour",
@@ -557,7 +557,7 @@
       },
       {
         "heroId":9,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Hobbit-Sense",
         "trait": "Innate",
@@ -567,7 +567,7 @@
       },
       {
         "heroId":9,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Drinking Ditty",
         "trait": "Food, Song",
@@ -577,7 +577,7 @@
       },
       {
         "heroId":9,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Fierce Resolve",
         "trait": "Innate, Valour",
@@ -608,7 +608,7 @@
     "cards": [
       {
         "heroId": 10,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Fury",
         "trait": null,
@@ -618,7 +618,7 @@
       },
       {
         "heroId": 10,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Kinship",
         "trait": "Aid",
@@ -628,7 +628,7 @@
       },
       {
         "heroId": 10,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Strength of Thrain",
         "trait": null,
@@ -638,7 +638,7 @@
       },
       {
         "heroId": 10,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Fire Heart",
         "trait": "Innate",
@@ -648,7 +648,7 @@
       },
       {
         "heroId": 10,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Fire Heart",
         "trait": "Innate",
@@ -679,7 +679,7 @@
     "cards": [
       {
         "heroId":11,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Kinship",
         "trait": "Aid",
@@ -689,7 +689,7 @@
       },
       {
         "heroId":11,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Ancestral Grudge",
         "trait": "Innate, Tactic",
@@ -699,7 +699,7 @@
       },
       {
         "heroId":11,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Ancestral Grudge",
         "trait": "Innate, Tactic",
@@ -709,7 +709,7 @@
       },
       {
         "heroId":11,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Misty Mountain Cold",
         "trait": "Song",
@@ -719,7 +719,7 @@
       },
       {
         "heroId":11,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Stirring Performance",
         "trait": "Song",
@@ -750,7 +750,7 @@
     "cards": [
       {
         "heroId": 12,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Nobility",
         "trait": "Aid",
@@ -760,7 +760,7 @@
       },
       {
         "heroId": 12,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Fateless",
         "trait": "Innate",
@@ -770,7 +770,7 @@
       },
       {
         "heroId": 12,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Blood of Gondor",
         "trait": "Innate",
@@ -780,7 +780,7 @@
       },
       {
         "heroId": 12,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Blood of Gondor",
         "trait": "Innate",
@@ -790,7 +790,7 @@
       },
       {
         "heroId": 12,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Gift of Men",
         "trait": "Innate, Valour",
@@ -821,7 +821,7 @@
     "cards": [
       {
         "heroId": 13,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Child of the Lhun",
         "trait": "Tactic",
@@ -831,7 +831,7 @@
       },
       {
         "heroId": 13,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Elven Light",
         "trait": "Knowledge, Innate",
@@ -841,7 +841,7 @@
       },
       {
         "heroId": 13,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Immortality",
         "trait": "Innate",
@@ -851,7 +851,7 @@
       },
       {
         "heroId": 13,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Lay of Twilight",
         "trait": "Knowledge, Song",
@@ -861,7 +861,7 @@
       },
       {
         "heroId": 13,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Lay of Twilight",
         "trait": "Knowledge, Song",
@@ -892,7 +892,7 @@
     "cards": [
       {
         "heroId": 14,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Fateless",
         "trait": "Innate",
@@ -902,7 +902,7 @@
       },
       {
         "heroId": 14,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Faithful Companion",
         "trait": "Aid",
@@ -912,7 +912,7 @@
       },
       {
         "heroId": 14,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Gift of Men",
         "trait": "Innate, Valour",
@@ -922,7 +922,7 @@
       },
       {
         "heroId": 14,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Cavalry Combat",
         "trait": "Tactic",
@@ -932,7 +932,7 @@
       },
       {
         "heroId": 14,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Cavalry Combat",
         "trait": "Tactic",
@@ -963,7 +963,7 @@
     "cards": [
       {
         "heroId": 15,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Grey Pilgrim",
         "trait": null,
@@ -973,7 +973,7 @@
       },
       {
         "heroId": 15,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Uncanny",
         "trait": "Shadow",
@@ -983,7 +983,7 @@
       },
       {
         "heroId": 15,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Flame Imperishable",
         "trait": null,
@@ -993,7 +993,7 @@
       },
       {
         "heroId": 15,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Greater Power",
         "trait": "Knowledge",
@@ -1004,7 +1004,7 @@
       {
         "heroId": 15,
         "id": 70,
-        "cardType": "Character",
+        "type": "Character",
         "character": "Gandalf",
         "number": 5,
         "name": "Dazzling Flash",
@@ -1036,7 +1036,7 @@
     "cards": [
       {
         "heroId": 16,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Poet's Heart",
         "trait": null,
@@ -1046,7 +1046,7 @@
       },
       {
         "heroId": 16,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Restless Axe",
         "trait": "Tactic",
@@ -1056,7 +1056,7 @@
       },
       {
         "heroId": 16,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Restless Axe",
         "trait": "Tactic",
@@ -1066,7 +1066,7 @@
       },
       {
         "heroId": 16,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Kinship",
         "trait": "Aid",
@@ -1076,7 +1076,7 @@
       },
       {
         "heroId": 16,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Fury",
         "trait": null,
@@ -1107,7 +1107,7 @@
     "cards": [
       {
         "heroId":17,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Keen Eyes",
         "trait": "Innate",
@@ -1117,7 +1117,7 @@
       },
       {
         "heroId":17,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Light-Footed",
         "trait": null,
@@ -1127,7 +1127,7 @@
       },
       {
         "heroId":17,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Light-Footed",
         "trait": null,
@@ -1137,7 +1137,7 @@
       },
       {
         "heroId":17,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Tireless",
         "trait": null,
@@ -1147,7 +1147,7 @@
       },
       {
         "heroId":17,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Immortality",
         "trait": "Innate",
@@ -1178,7 +1178,7 @@
     "cards": [
       {
         "heroId": 18,
-        "cardType": "Character",
+        "type": "Character",
         "number": 1,
         "name": "Child of the Lhun",
         "trait": "Tactic",
@@ -1188,7 +1188,7 @@
       },
       {
         "heroId": 18,
-        "cardType": "Character",
+        "type": "Character",
         "number": 2,
         "name": "Mischief",
         "trait": "Shadow",
@@ -1198,7 +1198,7 @@
       },
       {
         "heroId": 18,
-        "cardType": "Character",
+        "type": "Character",
         "number": 3,
         "name": "Tireless",
         "trait": null,
@@ -1208,7 +1208,7 @@
       },
       {
         "heroId": 18,
-        "cardType": "Character",
+        "type": "Character",
         "number": 4,
         "name": "Grey Haven Craft",
         "trait": null,
@@ -1218,7 +1218,7 @@
       },
       {
         "heroId": 18,
-        "cardType": "Character",
+        "type": "Character",
         "number": 5,
         "name": "Grey Haven Craft",
         "trait": null,
