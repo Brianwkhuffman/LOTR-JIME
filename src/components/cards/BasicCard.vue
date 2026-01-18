@@ -38,7 +38,7 @@ const getIconStyle = (icon) => {
       <q-img
         :src="getSuccessFateIcon(card.icon)"
         :style="getIconStyle(card.icon)"
-        alt="success"
+        :alt="card.icon"
       />
     </header>
     <section>

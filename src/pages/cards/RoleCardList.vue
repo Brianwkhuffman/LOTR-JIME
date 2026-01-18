@@ -14,6 +14,22 @@ const roleCards = computed(() => {
   return roleCardStore.getRoleCardsByName(roleParam);
 });
 
+const getSuccessFateIcon = (icon) => {
+  if (icon === '1 Success') {
+    return '/assets/success.png';
+  }
+  else if (icon === '1 Fate') {
+    return '/assets/fate.png';
+  }
+  else if (icon === '2 Fate') {
+    return '/assets/fate2.png';
+  }
+  return '';
+};
+
+const getIconStyle = (icon) => {
+  return icon === '2 Fate' ? 'width: 50px;' : 'width: 25px;';
+};
 </script>
 
 <template>
@@ -35,23 +51,10 @@ const roleCards = computed(() => {
           <h5>
             {{ card.name }}
 
-            <q-icon
-              v-if="card.icon === '1 Success'"
-              src="/assets/success.png"
-              alt="fate"
-              style="width: 25px;"
-            />
-            <q-icon
-              v-else-if="card.icon === '1 Fate'"
-              src="/assets/fate.png"
-              alt="fate"
-              style="width: 25px;"
-            />
-            <q-icon
-              v-else
-              src="/assets/fate2.png"
-              alt="fate"
-              style="width: 50px;"
+            <q-img
+              :src="getSuccessFateIcon(card.icon)"
+              :style="getIconStyle(card.icon)"
+              :alt="card.icon"
             />
           </h5>
           <i>{{ card.trait }}</i>
