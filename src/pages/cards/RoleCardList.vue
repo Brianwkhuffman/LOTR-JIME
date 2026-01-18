@@ -6,12 +6,12 @@ import { useRoleCardStore } from '/src/stores/roleCardStore.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const route = useRoute();
-const roleType = route.params.role;
+const roleParam = route.params.role;
 const roleCardStore = useRoleCardStore();
 const { loading } = storeToRefs(roleCardStore);
 
 const roleCards = computed(() => {
-  return roleCardStore.getRoleCardsByType(roleType);
+  return roleCardStore.getRoleCardsByName(roleParam);
 });
 
 </script>
@@ -37,18 +37,21 @@ const roleCards = computed(() => {
 
             <q-icon
               v-if="card.icon === '1 Success'"
-              color="green"
-              name="star"
+              src="/assets/success.png"
+              alt="fate"
+              style="width: 25px;"
             />
             <q-icon
               v-else-if="card.icon === '1 Fate'"
-              color="red"
-              name="emergency"
+              src="/assets/fate.png"
+              alt="fate"
+              style="width: 25px;"
             />
             <q-icon
               v-else
-              color="blue"
-              name="emergency"
+              src="/assets/fate2.png"
+              alt="fate"
+              style="width: 50px;"
             />
           </h5>
           <i>{{ card.trait }}</i>
