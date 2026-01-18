@@ -22,8 +22,8 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
       equipmentMap.value = data;
       equipTypes.value = Object.keys(data);
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;

@@ -22,8 +22,8 @@ export const useInfoCardStore = defineStore('infoCardStore', () => {
       infoCards.value = data;
       infoTypes.value = Object.keys(data);
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;

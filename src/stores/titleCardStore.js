@@ -20,8 +20,8 @@ export const useTitleCardStore = defineStore('titleCardStore', () =>{
       const response = await axios.get(url);
       titleCards.value = response.data.titleCards;
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;
