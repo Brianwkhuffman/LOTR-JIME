@@ -20,6 +20,7 @@
     "cards": [
       {
         "heroId": 1,
+        "heroName": "Aragorn",
         "type": "Character",
         "number": 1,
         "name": "Wanderer",
@@ -30,6 +31,7 @@
       },
       {
         "heroId": 1,
+        "heroName": "Aragorn",
         "type": "Character",
         "number": 2,
         "name": "Strider",
@@ -40,6 +42,7 @@
       },
       {
         "heroId": 1,
+        "heroName": "Aragorn",
         "type": "Character",
         "number": 3,
         "name": "Strider",
@@ -50,6 +53,7 @@
       },
       {
         "heroId": 1,
+        "heroName": "Aragorn",
         "type": "Character",
         "number": 4,
         "name": "Thorongil",
@@ -60,6 +64,7 @@
       },
       {
         "heroId": 1,
+        "heroName": "Aragorn",
         "type": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -91,6 +96,7 @@
     "cards": [
       {
         "heroId": 2,
+        "heroName": "Arwen",
         "type": "Character",
         "number": 1,
         "name": "Nobility",
@@ -101,6 +107,7 @@
       },
       {
         "heroId": 2,
+        "heroName": "Arwen",
         "type": "Character",
         "number": 2,
         "name": "Elven Light",
@@ -111,6 +118,7 @@
       },
       {
         "heroId": 2,
+        "heroName": "Arwen",
         "type": "Character",
         "number": 3,
         "name": "Evenstar",
@@ -121,6 +129,7 @@
       },
       {
         "heroId": 2,
+        "heroName": "Arwen",
         "type": "Character",
         "number": 4,
         "name": "Evenstar",
@@ -131,6 +140,7 @@
       },
       {
         "heroId": 2,
+        "heroName": "Arwen",
         "type": "Character",
         "number": 5,
         "name": "Willful",
@@ -162,6 +172,7 @@
     "cards": [
       {
         "heroId": 3,
+        "heroName": "Balin",
         "type": "Character",
         "number": 1,
         "name": "Kinship",
@@ -172,6 +183,7 @@
       },
       {
         "heroId": 3,
+        "heroName": "Balin",
         "type": "Character",
         "number": 2,
         "name": "Raven Companion",
@@ -182,6 +194,7 @@
       },
       {
         "heroId": 3,
+        "heroName": "Balin",
         "type": "Character",
         "number": 3,
         "name": "Loyal Friend",
@@ -192,6 +205,7 @@
       },
       {
         "heroId": 3,
+        "heroName": "Balin",
         "type": "Character",
         "number": 4,
         "name": "Loyal Friend",
@@ -202,6 +216,7 @@
       },
       {
         "heroId": 3,
+        "heroName": "Balin",
         "type": "Character",
         "number": 5,
         "name": "Misty Mountain Cold",
@@ -233,6 +248,7 @@
     "cards": [
       {
         "heroId": 4,
+        "heroName": "Beorn",
         "type": "Character",
         "number": 1,
         "name": "The Day Will Come",
@@ -243,6 +259,7 @@
       },
       {
         "heroId": 4,
+        "heroName": "Beorn",
         "type": "Character",
         "number": 2,
         "name": "Beast Tongue",
@@ -253,6 +270,7 @@
       },
       {
         "heroId": 4,
+        "heroName": "Beorn",
         "type": "Character",
         "number": 3,
         "name": "Friend of Bees",
@@ -263,6 +281,7 @@
       },
       {
         "heroId": 4,
+        "heroName": "Beorn",
         "type": "Character",
         "number": 4,
         "name": "The First Beorning",
@@ -273,6 +292,7 @@
       },
       {
         "heroId": 4,
+        "heroName": "Beorn",
         "type": "Character",
         "number": 5,
         "name": "The First Beorning",
@@ -324,6 +344,7 @@
     "cards": [
       {
         "heroId": 6,
+        "heroName": "Beravor",
         "type": "Character",
         "number": 1,
         "name": "Into Hiding",
@@ -334,6 +355,7 @@
       },
       {
         "heroId": 6,
+        "heroName": "Beravor",
         "type": "Character",
         "number": 2,
         "name": "Ways of Old",
@@ -344,6 +366,7 @@
       },
       {
         "heroId": 6,
+        "heroName": "Beravor",
         "type": "Character",
         "number": 3,
         "name": "Ways of Old",
@@ -354,6 +377,7 @@
       },
       {
         "heroId": 6,
+        "heroName": "Beravor",
         "type": "Character",
         "number": 4,
         "name": "Fateless",
@@ -364,6 +388,7 @@
       },
       {
         "heroId": 6,
+        "heroName": "Beravor",
         "type": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -395,6 +420,7 @@
     "cards": [
       {
         "heroId": 7,
+        "heroName": "Bilbo",
         "type": "Character",
         "number": 1,
         "name": "The Tookish Part",
@@ -405,6 +431,7 @@
       },
       {
         "heroId": 7,
+        "heroName": "Bilbo",
         "type": "Character",
         "number": 2,
         "name": "The Tookish Part",
@@ -415,6 +442,7 @@
       },
       {
         "heroId": 7,
+        "heroName": "Bilbo",
         "type": "Character",
         "number": 3,
         "name": "Well-Nourished",
@@ -425,6 +453,7 @@
       },
       {
         "heroId": 7,
+        "heroName": "Bilbo",
         "type": "Character",
         "number": 4,
         "name": "Simple Desires",
@@ -435,6 +464,7 @@
       },
       {
         "heroId": 7,
+        "heroName": "Bilbo",
         "type": "Character",
         "number": 5,
         "name": "The Road Goes Ever On",
@@ -466,6 +496,7 @@
     "cards": [
       {
         "heroId": 8,
+        "heroName": "Boromir",
         "type": "Character",
         "number": 1,
         "name": "Fierce Resolve",
@@ -476,6 +507,7 @@
       },
       {
         "heroId": 8,
+        "heroName": "Boromir",
         "type": "Character",
         "number": 2,
         "name": "Born to Lead",
@@ -486,6 +518,7 @@
       },
       {
         "heroId": 8,
+        "heroName": "Boromir",
         "type": "Character",
         "number": 3,
         "name": "Overpower",
@@ -496,6 +529,7 @@
       },
       {
         "heroId": 8,
+        "heroName": "Boromir",
         "type": "Character",
         "number": 4,
         "name": "Blood of Gondor",
@@ -506,6 +540,7 @@
       },
       {
         "heroId": 8,
+        "heroName": "Boromir",
         "type": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -537,6 +572,7 @@
     "cards": [
       {
         "heroId":9,
+        "heroName": "Calaminth Took",
         "type": "Character",
         "number": 1,
         "name": "Simple Desires",
@@ -547,6 +583,7 @@
       },
       {
         "heroId":9,
+        "heroName": "Calaminth Took",
         "type": "Character",
         "number": 2,
         "name": "The Tookish Part",
@@ -557,6 +594,7 @@
       },
       {
         "heroId":9,
+        "heroName": "Calaminth Took",
         "type": "Character",
         "number": 3,
         "name": "Hobbit-Sense",
@@ -567,6 +605,7 @@
       },
       {
         "heroId":9,
+        "heroName": "Calaminth Took",
         "type": "Character",
         "number": 4,
         "name": "Drinking Ditty",
@@ -577,6 +616,7 @@
       },
       {
         "heroId":9,
+        "heroName": "Calaminth Took",
         "type": "Character",
         "number": 5,
         "name": "Fierce Resolve",
@@ -608,6 +648,7 @@
     "cards": [
       {
         "heroId": 10,
+        "heroName": "Dis",
         "type": "Character",
         "number": 1,
         "name": "Fury",
@@ -618,6 +659,7 @@
       },
       {
         "heroId": 10,
+        "heroName": "Dis",
         "type": "Character",
         "number": 2,
         "name": "Kinship",
@@ -628,6 +670,7 @@
       },
       {
         "heroId": 10,
+        "heroName": "Dis",
         "type": "Character",
         "number": 3,
         "name": "Strength of Thrain",
@@ -638,6 +681,7 @@
       },
       {
         "heroId": 10,
+        "heroName": "Dis",
         "type": "Character",
         "number": 4,
         "name": "Fire Heart",
@@ -648,6 +692,7 @@
       },
       {
         "heroId": 10,
+        "heroName": "Dis",
         "type": "Character",
         "number": 5,
         "name": "Fire Heart",
@@ -679,6 +724,7 @@
     "cards": [
       {
         "heroId":11,
+        "heroName": "Dwalin",
         "type": "Character",
         "number": 1,
         "name": "Kinship",
@@ -689,6 +735,7 @@
       },
       {
         "heroId":11,
+        "heroName": "Dwalin",
         "type": "Character",
         "number": 2,
         "name": "Ancestral Grudge",
@@ -699,6 +746,7 @@
       },
       {
         "heroId":11,
+        "heroName": "Dwalin",
         "type": "Character",
         "number": 3,
         "name": "Ancestral Grudge",
@@ -709,6 +757,7 @@
       },
       {
         "heroId":11,
+        "heroName": "Dwalin",
         "type": "Character",
         "number": 4,
         "name": "Misty Mountain Cold",
@@ -719,6 +768,7 @@
       },
       {
         "heroId":11,
+        "heroName": "Dwalin",
         "type": "Character",
         "number": 5,
         "name": "Stirring Performance",
@@ -750,6 +800,7 @@
     "cards": [
       {
         "heroId": 12,
+        "heroName": "Eleanor",
         "type": "Character",
         "number": 1,
         "name": "Nobility",
@@ -760,6 +811,7 @@
       },
       {
         "heroId": 12,
+        "heroName": "Eleanor",
         "type": "Character",
         "number": 2,
         "name": "Fateless",
@@ -770,6 +822,7 @@
       },
       {
         "heroId": 12,
+        "heroName": "Eleanor",
         "type": "Character",
         "number": 3,
         "name": "Blood of Gondor",
@@ -780,6 +833,7 @@
       },
       {
         "heroId": 12,
+        "heroName": "Eleanor",
         "type": "Character",
         "number": 4,
         "name": "Blood of Gondor",
@@ -790,6 +844,7 @@
       },
       {
         "heroId": 12,
+        "heroName": "Eleanor",
         "type": "Character",
         "number": 5,
         "name": "Gift of Men",
@@ -821,6 +876,7 @@
     "cards": [
       {
         "heroId": 13,
+        "heroName": "Elena",
         "type": "Character",
         "number": 1,
         "name": "Child of the Lhun",
@@ -831,6 +887,7 @@
       },
       {
         "heroId": 13,
+        "heroName": "Elena",
         "type": "Character",
         "number": 2,
         "name": "Elven Light",
@@ -841,6 +898,7 @@
       },
       {
         "heroId": 13,
+        "heroName": "Elena",
         "type": "Character",
         "number": 3,
         "name": "Immortality",
@@ -851,6 +909,7 @@
       },
       {
         "heroId": 13,
+        "heroName": "Elena",
         "type": "Character",
         "number": 4,
         "name": "Lay of Twilight",
@@ -861,6 +920,7 @@
       },
       {
         "heroId": 13,
+        "heroName": "Elena",
         "type": "Character",
         "number": 5,
         "name": "Lay of Twilight",
@@ -892,6 +952,7 @@
     "cards": [
       {
         "heroId": 14,
+        "heroName": "Fréahild",
         "type": "Character",
         "number": 1,
         "name": "Fateless",
@@ -902,6 +963,7 @@
       },
       {
         "heroId": 14,
+        "heroName": "Fréahild",
         "type": "Character",
         "number": 2,
         "name": "Faithful Companion",
@@ -912,6 +974,7 @@
       },
       {
         "heroId": 14,
+        "heroName": "Fréahild",
         "type": "Character",
         "number": 3,
         "name": "Gift of Men",
@@ -922,6 +985,7 @@
       },
       {
         "heroId": 14,
+        "heroName": "Fréahild",
         "type": "Character",
         "number": 4,
         "name": "Cavalry Combat",
@@ -932,6 +996,7 @@
       },
       {
         "heroId": 14,
+        "heroName": "Fréahild",
         "type": "Character",
         "number": 5,
         "name": "Cavalry Combat",
@@ -963,6 +1028,7 @@
     "cards": [
       {
         "heroId": 15,
+        "heroName": "Gandalf",
         "type": "Character",
         "number": 1,
         "name": "Grey Pilgrim",
@@ -973,6 +1039,7 @@
       },
       {
         "heroId": 15,
+        "heroName": "Gandalf",
         "type": "Character",
         "number": 2,
         "name": "Uncanny",
@@ -983,6 +1050,7 @@
       },
       {
         "heroId": 15,
+        "heroName": "Gandalf",
         "type": "Character",
         "number": 3,
         "name": "Flame Imperishable",
@@ -993,6 +1061,7 @@
       },
       {
         "heroId": 15,
+        "heroName": "Gandalf",
         "type": "Character",
         "number": 4,
         "name": "Greater Power",
@@ -1003,7 +1072,7 @@
       },
       {
         "heroId": 15,
-        "id": 70,
+        "heroName": "Gandalf",
         "type": "Character",
         "character": "Gandalf",
         "number": 5,
@@ -1036,6 +1105,7 @@
     "cards": [
       {
         "heroId": 16,
+        "heroName": "Gimli",
         "type": "Character",
         "number": 1,
         "name": "Poet's Heart",
@@ -1046,6 +1116,7 @@
       },
       {
         "heroId": 16,
+        "heroName": "Gimli",
         "type": "Character",
         "number": 2,
         "name": "Restless Axe",
@@ -1056,6 +1127,7 @@
       },
       {
         "heroId": 16,
+        "heroName": "Gimli",
         "type": "Character",
         "number": 3,
         "name": "Restless Axe",
@@ -1066,6 +1138,7 @@
       },
       {
         "heroId": 16,
+        "heroName": "Gimli",
         "type": "Character",
         "number": 4,
         "name": "Kinship",
@@ -1076,6 +1149,7 @@
       },
       {
         "heroId": 16,
+        "heroName": "Gimli",
         "type": "Character",
         "number": 5,
         "name": "Fury",
@@ -1107,6 +1181,7 @@
     "cards": [
       {
         "heroId":17,
+        "heroName": "Legolas",
         "type": "Character",
         "number": 1,
         "name": "Keen Eyes",
@@ -1117,6 +1192,7 @@
       },
       {
         "heroId":17,
+        "heroName": "Legolas",
         "type": "Character",
         "number": 2,
         "name": "Light-Footed",
@@ -1127,6 +1203,7 @@
       },
       {
         "heroId":17,
+        "heroName": "Legolas",
         "type": "Character",
         "number": 3,
         "name": "Light-Footed",
@@ -1137,6 +1214,7 @@
       },
       {
         "heroId":17,
+        "heroName": "Legolas",
         "type": "Character",
         "number": 4,
         "name": "Tireless",
@@ -1147,6 +1225,7 @@
       },
       {
         "heroId":17,
+        "heroName": "Legolas",
         "type": "Character",
         "number": 5,
         "name": "Immortality",
@@ -1178,6 +1257,7 @@
     "cards": [
       {
         "heroId": 18,
+        "heroName": "Rénëríen",
         "type": "Character",
         "number": 1,
         "name": "Child of the Lhun",
@@ -1188,6 +1268,7 @@
       },
       {
         "heroId": 18,
+        "heroName": "Rénëríen",
         "type": "Character",
         "number": 2,
         "name": "Mischief",
@@ -1198,6 +1279,7 @@
       },
       {
         "heroId": 18,
+        "heroName": "Rénëríen",
         "type": "Character",
         "number": 3,
         "name": "Tireless",
@@ -1208,6 +1290,7 @@
       },
       {
         "heroId": 18,
+        "heroName": "Rénëríen",
         "type": "Character",
         "number": 4,
         "name": "Grey Haven Craft",
@@ -1218,6 +1301,7 @@
       },
       {
         "heroId": 18,
+        "heroName": "Rénëríen",
         "type": "Character",
         "number": 5,
         "name": "Grey Haven Craft",
