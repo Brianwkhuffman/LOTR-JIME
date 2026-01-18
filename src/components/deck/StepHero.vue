@@ -2,8 +2,8 @@
 import { computed, onBeforeMount, ref } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
-import { storeToRefs } from 'pinia';
-import SmallCard from 'components/cards/SmallCard.vue';
+import { storeToRefs } from 'pinia'; 
+import HeroDetailCard from 'components/cards/HeroDetailCard.vue';
 
 const heroDetailStore = useHeroDetailStore();
 const deckStore = useDeckStore();
@@ -22,10 +22,10 @@ onBeforeMount(() => {
   }
 });
 
-const heroCards = computed(() => {
+const selectedHeroDetails = computed(() => {
   if (selectedHero.value) {
-    const cards = heroDetailStore.getHeroCardsByHeroId(selectedHero.value.value);
-    return cards;
+    const heroDetails = heroDetailStore.getHeroByName(selectedHero.value.label);
+    return heroDetails;
   }
   return null;
 });
@@ -35,13 +35,29 @@ const addHeroCards = () => {
   if (!validHero) {
     return;
   }
-  deckStore.addCards('hero', heroCards);
+  deckStore.addCards('hero', selectedHeroDetails.value.cards);
   emit('nextStep');
 };
 
 const hasSelectedHero = computed(() => {
   return selectedHero.value?.label;
 });
+
+const getSuccessFateIcon = (icon) => {
+  if (icon === '1 Success') {
+    return '/assets/success.png';
+  }
+  else if (icon === '1 Fate') {
+    return '/assets/fate.png';
+  }
+  else if (icon === '2 Fate') {
+    return '/assets/fate2.png';
+  }
+  return '';
+};
+const getIconStyle = (icon) => {
+  return icon === '2 Fate' ? 'width: 22px;' : 'width: 15px;';
+};
 
 </script>
 
@@ -68,12 +84,47 @@ const hasSelectedHero = computed(() => {
       </q-btn>
     </div>
 
-    <div
-      v-for="card in heroCards"
-      :key="card.number"
-      class="q-pa-sm"
-    >
-      <small-card :card="card"/>
+    <div v-if="selectedHeroDetails">
+      <hero-detail-card
+        :key="selectedHeroDetails.id"
+        :hero="selectedHeroDetails"
+      />
+      <ul class="card-grid" role="list">
+        <li v-for="card in selectedHeroDetails?.cards"
+            :key="card.number"
+            class="card"
+            tabindex="0">
+          <header class="card-name">
+            {{ card.name }}
+            <q-img
+              :src="getSuccessFateIcon(card.icon)"
+              :style="getIconStyle(card.icon)"
+              alt="success"
+            />
+          </header>
+          <section>
+            <i>{{ card.trait }}</i>
+          </section>
+          <main>
+            <p class="card-description">{{ card.description }}</p>
+          </main>
+          <footer>
+            <i> {{ selectedHeroDetails.name + ' ' + card.number }}</i>          
+          </footer>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.card {
+  border: 1px solid $primary;
+}
+section {
+  flex-grow: .5;
+}
+main {
+  flex-grow: 1;
+}
+</style>
