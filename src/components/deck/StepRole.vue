@@ -3,7 +3,7 @@ import { computed, onBeforeMount, ref } from 'vue';
 import { useRoleCardStore } from 'stores/roleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
-import SmallCard from 'components/cards/SmallCard.vue';
+import BasicCard from '../cards/BasicCard.vue';
 
 const roleCardStore = useRoleCardStore();
 const deckStore = useDeckStore();
@@ -38,16 +38,17 @@ const roleCards = computed(() => {
   return null;
 });
 
-const cardExpCount = computed(() => {
+const getRoleLabel = computed(() => {
   if (!roleCards.value) {
-    return 0;
+    return 'Role:';
   }
-  return roleCards.value.reduce((totalExp, card) => {
+  const totalExpCost = roleCards.value.reduce((totalExp, card) => {
     if (selectedCardNumbers.value.includes(card.number)) {
       return totalExp + (card.exp || 0);
     }
     return totalExp;
   }, 0);
+  return 'Role exp count: ' + totalExpCost;
 });
 
 const addRoleCards = () => {
@@ -92,15 +93,13 @@ const hasSelectedRole = computed(() => {
       <q-select
         :options="getRoleOptions"
         v-model="selectedRole"
-        label="Role:"
+        :label="getRoleLabel"
         clearable
         outlined
         stack-label
         color="primary"
         style="width: 18rem;"
       />
-
-      <p class="q-pa-xs">Exp spent: {{ cardExpCount }}</p>
     </div>
 
     <div class="q-pa-md col q-gutter-sm">
@@ -109,7 +108,7 @@ const hasSelectedRole = computed(() => {
       </q-btn>
     </div>
 
-    <div
+    <!-- <div
       v-for="card in roleCards"
       :key="card.number"
       class="q-pa-sm"
@@ -119,6 +118,22 @@ const hasSelectedRole = computed(() => {
         @click="toggleCardSelection(card.number)"
         :is-selected="selectedCardNumbers.includes(card.number)"
       />
-    </div>
+    </div> -->
+
+
+    <ul class="card-grid" role="list">
+      <li v-for="card in roleCards"
+          :key="card.number"
+          class="card"
+          tabindex="0"
+      >
+        <basic-card 
+          :card="card"
+          @click="toggleCardSelection(card.number)"
+          :is-selected="selectedCardNumbers.includes(card.number)"
+        />
+      </li>
+    </ul>
+  
   </div>
 </template>

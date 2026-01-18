@@ -19,7 +19,6 @@ const getStatColor = (value) => {
     return 'stat-low';
   }
 };
-console.log('hi');
 </script>
 
 <template>

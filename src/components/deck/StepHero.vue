@@ -4,6 +4,7 @@ import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia'; 
 import HeroDetailCard from 'components/cards/HeroDetailCard.vue';
+import BasicCard from '../cards/BasicCard.vue';
 
 const heroDetailStore = useHeroDetailStore();
 const deckStore = useDeckStore();
@@ -42,23 +43,6 @@ const addHeroCards = () => {
 const hasSelectedHero = computed(() => {
   return selectedHero.value?.label;
 });
-
-const getSuccessFateIcon = (icon) => {
-  if (icon === '1 Success') {
-    return '/assets/success.png';
-  }
-  else if (icon === '1 Fate') {
-    return '/assets/fate.png';
-  }
-  else if (icon === '2 Fate') {
-    return '/assets/fate2.png';
-  }
-  return '';
-};
-
-const getIconStyle = (icon) => {
-  return icon === '2 Fate' ? 'width: 22px;' : 'width: 15px;';
-};
 </script>
 
 <template>
@@ -94,37 +78,9 @@ const getIconStyle = (icon) => {
             :key="card.number"
             class="card"
             tabindex="0">
-          <header class="card-name">
-            {{ card.name }}
-            <q-img
-              :src="getSuccessFateIcon(card.icon)"
-              :style="getIconStyle(card.icon)"
-              alt="success"
-            />
-          </header>
-          <section>
-            <i>{{ card.trait }}</i>
-          </section>
-          <main>
-            <p class="card-description">{{ card.description }}</p>
-          </main>
-          <footer>
-            <i> {{ selectedHeroDetails.name + ' ' + card.number }}</i>          
-          </footer>
+          <basic-card :card="card" />
         </li>
       </ul>
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-.card {
-  border: 1px solid $primary;
-}
-section {
-  flex-grow: .5;
-}
-main {
-  flex-grow: 1;
-}
-</style>
