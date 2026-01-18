@@ -55,10 +55,10 @@ const getSuccessFateIcon = (icon) => {
   }
   return '';
 };
+
 const getIconStyle = (icon) => {
   return icon === '2 Fate' ? 'width: 22px;' : 'width: 15px;';
 };
-
 </script>
 
 <template>
