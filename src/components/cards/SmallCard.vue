@@ -20,7 +20,7 @@ defineProps({
         <q-img
           v-if="card.icon === '1 Success'"
           src="/assets/success.png"
-          alt="fate"
+          alt="success"
           style="width: 25px;"
         />
         <q-img
@@ -32,7 +32,7 @@ defineProps({
         <q-img
           v-else
           src="/assets/fate2.png"
-          alt="fate"
+          alt="fate2"
           style="width: 50px;"
         />
       </h5>

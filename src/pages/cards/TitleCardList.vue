@@ -24,20 +24,23 @@ const { loading, titleCards } = storeToRefs(titleCardStore);
           tabindex="0">
         <header class="card-name">
           {{ card.name }}
-          <q-icon
+          <q-img
             v-if="card.icon === '1 Success'"
-            color="green"
-            name="star"
+            src="/assets/success.png"
+            alt="success"
+            style="width: 15px;"
           />
-          <q-icon
+          <q-img
             v-else-if="card.icon === '1 Fate'"
-            color="red"
-            name="emergency"
+            src="/assets/fate.png"
+            alt="fate"
+            style="width: 15px;"
           />
-          <q-icon
+          <q-img
             v-else
-            color="blue"
-            name="emergency"
+            src="/assets/fate2.png"
+            alt="fate2"
+            style="width: 30px;"
           />
         </header>
         <i>{{ card.trait }}</i>
