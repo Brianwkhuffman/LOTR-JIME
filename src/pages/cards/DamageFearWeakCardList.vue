@@ -37,7 +37,7 @@ const cards = computed(() => {
     <ul v-else class="card-grid">
       <li v-for="card in cards"
           :key="card.id"
-          class="card"
+          class="card-list"
           tabindex="0"
       >
         <q-img

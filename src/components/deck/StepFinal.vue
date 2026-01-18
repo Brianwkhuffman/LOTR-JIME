@@ -4,11 +4,12 @@ import { useTitleCardStore } from 'stores/titleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
-import SmallCard from 'components/cards/SmallCard.vue';
+import BasicCard from '../cards/BasicCard.vue';
 
 const deckStore = useDeckStore();
 const weaknessStore = useWeaknessCardStore();
 const titleStore = useTitleCardStore();
+
 const { loading: weaknessLoading, weaknessCards, getWeaknessCardOptions } = storeToRefs(weaknessStore);
 const { loading: titlesLoading, getTitleCardOptions, titleCards } = storeToRefs(titleStore);
 const { loading: deckLoading, selectedWeakness, selectedTitles } = storeToRefs(deckStore);
@@ -27,9 +28,6 @@ const getTitlesDisplay = computed(() => {
 });
 
 const finalizeDeck = () => {
-  // Note: Player can obtain more weakness cards during a chapter
-  // Weakness cards reset to 1 after every chapter
-
   if (selectedWeakness.value) {
     const weaknessCardsToAdd = getChosenCardsByIds(selectedWeakness.value, weaknessCards.value);
     deckStore.addCards('weakness', weaknessCardsToAdd);
@@ -53,14 +51,16 @@ const finalizeDeck = () => {
     <q-list padding bordered class="rounded-borders">
 
       <!-- Mounts TODO -->
-      <q-expansion-item
-        icon="img:assets/mount.png"
-        label="Mounts"
-        header-class="text-primary text-h6"
-        dense
-        dense-toggle
-        expand-separator
-      />
+      <div>
+        <q-expansion-item
+          icon="img:assets/mount.png"
+          label="Mounts"
+          header-class="text-primary text-h6"
+          dense
+          dense-toggle
+          expand-separator
+        />
+      </div>
 
       <!-- Titles -->
       <div>
@@ -84,9 +84,17 @@ const finalizeDeck = () => {
             color="primary"
             class="q-pa-lg"
           />
-          <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
+          <!-- <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
             <small-card :card="card"/>
-          </div>
+          </div> -->
+          <ul class="card-grid" role="list">
+            <li v-for="titleCard in getTitlesDisplay"
+                :key="titleCard.number"
+                class="card-list"
+                tabindex="0">
+              <basic-card :card="titleCard" />
+            </li>
+          </ul>
         </q-expansion-item>
       </div>
 

@@ -24,23 +24,43 @@ const getStatColor = (value) => {
 <template>
   <q-card bordered class="q-mb-md" @click="emit('open-hero-details', props.hero)">
     <q-card-section>
-      <div class="row items-center no-wrap">
-        <div class="col">
+      <div class="row items-center">
+        <div class="col q-pa-sm">
           <h6>{{ props.hero.name }}</h6>
-          <p>Race: <b>{{ props.hero.race }}</b></p>
-          <p>Suggested Role: <b>{{ props.hero.suggestedRole }}</b></p>
+          <i>{{ props.hero.race }}</i>
+          <p>{{ props.hero.ability }}</p>
         </div>
-        <q-img
-          src="/assets/heroPh.png"
-          alt="Hero image"
-          style="width: 80px; height: auto"
-          class="rounded-borders"
-        />
+        <div class="column items-center">
+          <q-img
+            src="/assets/heroPh.png"
+            style="width: 80px; height: auto"
+            class="rounded-borders"
+          />
+          <span>
+            <q-img src="/assets/fate.png" style="width: 30px;" />
+            <b>{{ props.hero.maxInspiration }}</b>
+          </span>
+        </div>
+      </div>
+
+      <div class="q-gutter-x-md">
+        <span>  
+          <q-img
+            src="/assets/dmg.png"
+            style="width: 30px;"
+          />
+          <b>{{ props.hero.maxDamage }}</b>
+        </span>
+        <span>
+          <q-img
+            src="/assets/fear.png"
+            style="width: 30px;"
+          />
+          <b>{{ props.hero.maxFear }}</b>
+        </span>
       </div>
     </q-card-section>
-
     <q-separator />
-
     <q-card-section>
       <div class="row items-center justify-around">
         <div
@@ -55,7 +75,6 @@ const getStatColor = (value) => {
       </div>
     </q-card-section>
   </q-card>
-
 </template>
 
 <style scoped lang="scss">
@@ -76,12 +95,12 @@ const getStatColor = (value) => {
   color: black
 }
 .stat-good {
-  background-color: $positive;
+  background-color: #41c241;
 }
 .stat-ok {
-  background-color: $warning;
+  background-color: #c4bebe;
 }
 .stat-low {
-  background-color: $negative;
+  background-color: #f3ae25;
 }
 </style>

@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useRoleCardStore } from '/src/stores/roleCardStore.js';
-import { formatCamelCase } from '/src/utils/formatDisplay.js';
+import { formatCamelCaseWithDash } from '/src/utils/formatDisplay.js';
 import BackButton from 'src/components/button/BackButton.vue';
 
 const router = useRouter();
@@ -31,7 +31,7 @@ const goToRoleList = (role) => {
         bordered
       >
         <q-card-section class="text-center">
-          <div class="text-h6 text-capitalize">{{ formatCamelCase(role) }}</div>
+          <div class="text-h6 text-capitalize">{{ formatCamelCaseWithDash(role) }}</div>
         </q-card-section>
       </q-card>
     </div>

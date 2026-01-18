@@ -19,8 +19,8 @@ export const useWeaknessCardStore = defineStore('weaknessStore', () => {
       const response = await axios.get(url);
       weaknessCards.value = response.data.weaknessCards;
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;

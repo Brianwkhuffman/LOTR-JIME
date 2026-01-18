@@ -22,8 +22,8 @@ export const useHeroDetailStore = defineStore('heroDetailStore', () => {
       heroes.value = data;
       heroNames.value = Object.keys(data);
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;

@@ -11,6 +11,8 @@ const selectedTab = ref('hero');
 <template>
   <q-tabs
     v-model="selectedTab"
+    active-color="primary"
+    narrow-indicator
     dense
     no-caps
   >

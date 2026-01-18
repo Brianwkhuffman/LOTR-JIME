@@ -23,8 +23,8 @@ export const useRoleCardStore = defineStore('roleCardStore', () => {
       roleCardsMap.value = data;
       roles.value = Object.keys(data);
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;
