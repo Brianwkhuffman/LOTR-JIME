@@ -5,13 +5,14 @@ import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia'; 
 import HeroDetailCard from 'components/cards/HeroDetailCard.vue';
 import BasicCard from '../cards/BasicCard.vue';
+import ErrorBanner from '../ErrorBanner.vue';
 
 const heroDetailStore = useHeroDetailStore();
 const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
-const { loading: deckLoading, currentDeck } = storeToRefs(deckStore);
+const { loading: deckLoading, currentDeck, error } = storeToRefs(deckStore);
 
 const selectedHero = ref({ label: '', value: '' });
 
@@ -25,24 +26,26 @@ onBeforeMount(() => {
 
 const selectedHeroDetails = computed(() => {
   if (selectedHero.value) {
-    const heroDetails = heroDetailStore.getHeroByName(selectedHero.value.label);
-    return heroDetails;
+    return heroDetailStore.getHeroByName(selectedHero.value.label);
   }
   return null;
 });
 
 const addHeroCards = () => {
-  const validHero = hasSelectedHero.value;
-  if (!validHero) {
+  const optionSelected = hasSelectedHero.value;
+  if (!optionSelected) {
     return;
   }
-  deckStore.addCards('hero', selectedHeroDetails.value.cards);
-  emit('nextStep');
+  const cardsAdded = deckStore.addCards('hero', selectedHeroDetails.value.cards);
+  if (cardsAdded) {
+    emit('nextStep');
+  }
 };
 
 const hasSelectedHero = computed(() => {
   return selectedHero.value?.label;
 });
+
 </script>
 
 <template>
@@ -51,6 +54,10 @@ const hasSelectedHero = computed(() => {
   </div>
 
   <div v-else style="display: grid; place-items: center;">
+    <template v-if="error">
+      <error-banner :error="error" />
+    </template>
+
     <q-select
       :options="getHeroOptions"
       v-model="selectedHero"
