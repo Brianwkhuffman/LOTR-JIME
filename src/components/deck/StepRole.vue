@@ -4,13 +4,14 @@ import { useRoleCardStore } from 'stores/roleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
 import BasicCard from '../cards/BasicCard.vue';
+import ErrorBanner from '../ErrorBanner.vue';
 
 const roleCardStore = useRoleCardStore();
 const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: rolesLoading, getRoleOptions } = storeToRefs(roleCardStore);
-const { loading: deckLoading, currentDeck } = storeToRefs(deckStore);
+const { loading: deckLoading, currentDeck, error } = storeToRefs(deckStore);
 
 const selectedRole = ref({ label: '', value: '' });
 const selectedCardNumbers = ref([]);
@@ -38,7 +39,7 @@ const roleCards = computed(() => {
   return null;
 });
 
-const getRoleLabel = computed(() => {
+const roleExpLabel = computed(() => {
   if (!roleCards.value) {
     return 'Role:';
   }
@@ -49,6 +50,10 @@ const getRoleLabel = computed(() => {
     return totalExp;
   }, 0);
   return 'Role exp count: ' + totalExpCost;
+});
+
+const hasSelectedRole = computed(() => {
+  return selectedRole.value && selectedCardNumbers.value.length > 0;
 });
 
 const addRoleCards = () => {
@@ -62,9 +67,18 @@ const addRoleCards = () => {
   });
 
   if (cardsToAdd.length > 0) {
-    deckStore.addCards('role', cardsToAdd);
-    emit('nextStep');
+    const roleCardsAdded = deckStore.addCards('role', cardsToAdd);
+    if (roleCardsAdded) {
+      emit('nextStep');
+    }
   }
+};
+
+const getCardClass = (cardNumber) => {
+  if (selectedCardNumbers?.value.includes(cardNumber)) {
+    return 'card-list selected-card-border';
+  }
+  return 'card-list';
 };
 
 const toggleCardSelection = (cardNumber) => {
@@ -76,10 +90,6 @@ const toggleCardSelection = (cardNumber) => {
   }
 };
 
-const hasSelectedRole = computed(() => {
-  return selectedRole.value && selectedCardNumbers.value.length > 0;
-});
-
 </script>
 
 <template>
@@ -88,12 +98,15 @@ const hasSelectedRole = computed(() => {
   </div>
 
   <div v-else style="display: grid; place-items: center;">
+    <template v-if="error">
+      <error-banner :error="error" />
+    </template>
 
     <div>
       <q-select
         :options="getRoleOptions"
         v-model="selectedRole"
-        :label="getRoleLabel"
+        :label="roleExpLabel"
         clearable
         outlined
         stack-label
@@ -104,33 +117,19 @@ const hasSelectedRole = computed(() => {
 
     <div class="q-pa-md col q-gutter-sm">
       <q-btn class="test" color="primary" @click="addRoleCards" :disable="!hasSelectedRole">
-        Select Role
+        Add Role Cards
       </q-btn>
     </div>
-
-    <!-- <div
-      v-for="card in roleCards"
-      :key="card.number"
-      class="q-pa-sm"
-    >
-      <small-card
-        :card="card"
-        @click="toggleCardSelection(card.number)"
-        :is-selected="selectedCardNumbers.includes(card.number)"
-      />
-    </div> -->
-
 
     <ul class="card-grid" role="list">
       <li v-for="card in roleCards"
           :key="card.number"
-          class="card"
+          :class="getCardClass(card.number)"
           tabindex="0"
       >
         <basic-card 
           :card="card"
           @click="toggleCardSelection(card.number)"
-          :is-selected="selectedCardNumbers.includes(card.number)"
         />
       </li>
     </ul>

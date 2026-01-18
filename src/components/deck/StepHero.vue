@@ -71,7 +71,7 @@ const hasSelectedHero = computed(() => {
 
     <div class="q-pa-md row justify-between">
       <q-btn color="primary" @click="addHeroCards" :disable="!hasSelectedHero">
-        Select Hero
+        Add Hero Cards
       </q-btn>
     </div>
 
@@ -83,7 +83,7 @@ const hasSelectedHero = computed(() => {
       <ul class="card-grid" role="list">
         <li v-for="card in selectedHeroDetails?.cards"
             :key="card.number"
-            class="card"
+            class="card-list"
             tabindex="0">
           <basic-card :card="card" />
         </li>

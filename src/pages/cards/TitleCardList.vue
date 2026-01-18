@@ -20,7 +20,7 @@ const { loading, titleCards } = storeToRefs(titleCardStore);
     <ul v-else class="card-grid" role="list">
       <li v-for="card in titleCards"
           :key="card.id"
-          class="card"
+          class="card-list"
           tabindex="0">
         <header class="card-name">
           {{ card.name }}
