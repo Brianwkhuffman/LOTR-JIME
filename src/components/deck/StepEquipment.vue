@@ -20,7 +20,12 @@ const selectedTrinket = ref({ label: '', value: '' });
 const armorSlide = ref(0);
 const weaponSlide = ref(0);
 const trinketSlide = ref(0);
-const selectedEquipments = ref({});
+
+const confirmedChoice = ref({
+  armor: {},
+  hands: [],
+  trinket: {}
+});
 
 const itemTypes = ['armors', 'weapons', 'trinkets'];
 const equipmentOptions = computed(() => {
@@ -59,7 +64,7 @@ const resetCarousel = (newVal, type) => {
 
 const addEquipCards = () => {
   // TODO: Validate selection
-  deckStore.addCards('equipment', selectedEquipments.value);
+  deckStore.addEquipmentCards('armor', confirmedChoice.value);
   emit('nextStep');
 };
 

@@ -31,9 +31,14 @@ onBeforeMount(() => {
   }
 });
 
+const resetSelection = () => {
+  return selectedCardNumbers.value = [];
+};
+
 const roleCards = computed(() => {
   if (selectedRole.value) {
     const roleName = selectedRole.value.value;
+    resetSelection();
     return roleCardStore.getRoleCardsByName(roleName);
   }
   return null;
@@ -41,7 +46,7 @@ const roleCards = computed(() => {
 
 const roleExpLabel = computed(() => {
   if (!roleCards.value) {
-    return 'Role:';
+    return 'Select a role';
   }
   const totalExpCost = roleCards.value.reduce((totalExp, card) => {
     if (selectedCardNumbers.value.includes(card.number)) {
@@ -49,7 +54,7 @@ const roleExpLabel = computed(() => {
     }
     return totalExp;
   }, 0);
-  return 'Role exp count: ' + totalExpCost;
+  return 'EXP Spent: ' + totalExpCost;
 });
 
 const hasSelectedRole = computed(() => {
