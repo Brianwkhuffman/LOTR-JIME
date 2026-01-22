@@ -1,18 +1,16 @@
 import { ref, computed } from 'vue';
 import { useEquipmentStore } from 'stores/equipmentStore.js';
 
-export function useEquipmentSelection(equipType) {
+export const useEquipmentSelection = (equipType, maxSlots) => {
   const equipStore = useEquipmentStore();
   
-  // 1. The reactive state for the dropdown selection
   const selectedType = ref({ label: '', value: '' });
+  const confirmedItems = ref([]);
 
-  // 2. The options for the QSelect (e.g., all Armor families)
   const familyOptions = computed(() => {
     return equipStore.getEquipmentOptionsByType(equipType);
   });
 
-  // 3. The filtered cards based on that selection
   const filteredCards = computed(() => {
     if (selectedType.value?.value) {
       return equipStore.getEquipCardsByTypeAndFamily(
@@ -20,17 +18,50 @@ export function useEquipmentSelection(equipType) {
         selectedType.value.value
       );
     }
+
     return [];
   });
 
   const clearSelection = () => {
-    selectedType.value = null;
+    selectedType.value = [];
+  };
+
+  const toggleCardSelection = (card) => {
+    const index = confirmedItems.value.findIndex((i) => i.id === card.id);
+    
+    // Remove already selected item
+    if (index > -1) {
+      return confirmedItems.value.splice(index, 1);
+    }
+
+    // Two handed replaces everything
+    const isTwoHanded = card.hands === 2;
+    if (isTwoHanded) {
+      return confirmedItems.value = [card];
+    }
+    
+    // One handed and non-weapon checks
+    const hasTwoHanded = confirmedItems.value.some((i) => i.hands === 2);
+    if (hasTwoHanded) {
+      // If two handed already selected, replace it
+      return confirmedItems.value = [card];
+    } 
+    
+    const currentSlotsUsed = confirmedItems.value.reduce((sum, i) => sum + (i.hands || 1), 0);
+    if (currentSlotsUsed < maxSlots) {  
+      return confirmedItems.value.push(card);
+    } else {
+      confirmedItems.value.splice(0, 1);
+      return confirmedItems.value.push(card);
+    }
   };
 
   return {
     selectedType,
+    confirmedItems,
     familyOptions,
     filteredCards,
-    clearSelection
+    clearSelection,
+    toggleCardSelection
   };
-}
+};

@@ -2,8 +2,9 @@
 import { useEquipmentStore } from 'stores/equipmentStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
-import { computed, ref } from 'vue';
-import { getIconImageSrc } from 'src/utils/assetUtil';
+import { computed } from 'vue';
+import { useEquipmentSelection } from 'src/composables/EquipmentSelection.js';
+import EquipCard from '../cards/EquipCard.vue';
 
 const equipStore = useEquipmentStore();
 const deckStore = useDeckStore();
@@ -12,68 +13,62 @@ const emit = defineEmits(['nextStep']);
 const { loading: equipLoading } = storeToRefs(equipStore);
 const { loading: deckLoading } = storeToRefs(deckStore);
 
-const selectedArmor = ref({ label: '', value: '' });
-const selectedWeapon = ref({ label: '', value: '' });
-// const selectedWeapon2 = ref({ label: '', value: '' });
-const selectedTrinket = ref({ label: '', value: '' });
+// TODO: Need to load cards back when switching tabs...
 
-const armorSlide = ref(0);
-const weaponSlide = ref(0);
-const trinketSlide = ref(0);
+const { 
+  selectedType: armorType, 
+  familyOptions: armorOptions, 
+  filteredCards: armorCards,
+  confirmedItems: confirmedArmor,
+  toggleCardSelection: toggleArmor
+} = useEquipmentSelection('armors', 1);
 
-const confirmedChoice = ref({
-  armor: {},
-  hands: [],
-  trinket: {}
-});
+const { 
+  selectedType: handType, 
+  familyOptions: handOptions, 
+  filteredCards: handCards,
+  confirmedItems: confirmedHands,
+  toggleCardSelection: toggleHands
+} = useEquipmentSelection('weapons', 2);
 
-const itemTypes = ['armors', 'weapons', 'trinkets'];
-const equipmentOptions = computed(() => {
-  const data = {};
-  itemTypes.forEach(type => {
-    data[type] =  equipStore.getEquipmentOptionsByType(type);
-  });
-  return data;
-});
-
-// Helper function to create a targeted computed property
-const createEquipFamilyComputed = (type, targetRef) => {
-  return computed(() => {
-    const selection = targetRef.value;
-    if (selection && selection.value) {
-      return equipStore.getEquipCardsByTypeAndFamily(type, selection.value);
-    }
-    return [];
-  });
-};
-const activeArmors = createEquipFamilyComputed('armors', selectedArmor);
-const activeWeapons = createEquipFamilyComputed('weapons', selectedWeapon);
-const activeTrinkets = createEquipFamilyComputed('trinkets', selectedTrinket);
-
-const resetCarousel = (newVal, type) => {
-  if (newVal && type === 'armors') {
-    return armorSlide.value = activeArmors.value[0].id;
-  }
-  if (newVal && type === 'weapons') {
-    return weaponSlide.value = activeWeapons.value[0].id;
-  }
-  if (newVal && type === 'trinkets') {
-    return trinketSlide.value = activeTrinkets.value[0].id;
-  }
-};
+const { 
+  selectedType: trinketType, 
+  familyOptions: trinketOptions, 
+  filteredCards: trinketCards,
+  confirmedItems: confirmedTrinket,
+  toggleCardSelection: toggleTrinket
+} = useEquipmentSelection('trinkets', 1);
 
 const addEquipCards = () => {
-  // TODO: Validate selection
-  deckStore.addEquipmentCards('armor', confirmedChoice.value);
+  // TODO: Validate selection again?
+  // deckStore.addEquipmentCards('armor', confirmedArmor.value);
   emit('nextStep');
 };
 
-const getStats = (stats) => {
-  if (!stats) {
-    return [];
+const hasSelectedCards = computed(() => {
+  return confirmedArmor.value.length > 0 ||
+    confirmedTrinket.value.length > 0 ||
+    confirmedHands.value.length > 0;
+});
+
+const disableButton = computed(() => {
+  if (confirmedArmor.value.length === 0) {
+    return true;
   }
-  return stats.split('/');
-};
+  if (confirmedTrinket.value.length === 0) {
+    return true;
+  }
+  if (confirmedHands.value.length === 0) {
+    return true;
+  } 
+  else if (confirmedHands.value.length === 2) {
+    const currentSlotsUsed = confirmedHands.value.reduce((sum, i) => sum + (i.hands || 1), 0);
+    return currentSlotsUsed > 2;
+  }
+
+  return false;
+});
+
 </script>
 
 <template>
@@ -95,9 +90,8 @@ const getStats = (stats) => {
         expand-separator
       >
         <q-select
-          :options="equipmentOptions.armors"
-          v-model="selectedArmor"
-          @update:model-value="(val) => resetCarousel(val, 'armors')"
+          :options="armorOptions"
+          v-model="armorType"
           outlined
           stack-label
           dense
@@ -105,147 +99,19 @@ const getStats = (stats) => {
           color="primary"
           class="q-pa-md"
         />
-        <q-carousel
-          v-if="selectedArmor && selectedArmor.value"
-          v-model="armorSlide"
-          control-color="primary"
-          arrows
-          navigation
-          swipeable
-        >
-          <q-carousel-slide
-            v-for="armor in activeArmors"
-            :key="armor.id"
-            :name="armor.id"
+        <ul class="card-grid" role="list">
+          <li v-for="card in armorCards"
+              :key="card.id"
+              class="card-list"
+              :class="{ 'selected-card-border': confirmedArmor.some(i => i.id === card.id) }"
+              tabindex="0"
           >
-            <div class="q-pa-sm text-center">
-              <div class="row items-center justify-center q-gutter-x-sm">
-                
-                <span class="text-h6">{{ armor.name }}</span>
-                
-                <q-img
-                  v-if="armor.stat"
-                  :src="getIconImageSrc(armor.stat)"
-                  style="width: 20px;"
-                  class="cursor-pointer"
-                >
-                  <q-tooltip class="bg-primary text-body2">
-                    {{ armor.stat }}
-                  </q-tooltip>
-                </q-img>
-
-                <q-img
-                  v-if="armor.ranged"
-                  :src="getIconImageSrc('ranged')"
-                  style="width: 20px;"
-                >
-                  <q-tooltip class="bg-primary text-body2">
-                    Ranged
-                  </q-tooltip>
-                </q-img>
-              </div>
-
-              <div class="q-mt-sm">
-                <b>Tier: {{ armor.tier }}</b>
-                <p>{{ armor.description }}</p>
-                <q-img
-                  v-if="armor.upgrade"
-                  :src="getIconImageSrc('lore')"
-                  style="width: 20px;"
-                />
-                <b>{{ armor.upgrade }}</b>
-              </div>
-
-              <div class="q-pa-md">
-                <q-btn color="primary" @click="selectEquipmentSlot('armor', armor)">
-                  Select
-                </q-btn>
-              </div>
-            </div>
-          </q-carousel-slide>
-        </q-carousel>
-      </q-expansion-item>
-
-      <!-- Weapons -->
-      <q-expansion-item
-        icon="img:assets/1hand.png"
-        label="Hands"
-        header-class="text-primary text-h6"
-        dense
-        dense-toggle
-        expand-separator
-      >
-        <q-select
-          :options="equipmentOptions.weapons"
-          v-model="selectedWeapon"
-          @update:model-value="(val) => resetCarousel(val, 'weapons')"
-          outlined
-          stack-label
-          dense
-          clearable
-          color="primary"
-          class="q-pa-md"
-        />
-        <q-carousel
-          v-if="selectedWeapon && selectedWeapon.value"
-          v-model="weaponSlide"
-          control-color="primary"
-          arrows
-          navigation
-          swipeable
-        >
-          <q-carousel-slide
-            v-for="weapon in activeWeapons"
-            :key="weapon.id"
-            :name="weapon.id"
-          >
-            <div class="q-pa-sm text-center">
-              <div class="row items-center justify-center q-gutter-x-sm">
-                
-                <span class="text-h6">{{ weapon.name }}</span>
-
-                <template v-for="t in getStats(weapon.stat)" :key="t">
-                  <q-img
-                    :src="getIconImageSrc(t)"
-                    style="width: 20px;"
-                    class="cursor-pointer"
-                  >
-                    <q-tooltip class="bg-primary text-body2">
-                      {{ t }}
-                    </q-tooltip>
-                  </q-img>
-                </template>
-
-                <q-img
-                  v-if="weapon.ranged"
-                  :src="getIconImageSrc('ranged')"
-                  style="width: 20px;"
-                >
-                  <q-tooltip class="bg-primary text-body2">
-                    Ranged
-                  </q-tooltip>
-                </q-img>
-              </div>
-
-              <div class="q-mt-sm">
-                <b>Tier: {{ weapon.tier }}</b>
-                <p>{{ weapon.description }}</p>
-                <q-img
-                  v-if="weapon.upgrade"
-                  :src="getIconImageSrc('lore')"
-                  style="width: 20px;"
-                />
-                <b>{{ weapon.upgrade }}</b>
-              </div>
-
-              <div class="q-pa-md">
-                <q-btn color="primary" @click="selectEquipmentSlot('weapon', weapon)">
-                  Select
-                </q-btn>
-              </div>
-            </div>
-          </q-carousel-slide>
-        </q-carousel>
+            <equip-card 
+              :card="card"
+              @click="toggleArmor(card)"
+            />
+          </li>
+        </ul>
       </q-expansion-item>
 
       <!-- Trinkets -->
@@ -258,9 +124,8 @@ const getStats = (stats) => {
         expand-separator
       >
         <q-select
-          :options="equipmentOptions.trinkets"
-          v-model="selectedTrinket"
-          @update:model-value="(val) => resetCarousel(val, 'trinkets')"
+          :options="trinketOptions"
+          v-model="trinketType"
           outlined
           stack-label
           dense
@@ -268,62 +133,74 @@ const getStats = (stats) => {
           color="primary"
           class="q-pa-md"
         />
-        <q-carousel
-          v-if="selectedTrinket && selectedTrinket.value"
-          v-model="trinketSlide"
-          control-color="primary"
-          arrows
-          navigation
-          swipeable
-        >
-          <q-carousel-slide
-            v-for="trinket in activeTrinkets"
-            :key="trinket.id"
-            :name="trinket.id"
+        <ul class="card-grid" role="list">
+          <li v-for="card in trinketCards"
+              :key="card.id"
+              class="card-list"
+              :class="{ 'selected-card-border': confirmedTrinket.some(i => i.id === card.id) }"
+              tabindex="0"
           >
-            <div class="q-pa-sm text-center">
-              <div class="row items-center justify-center q-gutter-x-sm">
+            <equip-card 
+              :card="card"
+              @click="toggleTrinket(card)"
+            />
+          </li>
+        </ul>
 
-                <span class="text-h6">{{ trinket.name }}</span>
-
-                <template v-for="t in getStats(trinket.stat)" :key="t">
-                  <q-img
-                    :src="getIconImageSrc(t)"
-                    style="width: 20px;"
-                    class="cursor-pointer"
-                  >
-                    <q-tooltip class="bg-primary text-body2">
-                      {{ t }}
-                    </q-tooltip>
-                  </q-img>
-                </template>
-              </div>
-
-              <div class="q-mt-sm">
-                <b>Tier: {{ trinket.tier }}</b>
-                <p>{{ trinket.description }}</p>
-                <q-img
-                  v-if="trinket.upgrade"
-                  :src="getIconImageSrc('lore')"
-                  style="width: 20px;"
-                />
-                <b>{{ trinket.upgrade }}</b>
-              </div>
-
-              <div class="q-pa-md">
-                <q-btn color="primary" @click="selectEquipmentSlot('trinket', trinket)">
-                  Select
-                </q-btn>
-              </div>
-            </div>
-          </q-carousel-slide>
-        </q-carousel>
       </q-expansion-item>
       
+      <!-- Weapons -->
+      <q-expansion-item
+        icon="img:assets/1hand.png"
+        label="Hands"
+        header-class="text-primary text-h6"
+        dense
+        dense-toggle
+        expand-separator
+      >
+
+        <q-select
+          :options="handOptions"
+          v-model="handType"
+          outlined
+          stack-label
+          dense
+          clearable
+          color="primary"
+          class="q-pa-md"
+        />
+        <ul class="card-grid" role="list">
+          <li v-for="card in handCards"
+              :key="card.id"
+              class="card-list"
+              :class="{ 'selected-card-border': confirmedHands.some(i => i.id === card.id) }"
+              tabindex="0"
+          >
+            <equip-card 
+              :card="card"
+              @click="toggleHands(card)"
+            />
+          </li>
+        </ul>
+      </q-expansion-item>
     </q-list>
 
+    <div class="q-pt-md">
+      <ul class="card-grid" role="list" v-if="hasSelectedCards">
+        <li class="card-list" v-if="confirmedArmor?.length > 0">
+          <equip-card :card="confirmedArmor[0]" @click="toggleArmor(confirmedArmor[0])" />
+        </li>
+        <li class="card-list" v-if="confirmedTrinket?.length > 0">
+          <equip-card :card="confirmedTrinket[0]" @click="toggleTrinket(confirmedTrinket[0])" />
+        </li>
+        <li class="card-list" v-for="card in confirmedHands" :key="card.id">
+          <equip-card :card="card" @click="toggleHands(card)" />
+        </li>
+      </ul>
+    </div>
+      
     <div class="q-pa-md row justify-between">
-      <q-btn color="primary" @click="addEquipCards">
+      <q-btn color="primary" @click="addEquipCards" :disable="disableButton">
         Confirm Equipment
       </q-btn>
     </div>
@@ -333,6 +210,5 @@ const getStats = (stats) => {
 <style scoped lang="scss">
 .q-list {
   width: 100%;
-  border-color: $primary;
 }
 </style>
