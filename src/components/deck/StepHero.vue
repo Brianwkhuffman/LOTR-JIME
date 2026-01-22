@@ -71,7 +71,7 @@ const hasSelectedHero = computed(() => {
 
     <div class="q-pa-md row justify-between">
       <q-btn color="primary" @click="addHeroCards" :disable="!hasSelectedHero">
-        Add Hero Cards
+        Confirm Hero
       </q-btn>
     </div>
 

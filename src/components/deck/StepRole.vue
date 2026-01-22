@@ -122,7 +122,7 @@ const toggleCardSelection = (cardNumber) => {
 
     <div class="q-pa-md col q-gutter-sm">
       <q-btn class="test" color="primary" @click="addRoleCards" :disable="!hasSelectedRole">
-        Add Role Cards
+        Confirm Role Cards
       </q-btn>
     </div>
 

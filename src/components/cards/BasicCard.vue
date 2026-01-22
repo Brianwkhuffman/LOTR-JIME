@@ -41,11 +41,11 @@ const getIconStyle = (icon) => {
         :alt="card.icon"
       />
     </header>
-    <section>
+    <section class="card-trait">
       <i>{{ card.trait }}</i>
     </section>
-    <main class="col">
-      <p class="card-description">{{ card.description }}</p>
+    <main class="col card-description">
+      <p>{{ card.description }}</p>
     </main>
     <footer class="col-auto">
       <i v-if="card.type === 'Character'"> {{ card.heroName + ' ' + card.number }}</i>
@@ -54,10 +54,3 @@ const getIconStyle = (icon) => {
     </footer>
   </div>
 </template>
-
-<style scoped>
-section {
-    height: 1rem;
-    margin-bottom: .20rem;
-}
-</style>
