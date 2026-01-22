@@ -86,7 +86,7 @@ const getCardClass = (cardNumber) => {
   return 'card-list';
 };
 
-const toggleCardSelection = (cardNumber) => {
+const toggleMultiCardSelection = (cardNumber) => {
   const index = selectedCardNumbers.value.indexOf(cardNumber);
   if (index > -1) {
     selectedCardNumbers.value.splice(index, 1);
@@ -134,7 +134,7 @@ const toggleCardSelection = (cardNumber) => {
       >
         <basic-card 
           :card="card"
-          @click="toggleCardSelection(card.number)"
+          @click="toggleMultiCardSelection(card.number)"
         />
       </li>
     </ul>
