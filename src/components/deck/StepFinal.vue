@@ -30,11 +30,11 @@ const getTitlesDisplay = computed(() => {
 const finalizeDeck = () => {
   if (selectedWeakness.value) {
     const weaknessCardsToAdd = getChosenCardsByIds(selectedWeakness.value, weaknessCards.value);
-    deckStore.addCards('weakness', weaknessCardsToAdd);
+    deckStore.addDeckCards('weakness', weaknessCardsToAdd);
   }
   if (selectedTitles.value) {
     const titleCardsToAdd = getChosenCardsByIds(selectedTitles.value, titleCards.value);
-    deckStore.addCards('titles', titleCardsToAdd);
+    deckStore.addDeckCards('titles', titleCardsToAdd);
   }
 };
 

@@ -36,7 +36,7 @@ const addHeroCards = () => {
   if (!optionSelected) {
     return;
   }
-  const cardsAdded = deckStore.addCards('hero', selectedHeroDetails.value.cards);
+  const cardsAdded = deckStore.addDeckCards('hero', selectedHeroDetails.value.cards);
   if (cardsAdded) {
     emit('nextStep');
   }

@@ -72,7 +72,7 @@ const addRoleCards = () => {
   });
 
   if (cardsToAdd.length > 0) {
-    const roleCardsAdded = deckStore.addCards('role', cardsToAdd);
+    const roleCardsAdded = deckStore.addDeckCards('role', cardsToAdd);
     if (roleCardsAdded) {
       emit('nextStep');
     }
