@@ -20,7 +20,12 @@ const selectedTrinket = ref({ label: '', value: '' });
 const armorSlide = ref(0);
 const weaponSlide = ref(0);
 const trinketSlide = ref(0);
-const selectedEquipments = ref({});
+
+const confirmedChoice = ref({
+  armor: {},
+  hands: [],
+  trinket: {}
+});
 
 const itemTypes = ['armors', 'weapons', 'trinkets'];
 const equipmentOptions = computed(() => {
@@ -59,8 +64,15 @@ const resetCarousel = (newVal, type) => {
 
 const addEquipCards = () => {
   // TODO: Validate selection
-  deckStore.addCards('equipment', selectedEquipments.value);
+  deckStore.addEquipmentCards('armor', confirmedChoice.value);
   emit('nextStep');
+};
+
+const getStats = (stats) => {
+  if (!stats) {
+    return [];
+  }
+  return stats.split('/');
 };
 </script>
 
@@ -112,13 +124,13 @@ const addEquipCards = () => {
                 <span class="text-h6">{{ armor.name }}</span>
                 
                 <q-img
-                  v-if="armor.trait"
-                  :src="getIconImageSrc(armor.trait)"
+                  v-if="armor.stat"
+                  :src="getIconImageSrc(armor.stat)"
                   style="width: 20px;"
                   class="cursor-pointer"
                 >
                   <q-tooltip class="bg-primary text-body2">
-                    {{ armor.trait }}
+                    {{ armor.stat }}
                   </q-tooltip>
                 </q-img>
 
@@ -192,7 +204,7 @@ const addEquipCards = () => {
                 
                 <span class="text-h6">{{ weapon.name }}</span>
 
-                <template v-for="t in weapon.trait.split('/')" :key="t">
+                <template v-for="t in getStats(weapon.stat)" :key="t">
                   <q-img
                     :src="getIconImageSrc(t)"
                     style="width: 20px;"
@@ -274,7 +286,7 @@ const addEquipCards = () => {
 
                 <span class="text-h6">{{ trinket.name }}</span>
 
-                <template v-for="t in trinket.trait.split('/')" :key="t">
+                <template v-for="t in getStats(trinket.stat)" :key="t">
                   <q-img
                     :src="getIconImageSrc(t)"
                     style="width: 20px;"

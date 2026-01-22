@@ -1,10 +1,10 @@
 
 /**
  * Gets the asset image for a given trait.
- * @param {string} trait - The trait name (e.g., 'strength', 'agility').
+ * @param {string} img - The trait name (e.g., 'strength', 'agility').
  * @returns {string} The path to the image asset.
  */
-export function getIconImageSrc(trait) {
+export function getIconImageSrc(img) {
   // TODO: Add any new icons to list here
   // Can remove list once all uploaded
   const assets = [
@@ -31,10 +31,10 @@ export function getIconImageSrc(trait) {
     'wisdom',
     'wit'
   ];
-  if (!trait) {
+  if (!img) {
     return '';
   }
-  const name = trait.toLowerCase();
+  const name = img.toLowerCase();
   if (assets.includes(name)) {
     return `/assets/${name}.png`;
   }

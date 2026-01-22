@@ -31,9 +31,14 @@ onBeforeMount(() => {
   }
 });
 
+const resetSelection = () => {
+  return selectedCardNumbers.value = [];
+};
+
 const roleCards = computed(() => {
   if (selectedRole.value) {
     const roleName = selectedRole.value.value;
+    resetSelection();
     return roleCardStore.getRoleCardsByName(roleName);
   }
   return null;
@@ -41,7 +46,7 @@ const roleCards = computed(() => {
 
 const roleExpLabel = computed(() => {
   if (!roleCards.value) {
-    return 'Role:';
+    return 'Select a role';
   }
   const totalExpCost = roleCards.value.reduce((totalExp, card) => {
     if (selectedCardNumbers.value.includes(card.number)) {
@@ -49,7 +54,7 @@ const roleExpLabel = computed(() => {
     }
     return totalExp;
   }, 0);
-  return 'Role exp count: ' + totalExpCost;
+  return 'EXP Spent: ' + totalExpCost;
 });
 
 const hasSelectedRole = computed(() => {
@@ -67,7 +72,7 @@ const addRoleCards = () => {
   });
 
   if (cardsToAdd.length > 0) {
-    const roleCardsAdded = deckStore.addCards('role', cardsToAdd);
+    const roleCardsAdded = deckStore.addDeckCards('role', cardsToAdd);
     if (roleCardsAdded) {
       emit('nextStep');
     }
@@ -81,7 +86,7 @@ const getCardClass = (cardNumber) => {
   return 'card-list';
 };
 
-const toggleCardSelection = (cardNumber) => {
+const toggleMultiCardSelection = (cardNumber) => {
   const index = selectedCardNumbers.value.indexOf(cardNumber);
   if (index > -1) {
     selectedCardNumbers.value.splice(index, 1);
@@ -117,7 +122,7 @@ const toggleCardSelection = (cardNumber) => {
 
     <div class="q-pa-md col q-gutter-sm">
       <q-btn class="test" color="primary" @click="addRoleCards" :disable="!hasSelectedRole">
-        Add Role Cards
+        Confirm Role Cards
       </q-btn>
     </div>
 
@@ -129,7 +134,7 @@ const toggleCardSelection = (cardNumber) => {
       >
         <basic-card 
           :card="card"
-          @click="toggleCardSelection(card.number)"
+          @click="toggleMultiCardSelection(card.number)"
         />
       </li>
     </ul>

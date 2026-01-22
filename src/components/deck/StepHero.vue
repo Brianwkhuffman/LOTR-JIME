@@ -36,7 +36,7 @@ const addHeroCards = () => {
   if (!optionSelected) {
     return;
   }
-  const cardsAdded = deckStore.addCards('hero', selectedHeroDetails.value.cards);
+  const cardsAdded = deckStore.addDeckCards('hero', selectedHeroDetails.value.cards);
   if (cardsAdded) {
     emit('nextStep');
   }
@@ -71,7 +71,7 @@ const hasSelectedHero = computed(() => {
 
     <div class="q-pa-md row justify-between">
       <q-btn color="primary" @click="addHeroCards" :disable="!hasSelectedHero">
-        Add Hero Cards
+        Confirm Hero
       </q-btn>
     </div>
 

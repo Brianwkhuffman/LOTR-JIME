@@ -13,7 +13,11 @@ export const useDeckStore = defineStore('deckStore', () => {
     weakness: [],
     titles: []
   });
-  const currentEquipment = {};
+  const currentEquipment = ref({
+    armor: {},
+    hands: [],
+    trinket: {}
+  });
 
   const selectedWeakness = ref([]);
   const selectedTitles = ref([]);
@@ -41,7 +45,7 @@ export const useDeckStore = defineStore('deckStore', () => {
     return currentDeck.value;
   };
 
-  const addCards = (type, cardList) => {
+  const addDeckCards = (type, cardList) => {
     loading.value = true;
     const validCardType = currentDeck.value[type];
     try {
@@ -60,10 +64,10 @@ export const useDeckStore = defineStore('deckStore', () => {
     }
   };
 
-  const addEquipmentCards = (type, cardList) => {
+  const addEquipmentCards = (type, selection) => {
     loading.value = true;
     try {
-      currentEquipment.value[type] = cardList;
+      currentEquipment.value[type] = selection;
     }
     catch (e) {
       error.value = e.message;
@@ -79,7 +83,8 @@ export const useDeckStore = defineStore('deckStore', () => {
 
   const clearDeck = () => {
     currentDeck.value = { basic: [], hero: [], role: [], equipment: [], titles: [] };
-    currentEquipment.value = {};
+    currentEquipment.value = { armor: {}, hands: [], trinket: {} };
+    return true;
   };
 
   const clearError = () => {
@@ -96,7 +101,7 @@ export const useDeckStore = defineStore('deckStore', () => {
     initializeDeck,
     getDeck,
     loadDeck,
-    addCards,
+    addDeckCards,
     addEquipmentCards,
     removeCards,
     clearDeck,
