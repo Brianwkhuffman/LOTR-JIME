@@ -22,12 +22,12 @@ const getStats = (stats) => {
 
 <template>
   <div :class="[
-    'col q-pa-sm column no-wrap', 
+    'col q-pa-sm column no-wrap',
     { 'selected-card-border': isSelected }
   ]">
     <header class="card-name row">
       {{ card.name }}
-      
+
       <div>
         <span v-for="t in getStats(card.stat)" :key="t">
           <q-img
@@ -52,7 +52,7 @@ const getStats = (stats) => {
       </div>
     </header>
 
-    <section class="row q-mt-xs">
+    <section v-if="card.hand || card.tier" class="row q-mt-xs">
       <div class="tier">
         <p class="tier-text">
           {{ card.tier }}
@@ -64,7 +64,7 @@ const getStats = (stats) => {
         style="width: 25px;"
       >
         <q-tooltip touch class="bg-primary text-body2">
-          Ranged
+          {{ card.hands ? `${card.hand} Handed` : `${card.hand} Handed` }}
         </q-tooltip>
       </q-img>
     </section>
@@ -78,7 +78,7 @@ const getStats = (stats) => {
     </main>
 
     <footer class="col-auto">
-      <span>
+      <span v-if="card.upgrade">
         <b>{{ card.upgrade }}</b>
         <q-img
           v-if="card.upgrade"
@@ -86,22 +86,11 @@ const getStats = (stats) => {
           style="width: 20px;"
         />
       </span>
+      <span v-else>
+        <i>{{ card.type + ' ' + card.id }}</i>
+      </span>
     </footer>
 
   </div>
 </template>
 
-<style scope lang="scss">
-.tier {
- width: 20px;
- height: 20px;
- border: 1px solid black;
- transform: rotate(45deg);
- margin: 1px;
-}
-.tier-text {
-  transform: rotate(-45deg);
-  text-align: center;
-  color: $primary;
-}
-</style>
