@@ -56,7 +56,6 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
       filteredList = equipTypeList.filter(equip => equip.tier === 'I');
     }
 
-    // Map used to avoid duplicates like Knife/Sword
     for (const equip of filteredList) {
       optionsMap.set(equip.family, {
         label: equip.name,
@@ -73,7 +72,7 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     // Removes duplicates like Knife/Sword
     const uniqueFamilyCards = [
       ...new Map(familyCards.map(item => [item.name, item])).values()
-    ];    
+    ];
     return uniqueFamilyCards;
   };
 

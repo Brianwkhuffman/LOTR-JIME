@@ -5,7 +5,7 @@ import axios from 'axios';
 export const useDeckStore = defineStore('deckStore', () => {
   const basicCardsUrl = '/data/basicCards.json';
   const loading = ref(false);
-  const error = ref(null);
+  const errors = ref([]);
   const currentDeck = ref({
     basic: [],
     hero: [],
@@ -16,11 +16,9 @@ export const useDeckStore = defineStore('deckStore', () => {
   const currentEquipment = ref({
     armor: {},
     hands: [],
-    trinket: {}
+    trinket: {},
+    mount: {}
   });
-
-  const selectedWeakness = ref([]);
-  const selectedTitles = ref([]);
 
   const initializeDeck = async() => {
     loading.value = true;
@@ -29,20 +27,12 @@ export const useDeckStore = defineStore('deckStore', () => {
       const basicCards = response.data.basicCards;
       currentDeck.value.basic = basicCards;
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      errors.value.push(e.message);
     }
     finally {
       loading.value = false;
     }
-  };
-
-  const getDeck = () => {
-    return currentDeck.value;
-  };
-
-  const loadDeck = () => {
-    return currentDeck.value;
   };
 
   const addDeckCards = (type, cardList) => {
@@ -56,7 +46,7 @@ export const useDeckStore = defineStore('deckStore', () => {
       return true;
     }
     catch (e) {
-      error.value = e.message;
+      errors.value.push(e.message);
       return false;
     }
     finally {
@@ -66,19 +56,37 @@ export const useDeckStore = defineStore('deckStore', () => {
 
   const addEquipmentCards = (type, selection) => {
     loading.value = true;
+    const validType = currentEquipment.value[type];
     try {
+      if (!validType) {
+        throw new Error('Cannot add "' + type + '" cards to the deck.');
+      };
       currentEquipment.value[type] = selection;
+      return true;
     }
     catch (e) {
-      error.value = e.message;
+      errors.value.push(e.message || 'An unknown error occurred.');
+      return false;
     }
     finally {
       loading.value = false;
     }
   };
 
-  const removeCards = (type, card) => {
-    currentDeck.value[type] = currentDeck.value[type].filter(c => c.id !== card.id);
+  const validateDeckAndEquipment = () => {
+    if (currentDeck.value.basic.length === 0) {
+      errors.value.push('Missing basic cards.');
+    }
+    if (currentDeck.value.hero.length === 0) {
+      errors.value.push('No Hero selected');
+    }
+    if (currentDeck.value.role.length === 0) {
+      errors.value.push('No Role selected.');
+    }
+    if (currentDeck.value.weakness.length === 0) {
+      errors.value.push('No Weakness card(s) selected.');
+    }
+    return errors.value.length === 0;
   };
 
   const clearDeck = () => {
@@ -87,24 +95,20 @@ export const useDeckStore = defineStore('deckStore', () => {
     return true;
   };
 
-  const clearError = () => {
-    error.value = null;
+  const clearErrors = () => {
+    errors.value = [];
   };
 
   return {
-    error,
+    errors,
     loading,
     currentDeck,
     currentEquipment,
-    selectedWeakness,
-    selectedTitles,
     initializeDeck,
-    getDeck,
-    loadDeck,
     addDeckCards,
     addEquipmentCards,
-    removeCards,
+    validateDeckAndEquipment,
     clearDeck,
-    clearError
+    clearErrors
   };
 });

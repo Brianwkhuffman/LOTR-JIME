@@ -1,8 +1,8 @@
 <script setup>
-import { computed, onBeforeMount, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useHeroDetailStore } from 'stores/heroDetailStore.js';
 import { useDeckStore } from 'stores/deckStore';
-import { storeToRefs } from 'pinia'; 
+import { storeToRefs } from 'pinia';
 import HeroDetailCard from 'components/cards/HeroDetailCard.vue';
 import BasicCard from '../cards/BasicCard.vue';
 import ErrorBanner from '../ErrorBanner.vue';
@@ -12,17 +12,9 @@ const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: detailsLoading, getHeroOptions } = storeToRefs(heroDetailStore);
-const { loading: deckLoading, currentDeck, error } = storeToRefs(deckStore);
+const { loading: deckLoading, errors } = storeToRefs(deckStore);
 
 const selectedHero = ref({ label: '', value: '' });
-
-onBeforeMount(() => {
-  const hasHeroCards = currentDeck.value.hero.length;
-  if (hasHeroCards) {
-    const heroId = currentDeck.value.hero[0].heroId;
-    selectedHero.value = getHeroOptions.value[heroId - 1];
-  }
-});
 
 const selectedHeroDetails = computed(() => {
   if (selectedHero.value) {
@@ -54,8 +46,8 @@ const hasSelectedHero = computed(() => {
   </div>
 
   <div v-else style="display: grid; place-items: center;">
-    <template v-if="error">
-      <error-banner :error="error" />
+    <template v-if="errors.length">
+      <error-banner :errors="errors" />
     </template>
 
     <q-select

@@ -43,6 +43,19 @@ p {
   line-height: 1.2;
 }
 
+.tier {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  transform: rotate(45deg);
+  margin: 1px;
+}
+.tier-text {
+  transform: rotate(-45deg);
+  text-align: center;
+  color: $primary;
+}
+
 .selected-card-border {
   border-color: var(--q-primary);
   box-shadow: 0 0 10px var(--q-primary);

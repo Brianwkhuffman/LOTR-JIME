@@ -21,8 +21,8 @@ export const useDamageFearCardStore = defineStore('damageFearCardStore', () => {
       damageCards.value = data.damageCards;
       fearCards.value = data.fearCards;
     }
-    catch (error) {
-      error.value = error.message;
+    catch (e) {
+      error.value = e.message;
     }
     finally {
       loading.value = false;

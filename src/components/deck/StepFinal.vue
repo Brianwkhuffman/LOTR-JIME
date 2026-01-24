@@ -3,8 +3,9 @@ import { useWeaknessCardStore } from 'stores/weaknessCardStore.js';
 import { useTitleCardStore } from 'stores/titleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import BasicCard from '../cards/BasicCard.vue';
+import ErrorBanner from 'components/ErrorBanner.vue';
 
 const deckStore = useDeckStore();
 const weaknessStore = useWeaknessCardStore();
@@ -12,9 +13,12 @@ const titleStore = useTitleCardStore();
 
 const { loading: weaknessLoading, weaknessCards, getWeaknessCardOptions } = storeToRefs(weaknessStore);
 const { loading: titlesLoading, getTitleCardOptions, titleCards } = storeToRefs(titleStore);
-const { loading: deckLoading, selectedWeakness, selectedTitles } = storeToRefs(deckStore);
+const { loading: deckLoading, errors } = storeToRefs(deckStore);
 
-const getChosenCardsByIds = (selectedOptions, allCards) => {
+const selectedTitles = ref([]);
+const selectedWeakness = ref([]);
+
+const getConfirmedCardsByIds = (selectedOptions, allCards) => {
   const optionIds = selectedOptions.map(selectedOption => selectedOption.value);
   const chosenCards = allCards.filter(card => optionIds.includes(card.id));
   return chosenCards;
@@ -22,21 +26,29 @@ const getChosenCardsByIds = (selectedOptions, allCards) => {
 
 const getTitlesDisplay = computed(() => {
   if (selectedTitles.value?.length > 0) {
-    return getChosenCardsByIds(selectedTitles.value, titleCards.value);
+    return getConfirmedCardsByIds(selectedTitles.value, titleCards.value);
   }
   return [];
 });
 
 const finalizeDeck = () => {
   if (selectedWeakness.value) {
-    const weaknessCardsToAdd = getChosenCardsByIds(selectedWeakness.value, weaknessCards.value);
+    const weaknessCardsToAdd = getConfirmedCardsByIds(selectedWeakness.value, weaknessCards.value);
     deckStore.addDeckCards('weakness', weaknessCardsToAdd);
   }
   if (selectedTitles.value) {
-    const titleCardsToAdd = getChosenCardsByIds(selectedTitles.value, titleCards.value);
+    const titleCardsToAdd = getConfirmedCardsByIds(selectedTitles.value, titleCards.value);
     deckStore.addDeckCards('titles', titleCardsToAdd);
   }
+  return deckStore.validateDeckAndEquipment();
 };
+
+const disableButton = computed(() => {
+  if (selectedWeakness.value.length === 0) {
+    return true;
+  }
+  return false;
+});
 
 </script>
 
@@ -47,20 +59,11 @@ const finalizeDeck = () => {
   </div>
 
   <div v-else style="display: grid; place-items: center; width: 100%;">
+    <template v-if="errors.length">
+      <error-banner :errors="errors" />
+    </template>
 
     <q-list padding bordered class="rounded-borders">
-
-      <!-- Mounts TODO -->
-      <div>
-        <q-expansion-item
-          icon="img:assets/mount.png"
-          label="Mounts"
-          header-class="text-primary text-h6"
-          dense
-          dense-toggle
-          expand-separator
-        />
-      </div>
 
       <!-- Titles -->
       <div>
@@ -84,9 +87,7 @@ const finalizeDeck = () => {
             color="primary"
             class="q-pa-lg"
           />
-          <!-- <div v-for="card in getTitlesDisplay" :key="card.id" class="q-pa-sm">
-            <small-card :card="card"/>
-          </div> -->
+
           <ul class="card-grid" role="list">
             <li v-for="titleCard in getTitlesDisplay"
                 :key="titleCard.number"
@@ -102,7 +103,7 @@ const finalizeDeck = () => {
       <q-expansion-item
         icon="img:assets/bane.png"
         label="Weakness"
-        header-class="text-primary text-h6"
+        header-class="text-primary text-h6 q-mt-sm"
         dense
         dense-toggle
         expand-separator
@@ -124,8 +125,8 @@ const finalizeDeck = () => {
     </q-list>
 
     <div class="q-pa-md row justify-between">
-      <q-btn type="submit" color="primary" @click="finalizeDeck">
-        Finalize
+      <q-btn type="submit" color="primary" @click="finalizeDeck" :disable="disableButton">
+        Finalize Deck
       </q-btn>
     </div>
   </div>

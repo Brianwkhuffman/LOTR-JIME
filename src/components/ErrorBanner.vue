@@ -4,8 +4,8 @@ import { useDeckStore } from 'stores/deckStore';
 const deckStore = useDeckStore();
 
 defineProps({
-  error: {
-    type: String,
+  errors: {
+    type: Array,
     required: true
   }
 });
@@ -20,15 +20,22 @@ defineProps({
       <template v-slot:avatar>
         <q-img src="assets/fear.png" style="width: 40px;" />
       </template>
-      {{ error }}
+      <template v-for="error in errors" :key="error">
+        <p>
+          {{ error }}
+        </p>
+      </template>
       <template v-slot:action>
-        <q-btn flat color="white" label="Dismiss" @click="deckStore.clearError" />
+        <q-btn flat color="white" label="Dismiss" @click="deckStore.clearErrors" />
       </template>
     </q-banner>
   </transition>
 </template>
 
 <style scoped>
+.q-banner {
+  width: 100%;
+}
 .q-img {
   filter: invert(88%);
 }
