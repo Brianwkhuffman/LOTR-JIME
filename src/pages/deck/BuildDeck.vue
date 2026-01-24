@@ -13,6 +13,7 @@ const selectedTab = ref('hero');
     v-model="selectedTab"
     active-color="primary"
     narrow-indicator
+    animated
     dense
     no-caps
   >
@@ -22,12 +23,12 @@ const selectedTab = ref('hero');
     <q-tab name="final" icon="check" label="Finalize" />
   </q-tabs>
 
-  <q-tab-panels v-model="selectedTab">
+  <q-tab-panels v-model="selectedTab" keep-alive>
     <q-tab-panel name="hero">
-      <step-hero @nextStep="selectedTab='role'"/>
+      <step-hero @nextStep="selectedTab='role'" />
     </q-tab-panel>
     <q-tab-panel name="role">
-      <step-role @nextStep="selectedTab='equip'"/>
+      <step-role @nextStep="selectedTab='equip'" />
     </q-tab-panel>
     <q-tab-panel name="equip">
       <step-equipment @nextStep="selectedTab='final'"/>
