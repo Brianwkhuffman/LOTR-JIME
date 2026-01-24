@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeMount, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoleCardStore } from 'stores/roleCardStore.js';
 import { useDeckStore } from 'stores/deckStore';
 import { storeToRefs } from 'pinia';
@@ -11,25 +11,10 @@ const deckStore = useDeckStore();
 
 const emit = defineEmits(['nextStep']);
 const { loading: rolesLoading, getRoleOptions } = storeToRefs(roleCardStore);
-const { loading: deckLoading, currentDeck, error } = storeToRefs(deckStore);
+const { loading: deckLoading, errors } = storeToRefs(deckStore);
 
 const selectedRole = ref({ label: '', value: '' });
 const selectedCardNumbers = ref([]);
-
-onBeforeMount(() => {
-  const hasRoleCards = currentDeck.value.role.length;
-  if (hasRoleCards) {
-    const roleType = currentDeck.value.role[0].role;
-    const roleOption = getRoleOptions.value.find((option) => option.label === roleType);
-    selectedRole.value = roleOption;
-
-    let roleCards = [];
-    for (const roleCard of currentDeck.value.role) {
-      roleCards.push(roleCard.number);
-    }
-    selectedCardNumbers.value = roleCards;
-  }
-});
 
 const resetSelection = () => {
   return selectedCardNumbers.value = [];
@@ -67,9 +52,7 @@ const addRoleCards = () => {
     return;
   }
 
-  const cardsToAdd = roleCards.value.filter((card) => {
-    return selectedCardNumbers.value.includes(card.number);
-  });
+  const cardsToAdd = roleCards.value.filter((card) => selectedCardNumbers.value.includes(card.number));
 
   if (cardsToAdd.length > 0) {
     const roleCardsAdded = deckStore.addDeckCards('role', cardsToAdd);
@@ -103,8 +86,8 @@ const toggleMultiCardSelection = (cardNumber) => {
   </div>
 
   <div v-else style="display: grid; place-items: center;">
-    <template v-if="error">
-      <error-banner :error="error" />
+    <template v-if="errors.length">
+      <error-banner :errors="errors" />
     </template>
 
     <div>
@@ -132,12 +115,11 @@ const toggleMultiCardSelection = (cardNumber) => {
           :class="getCardClass(card.number)"
           tabindex="0"
       >
-        <basic-card 
+        <basic-card
           :card="card"
           @click="toggleMultiCardSelection(card.number)"
         />
       </li>
     </ul>
-  
   </div>
 </template>
