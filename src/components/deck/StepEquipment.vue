@@ -114,6 +114,7 @@ const disableButton = computed(() => {
         <q-select
           :options="armorOptions"
           v-model="armorType"
+          :popup-content-style="{ height: '40vh' }"
           outlined
           stack-label
           dense
@@ -148,6 +149,7 @@ const disableButton = computed(() => {
         <q-select
           :options="handOptions"
           v-model="handType"
+          :popup-content-style="{ height: '40vh' }"
           outlined
           stack-label
           dense
@@ -181,6 +183,7 @@ const disableButton = computed(() => {
         <q-select
           :options="trinketOptions"
           v-model="trinketType"
+          :popup-content-style="{ height: '40vh' }"
           outlined
           stack-label
           dense

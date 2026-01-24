@@ -53,6 +53,7 @@ const hasSelectedHero = computed(() => {
     <q-select
       :options="getHeroOptions"
       v-model="selectedHero"
+      :popup-content-style="{ height: '40vh' }"
       label="Hero:"
       clearable
       outlined

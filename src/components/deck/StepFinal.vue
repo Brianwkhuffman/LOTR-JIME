@@ -78,6 +78,7 @@ const disableButton = computed(() => {
           <q-select
             :options="getTitleCardOptions"
             v-model="selectedTitles"
+            :popup-content-style="{ height: '40vh' }"
             label="Cards"
             multiple
             outlined
@@ -111,6 +112,7 @@ const disableButton = computed(() => {
         <q-select
           :options="getWeaknessCardOptions"
           v-model="selectedWeakness"
+          :popup-content-style="{ height: '40vh' }"
           label="Cards"
           :error="selectedWeakness?.length === 0"
           error-message="Must select at least one Weakness card."
