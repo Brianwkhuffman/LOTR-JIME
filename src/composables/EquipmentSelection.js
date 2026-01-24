@@ -1,9 +1,9 @@
-import { ref, computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useEquipmentStore } from 'stores/equipmentStore.js';
 
 export const useEquipmentSelection = (equipType, maxSlots) => {
   const equipStore = useEquipmentStore();
-  
+
   const selectedType = ref({ label: '', value: '' });
   const confirmedItems = ref([]);
 
@@ -12,9 +12,12 @@ export const useEquipmentSelection = (equipType, maxSlots) => {
   });
 
   const filteredCards = computed(() => {
+    if (equipType === 'mounts') {
+      return equipStore.getEquipmentListByType(equipType);
+    }
     if (selectedType.value?.value) {
       return equipStore.getEquipCardsByTypeAndFamily(
-        equipType, 
+        equipType,
         selectedType.value.value
       );
     }
@@ -28,7 +31,7 @@ export const useEquipmentSelection = (equipType, maxSlots) => {
 
   const toggleCardSelection = (card) => {
     const index = confirmedItems.value.findIndex((i) => i.id === card.id);
-    
+
     // Remove already selected item
     if (index > -1) {
       return confirmedItems.value.splice(index, 1);
@@ -39,16 +42,16 @@ export const useEquipmentSelection = (equipType, maxSlots) => {
     if (isTwoHanded) {
       return confirmedItems.value = [card];
     }
-    
+
     // One handed and non-weapon checks
     const hasTwoHanded = confirmedItems.value.some((i) => i.hands === 2);
     if (hasTwoHanded) {
       // If two handed already selected, replace it
       return confirmedItems.value = [card];
-    } 
-    
+    }
+
     const currentSlotsUsed = confirmedItems.value.reduce((sum, i) => sum + (i.hands || 1), 0);
-    if (currentSlotsUsed < maxSlots) {  
+    if (currentSlotsUsed < maxSlots) {
       return confirmedItems.value.push(card);
     } else {
       confirmedItems.value.splice(0, 1);
