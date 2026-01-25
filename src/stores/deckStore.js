@@ -73,12 +73,12 @@ export const useDeckStore = defineStore('deckStore', () => {
     }
   };
 
-  const validateDeckAndEquipment = () => {
+  const validateDeck = () => {
     if (currentDeck.value.basic.length === 0) {
       errors.value.push('Missing basic cards.');
     }
     if (currentDeck.value.hero.length === 0) {
-      errors.value.push('No Hero selected');
+      errors.value.push('No Hero selected.');
     }
     if (currentDeck.value.role.length === 0) {
       errors.value.push('No Role selected.');
@@ -87,6 +87,21 @@ export const useDeckStore = defineStore('deckStore', () => {
       errors.value.push('No Weakness card(s) selected.');
     }
     return errors.value.length === 0;
+  };
+
+  const validateEquipment = () => {
+    if (currentEquipment.value.armor.length === 0) {
+      errors.value.push('No Armor selected.');
+    }
+    if (currentEquipment.value.weapon.length === 0) {
+      errors.value.push('No Hand(s) equipment selected.');
+    }
+    if (currentEquipment.value.trinket.length > 1) {
+      errors.value.push('Only 1 Trinket allowed.');
+    }
+    if (currentEquipment.value.mount.length > 1 ) {
+      errors.value.push('Only 1 Mount allowed.');
+    }
   };
 
   const clearDeck = () => {
@@ -107,7 +122,8 @@ export const useDeckStore = defineStore('deckStore', () => {
     initializeDeck,
     addDeckCards,
     addEquipmentCards,
-    validateDeckAndEquipment,
+    validateDeck,
+    validateEquipment,
     clearDeck,
     clearErrors
   };
