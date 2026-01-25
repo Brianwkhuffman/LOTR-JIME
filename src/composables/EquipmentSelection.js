@@ -8,6 +8,9 @@ export const useEquipmentSelection = (equipType, maxSlots) => {
   const confirmedItems = ref([]);
 
   const familyOptions = computed(() => {
+    if (equipType === 'weapons') {
+      return equipStore.getAllHandOptions();
+    }
     return equipStore.getEquipmentOptionsByType(equipType);
   });
 

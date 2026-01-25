@@ -40,7 +40,9 @@ const finalizeDeck = () => {
     const titleCardsToAdd = getConfirmedCardsByIds(selectedTitles.value, titleCards.value);
     deckStore.addDeckCards('titles', titleCardsToAdd);
   }
-  return deckStore.validateDeckAndEquipment();
+  deckStore.validateDeck();
+  deckStore.validateEquipment();
+  return;
 };
 
 const disableButton = computed(() => {
@@ -112,7 +114,7 @@ const disableButton = computed(() => {
         <q-select
           :options="getWeaknessCardOptions"
           v-model="selectedWeakness"
-          :popup-content-style="{ height: '40vh' }"
+          :popup-content-style="{ maxHeight: '40vh' }"
           label="Cards"
           :error="selectedWeakness?.length === 0"
           error-message="Must select at least one Weakness card."
