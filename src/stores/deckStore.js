@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import axios from 'axios';
+import { db } from '../db/db.js';
+import { liveQuery } from 'dexie';
+import { useObservable } from '@vueuse/rxjs';
 
 export const useDeckStore = defineStore('deckStore', () => {
   const basicCardsUrl = '/data/basicCards.json';
@@ -34,6 +37,46 @@ export const useDeckStore = defineStore('deckStore', () => {
       loading.value = false;
     }
   };
+
+  const savedDecks = useObservable(
+    liveQuery(() => db.decks.orderBy('createdAt').toArray())
+  );
+
+  const saveDeck = async(deckName) => {
+    try {
+      const newDeckId = await db.decks.add({
+        name: deckName,
+        createdAt: Date.now()
+      });
+      return newDeckId;
+    }
+    catch (e) {
+      console.log(e);
+      errors.value.push(e.message);
+    }
+  };
+
+  const updateDeck = async(id, deck) => {
+    console.log(id, deck);
+    try {
+      await db.decks.update(1, { name: 'Auto updated deck', updatedAt: Date.now() });
+    }
+    catch (e) {
+      console.log(e);
+      errors.value.push(e.message);
+    }
+  };
+
+  const deleteDeck = async(id) => {
+    try {
+      await db.decks.delete(id);
+    }
+    catch (e) {
+      console.log(e);
+      errors.value.push(e.message);
+    }
+  };
+
 
   const addDeckCards = (type, cardList) => {
     loading.value = true;
@@ -73,12 +116,12 @@ export const useDeckStore = defineStore('deckStore', () => {
     }
   };
 
-  const validateDeckAndEquipment = () => {
+  const validateDeck = () => {
     if (currentDeck.value.basic.length === 0) {
       errors.value.push('Missing basic cards.');
     }
     if (currentDeck.value.hero.length === 0) {
-      errors.value.push('No Hero selected');
+      errors.value.push('No Hero selected.');
     }
     if (currentDeck.value.role.length === 0) {
       errors.value.push('No Role selected.');
@@ -87,6 +130,21 @@ export const useDeckStore = defineStore('deckStore', () => {
       errors.value.push('No Weakness card(s) selected.');
     }
     return errors.value.length === 0;
+  };
+
+  const validateEquipment = () => {
+    if (currentEquipment.value.armor.length === 0) {
+      errors.value.push('No Armor selected.');
+    }
+    if (currentEquipment.value.weapon.length === 0) {
+      errors.value.push('No Hand(s) equipment selected.');
+    }
+    if (currentEquipment.value.trinket.length > 1) {
+      errors.value.push('Only 1 Trinket allowed.');
+    }
+    if (currentEquipment.value.mount.length > 1 ) {
+      errors.value.push('Only 1 Mount allowed.');
+    }
   };
 
   const clearDeck = () => {
@@ -105,10 +163,15 @@ export const useDeckStore = defineStore('deckStore', () => {
     currentDeck,
     currentEquipment,
     initializeDeck,
+    savedDecks,
+    saveDeck,
+    updateDeck,
+    deleteDeck,
     addDeckCards,
     addEquipmentCards,
-    validateDeckAndEquipment,
+    validateDeck,
+    validateEquipment,
     clearDeck,
-    clearErrors
+    clearErrors,
   };
 });

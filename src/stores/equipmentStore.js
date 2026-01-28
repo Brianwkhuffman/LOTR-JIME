@@ -52,7 +52,8 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     // Mounts have no tiers
     if (type === 'mounts') {
       filteredList = equipTypeList;
-    } else {
+    }
+    else {
       filteredList = equipTypeList.filter(equip => equip.tier === 'I');
     }
 
@@ -65,15 +66,42 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     return Array.from(optionsMap.values());
   };
 
+  const getAllHandOptions = () => {
+    const weapons = getEquipmentListByType('weapons');
+    const supports = getEquipmentListByType('supports');
+    const allHands = [...weapons, ...supports];
+    const filteredHands = allHands.filter(hand => hand.tier === 'I');
+    const optionsMap = new Map();
+
+    for (const hand of filteredHands) {
+      let labelStr = '';
+      if (hand.type === 'Support') {
+        labelStr = `${hand.name}s - ${hand.type}`;
+      }
+      else {
+        labelStr = `${hand.name}`;
+      }
+
+      optionsMap.set(hand.family, {
+        label: labelStr,
+        value: hand.family
+      });
+    }
+    const optionsList = Array.from(optionsMap.values());
+    const sortedOptions = optionsList.sort((a, b) => a.label.localeCompare(b.label));
+    return sortedOptions;
+  };
+
   const getEquipCardsByTypeAndFamily = (type, family) => {
+    if (type === 'weapons') {
+      const supportTypes = ['Banner', 'Harp', 'Horn', 'Shield'];
+      if (supportTypes.indexOf(family) > -1) {
+        type = 'supports';
+      }
+    }
     const equipTypeList = getEquipmentListByType(type);
     const familyCards = equipTypeList.filter(equip => equip.family === family);
-
-    // Removes duplicates like Knife/Sword
-    const uniqueFamilyCards = [
-      ...new Map(familyCards.map(item => [item.name, item])).values()
-    ];
-    return uniqueFamilyCards;
+    return familyCards;
   };
 
   return {
@@ -84,6 +112,7 @@ export const useEquipmentStore = defineStore('equipmentStore', () => {
     fetchEquipCards,
     getEquipmentListByType,
     getEquipmentOptionsByType,
+    getAllHandOptions,
     getEquipCardsByTypeAndFamily
   };
 });

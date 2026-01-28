@@ -94,7 +94,7 @@ const toggleMultiCardSelection = (cardNumber) => {
       <q-select
         :options="getRoleOptions"
         v-model="selectedRole"
-        :popup-content-style="{ height: '40vh' }"
+        :popup-content-style="{ maxHeight: '40vh' }"
         :label="roleExpLabel"
         clearable
         outlined
