@@ -133,11 +133,11 @@ export const useDeckStore = defineStore('deckStore', () => {
   };
 
   const validateEquipment = () => {
-    if (currentEquipment.value.armor.length === 0) {
+    if (!currentEquipment.value.armor.id) {
       errors.value.push('No Armor selected.');
     }
-    if (currentEquipment.value.weapon.length === 0) {
-      errors.value.push('No Hand(s) equipment selected.');
+    if (currentEquipment.value.hands.length === 0) {
+      errors.value.push('No Hand(s) selected.');
     }
     if (currentEquipment.value.trinket.length > 1) {
       errors.value.push('Only 1 Trinket allowed.');
