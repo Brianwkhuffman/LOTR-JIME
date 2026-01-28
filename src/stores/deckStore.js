@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import axios from 'axios';
+import { db } from '../db/db.js';
+import { liveQuery } from 'dexie';
+import { useObservable } from '@vueuse/rxjs';
 
 export const useDeckStore = defineStore('deckStore', () => {
   const basicCardsUrl = '/data/basicCards.json';
@@ -34,6 +37,46 @@ export const useDeckStore = defineStore('deckStore', () => {
       loading.value = false;
     }
   };
+
+  const savedDecks = useObservable(
+    liveQuery(() => db.decks.orderBy('createdAt').toArray())
+  );
+
+  const saveDeck = async(deckName) => {
+    try {
+      const newDeckId = await db.decks.add({
+        name: deckName,
+        createdAt: Date.now()
+      });
+      return newDeckId;
+    }
+    catch (e) {
+      console.log(e);
+      errors.value.push(e.message);
+    }
+  };
+
+  const updateDeck = async(id, deck) => {
+    console.log(id, deck);
+    try {
+      await db.decks.update(1, { name: 'Auto updated deck', updatedAt: Date.now() });
+    }
+    catch (e) {
+      console.log(e);
+      errors.value.push(e.message);
+    }
+  };
+
+  const deleteDeck = async(id) => {
+    try {
+      await db.decks.delete(id);
+    }
+    catch (e) {
+      console.log(e);
+      errors.value.push(e.message);
+    }
+  };
+
 
   const addDeckCards = (type, cardList) => {
     loading.value = true;
@@ -120,11 +163,15 @@ export const useDeckStore = defineStore('deckStore', () => {
     currentDeck,
     currentEquipment,
     initializeDeck,
+    savedDecks,
+    saveDeck,
+    updateDeck,
+    deleteDeck,
     addDeckCards,
     addEquipmentCards,
     validateDeck,
     validateEquipment,
     clearDeck,
-    clearErrors
+    clearErrors,
   };
 });
